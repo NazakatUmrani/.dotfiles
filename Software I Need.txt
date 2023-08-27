@@ -1,0 +1,27 @@
+tree
+git
+free download manager
+google chrome
+Android studio
+only office
+libre office
+gwenview
+Qt
+Intellij Idea
+VMWare Workstation + Player
+Virtual Box
+Kde Connect
+KTorrent
+gimp
+inkscape
+handbrake
+kdenlive
+obs
+telegram
+teamviewer
+wine
+vlc
+
+yay
+octopi
+vscode bin
