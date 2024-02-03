@@ -1,0 +1,6 @@
+--2024-02-01 13:57:46--  https://raw.githubusercontent.com/gokechan/lf/master/etc/icons.example
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2024-02-01 13:57:46 ERROR 404: Not Found.
+

@@ -47,7 +47,10 @@
     enable = true;
     layout = "us";
     xkbVariant = "";
-    displayManager.sddm.enable = true;
+    displayManager = {
+      sddm.enable = true;
+      sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+    };
   };
   # Nix Experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -261,7 +264,6 @@
     # google-fonts
   ];
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -274,7 +276,9 @@
   services.teamviewer.enable = true;
 
   # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
+   services.openssh.enable = true;
+
+  programs.nix-ld.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

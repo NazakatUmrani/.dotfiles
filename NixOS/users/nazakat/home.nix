@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
+
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -31,6 +35,110 @@
     pinentryFlavor = "qt";
   };
 
+  # GTK
+  gtk = {
+    enable = true;
+
+    theme.package = pkgs.adw-gtk3;
+    theme.name = "adw-gtk3";
+    
+    cursorTheme.package = pkgs.bibata-cursors;
+    cursorTheme.name = "Bibata-Modern-Ice";
+    
+    iconTheme.package = gruvboxPlus;
+    iconTheme.name = "GruvboxPlus";
+  };
+  
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "adwaita-dark";
+    style.package = pkgs.adwaita-qt;
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "text/plain" = [ "neovide.desktop" ];
+    "application/pdf" = [ "zathura.desktop" ];
+    "image/*" = [ "sxiv.desktop" ];
+    "video/png" = [ "mpv.desktop" ];
+    "video/jpg" = [ "mpv.desktop" ];
+    "video/*" = [ "mpv.desktop" ];
+  };
+
+  xdg.configFile."lf/icons".source = ./icons;
+
+  programs.lf = {
+    enable = true;
+    commands = {
+      dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+      editor-open = ''$$EDITOR $f'';
+      mkdir = ''
+      ''${{
+        printf "Directory Name: "
+        read DIR
+        mkdir $DIR
+      }}
+      '';
+    };
+
+    keybindings = {
+
+      "\\\"" = "";
+      o = "";
+      c = "mkdir";
+      "." = "set hidden!";
+      "`" = "mark-load";
+      "\\'" = "mark-load";
+      "<enter>" = "open";
+      
+      do = "dragon-out";
+      
+      "g~" = "cd";
+      gh = "cd";
+      "g/" = "/";
+
+      ee = "editor-open";
+      V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+
+      # ...
+    };
+
+    settings = {
+      preview = true;
+      hidden = true;
+      drawbox = true;
+      icons = true;
+      ignorecase = true;
+    };
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+
+    extraPackages = [
+      
+    ];
+    
+    plugins = [
+      pkgs.vimPlugins.vim-lsp
+      pkgs.vimPlugins.telescope-nvim
+      pkgs.vimPlugins.clangd_extensions-nvim
+      pkgs.vimPlugins.nvim-treesitter
+    ];
+
+    extraLuaConfig = ''
+      vim.opt.relativenumber = true
+      
+      require('telescope').setup()
+      require('lspconfig.clangd').setup()
+    '';
+
+    # doesn't work
+    # colorschemes.gruvbox.enable = true;
+    # plugins.lightline.enable = true;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -54,6 +162,7 @@
     git-crypt
     gnupg
     pinentry-qt
+    eza
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -69,9 +178,21 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-  };
 
-  home.file.".bashrc".source = ./.bashrc;
+    ".bashrc".source = ./.bashrc;
+    ".vimrc".source = ./.vimrc;
+    ".config/gtk-4.0/gtk.css".source = ./gtk.css;
+   
+    # neofetch files
+    ".config/neofetch/config.conf".source = ./neofetch/config.conf;
+    ".config/neofetch/gifs/cat.gif".source = ./neofetch/gifs/cat.gif;
+    ".config/neofetch/gifs/pochita.gif".source = ./neofetch/gifs/pochita.gif;
+    ".config/neofetch/gifs/pokemon.gif".source = ./neofetch/gifs/pokemon.gif;
+    ".config/neofetch/gifs/tales.gif".source = ./neofetch/gifs/tales.gif;
+    ".config/neofetch/pngs/arch.png".source = ./neofetch/pngs/arch.png;
+    ".config/neofetch/pngs/hyprdots.png".source = ./neofetch/pngs/hyprdots.png;
+    ".config/neofetch/pngs/pochita.png".source = ./neofetch/pngs/pochita.png;
+  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
