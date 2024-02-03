@@ -192,6 +192,30 @@ in
     ".config/neofetch/pngs/arch.png".source = ./neofetch/pngs/arch.png;
     ".config/neofetch/pngs/hyprdots.png".source = ./neofetch/pngs/hyprdots.png;
     ".config/neofetch/pngs/pochita.png".source = ./neofetch/pngs/pochita.png;
+
+    # hyprland files
+    ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
+    ".config/hypr/start.sh".source = ./hypr/start.sh;
+    
+    # kitty files
+    ".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
+    ".config/kitty/themes/Catppuccin-Latte.conf".source = ./kitty/themes/Catppuccin-Latte.conf;
+    ".config/kitty/themes/Catppuccin-Mocha.conf".source = ./kitty/themes/Catppuccin-Mocha.conf;
+    ".config/kitty/themes/Cyberpunk-Edge.conf".source = ./kitty/themes/Cyberpunk-Edge.conf;
+    ".config/kitty/themes/Decay-Green.conf".source = ./kitty/themes/Decay-Green.conf;
+    ".config/kitty/themes/Frosted-Glass.conf".source = ./kitty/themes/Frosted-Glass.conf;
+    ".config/kitty/themes/Graphite-Mono.conf".source = ./kitty/themes/Graphite-Mono.conf;
+    ".config/kitty/themes/Gruvbox-Retro.conf".source = ./kitty/themes/Gruvbox-Retro.conf;
+    ".config/kitty/themes/gruvbox_dark.conf".source = ./kitty/themes/gruvbox_dark.conf;
+    ".config/kitty/themes/gruvbox_dark_hard.conf".source = ./kitty/themes/gruvbox_dark_hard.conf;
+    ".config/kitty/themes/gruvbox_dark_soft.conf".source = ./kitty/themes/gruvbox_dark_soft.conf;
+    ".config/kitty/themes/gruvbox_light.conf".source = ./kitty/themes/gruvbox_light.conf;
+    ".config/kitty/themes/gruvbox_light_hard.conf".source = ./kitty/themes/gruvbox_light_hard.conf;
+    ".config/kitty/themes/gruvbox_light_soft.conf".source = ./kitty/themes/gruvbox_light_soft.conf;
+    ".config/kitty/themes/Material-Sakura.conf".source = ./kitty/themes/Material-Sakura.conf;
+    ".config/kitty/themes/Rose-Pine.conf".source = ./kitty/themes/Rose-Pine.conf;
+    ".config/kitty/themes/theme.conf".source = ./kitty/themes/theme.conf;
+    ".config/kitty/themes/Tokyo-Night.conf".source = ./kitty/themes/Tokyo-Night.conf;
   };
 
   # Home Manager can also manage your environment variables through
