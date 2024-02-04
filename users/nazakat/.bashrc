@@ -12,8 +12,8 @@ script(){
 }
 
 ##NixOS update scripts
-alias ns='~/.dotfiles/Scripts/appy-system.sh'
-alias hs='~/.dotfiles/Scripts/appy-users.sh'
+alias ns='~/.dotfiles/Scripts/apply-system.sh'
+alias hs='~/.dotfiles/Scripts/apply-users.sh'
 alias nu='~/.dotfiles/Scripts/update-system.sh'
 alias hu='~/.dotfiles/Scripts/update-users.sh'
 
