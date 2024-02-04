@@ -121,17 +121,75 @@ in
     ];
     
     plugins = [
-      pkgs.vimPlugins.vim-lsp
-      pkgs.vimPlugins.telescope-nvim
-      pkgs.vimPlugins.clangd_extensions-nvim
+      # treesitter
+      pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.nvim-treesitter
+      pkgs.vimPlugins.nvim-treesitter-textobjects
+      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.java p.cpp ]))
+
+      pkgs.vimPlugins.telescope-nvim
+      pkgs.vimPlugins.trouble-nvim
+      pkgs.vimPlugins.plenary-nvim
+      pkgs.vimPlugins.telescope-fzf-native-nvim
+      pkgs.vimPlugins.fidget-nvim
+
+      ## cmp - completion
+      pkgs.vimPlugins.nvim-cmp
+      pkgs.vimPlugins.cmp-nvim-lsp
+      pkgs.vimPlugins.cmp-buffer
+      pkgs.vimPlugins.cmp-cmdline
+
+      pkgs.vimPlugins.clangd_extensions-nvim
+      pkgs.vimPlugins.luasnip
+      pkgs.vimPlugins.cmp_luasnip
+      pkgs.vimPlugins.lspkind-nvim
+      pkgs.vimPlugins.nvim-lint
+      pkgs.vimPlugins.vim-surround
+      pkgs.vimPlugins.vim-obsession
+      pkgs.vimPlugins.kommentary
+      pkgs.vimPlugins.neoformat
+      pkgs.vimPlugins.lazygit-nvim
+      pkgs.vimPlugins.gitsigns-nvim
+      pkgs.vimPlugins.rainbow
+      pkgs.vimPlugins.vim-sleuth
+      pkgs.vimPlugins.lualine-nvim
+      pkgs.vimPlugins.nvim-web-devicons
+      pkgs.vimPlugins.lightspeed-nvim
+      pkgs.vimPlugins.leap-nvim
+      pkgs.vimPlugins.vim-repeat
+      pkgs.vimPlugins.kanagawa-nvim
+
+      ## Debugging
+      pkgs.vimPlugins.nvim-dap
+      pkgs.vimPlugins.nvim-dap-ui
+      pkgs.vimPlugins.nvim-dap-virtual-text
     ];
 
     extraLuaConfig = ''
       vim.opt.relativenumber = true
       
       require('telescope').setup()
-      require('lspconfig.clangd').setup()
+      -- require('lspconfig.clangd').setup()
+    '';
+
+    extraConfig = ''
+        lua << EOF
+        ${builtins.readFile nvim/mappings.lua}
+        ${builtins.readFile nvim/options.lua}
+        ${builtins.readFile nvim/setup/cmp.lua}
+        ${builtins.readFile nvim/setup/treesitter.lua}
+        ${builtins.readFile nvim/setup/lspconfig.lua}
+        ${builtins.readFile nvim/setup/luasnip.lua}
+        ${builtins.readFile nvim/setup/trouble.lua}
+        ${builtins.readFile nvim/setup/telescope.lua}
+        ${builtins.readFile nvim/setup/kommentary.lua}
+        ${builtins.readFile nvim/setup/lualine.lua}
+        ${builtins.readFile nvim/setup/fidget.lua}
+        ${builtins.readFile nvim/setup/lint.lua}
+        ${builtins.readFile nvim/setup/leap.lua}
+        ${builtins.readFile nvim/setup/gitsigns.lua}
+        ${builtins.readFile nvim/setup/clangd_extensions.lua}
+        ${builtins.readFile nvim/setup/dap.lua}
     '';
 
     # doesn't work
