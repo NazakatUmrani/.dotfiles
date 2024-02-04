@@ -11,6 +11,12 @@ script(){
   vim ${1}.sh;
 }
 
+##NixOS update scripts
+alias ns='~/.dotfiles/Scripts/appy-system.sh'
+alias hs='~/.dotfiles/Scripts/appy-users.sh'
+alias nu='~/.dotfiles/Scripts/update-system.sh'
+alias hu='~/.dotfiles/Scripts/update-users.sh'
+
 ##Cmatrix thing
 alias matrix='cmatrix -s -C cyan'
 
