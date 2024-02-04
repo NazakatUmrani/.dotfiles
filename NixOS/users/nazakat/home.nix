@@ -216,6 +216,36 @@ in
     ".config/kitty/themes/Rose-Pine.conf".source = ./kitty/themes/Rose-Pine.conf;
     ".config/kitty/themes/theme.conf".source = ./kitty/themes/theme.conf;
     ".config/kitty/themes/Tokyo-Night.conf".source = ./kitty/themes/Tokyo-Night.conf;
+
+    # Waybar files
+    ".config/waybar/config".source = ./waybar/config;
+    ".config/waybar/style.css".source = ./waybar/style.css;
+    ".config/waybar/scripts/keyhint.sh".source = ./waybar/scripts/keyhint.sh;
+    ".config/waybar/scripts/mediaplayer.py".source = ./waybar/scripts/mediaplayer.py;
+    ".config/waybar/scripts/PBPbattery.sh".source = ./waybar/scripts/PBPbattery.sh;
+    ".config/waybar/scripts/power-meny.sh".source = ./waybar/scripts/power-menu.sh;
+    ".config/waybar/scripts/weather.sh".source = ./waybar/scripts/weather.sh;
+
+    # Wlogout files
+    ".config/wlogout/layout_1".source = ./wlogout/layout_1;
+    ".config/wlogout/layout_2".source = ./wlogout/layout_2;
+    ".config/wlogout/style_1.css".source = ./wlogout/style_1.css;
+    ".config/wlogout/style_2.css".source = ./wlogout/style_2.css;
+    ".config/wlogout/icons/hibernate_black.png".source = ./wlogout/icons/hibernate_black.png;
+    ".config/wlogout/icons/hibernate_white.png".source = ./wlogout/icons/hibernate_white.png;
+    ".config/wlogout/icons/lock_black.png".source = ./wlogout/icons/lock_black.png;
+    ".config/wlogout/icons/lock_white.png".source = ./wlogout/icons/lock_white.png;
+    ".config/wlogout/icons/logout_black.png".source = ./wlogout/icons/logout_black.png;
+    ".config/wlogout/icons/logout_.png".source = ./wlogout/icons/logout_white.png;
+    ".config/wlogout/icons/reboot_back.png".source = ./wlogout/icons/reboot_black.png;
+    ".config/wlogout/icons/reboot_white.png".source = ./wlogout/icons/reboot_white.png;
+    ".config/wlogout/icons/shutdown_black.png".source = ./wlogout/icons/shutdown_black.png;
+    ".config/wlogout/icons/shutdown_white.png".source = ./wlogout/icons/shutdown_white.png;
+    ".config/wlogout/icons/suspend_black.png".source = ./wlogout/icons/suspend_black.png;
+    ".config/wlogout/icons/suspend_white.png".source = ./wlogout/icons/suspend_white.png;
+    
+    # Rofi
+    ".config/rofi/config.rasi".source = ./rofi/config.rasi;
   };
 
   # Home Manager can also manage your environment variables through
