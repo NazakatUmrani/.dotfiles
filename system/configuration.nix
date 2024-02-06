@@ -191,6 +191,7 @@
     onlyoffice-bin_latest
     openboard
     papirus-icon-theme
+    pavucontrol
     pipewire
     polkit
     qalculate-qt
