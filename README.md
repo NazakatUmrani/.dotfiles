@@ -40,30 +40,14 @@
 
 ## Setup:
 
-- To update system channel:
-
-```
-cd .dotfiles
-./Scripts/update-system.sh
-```
-
-- To update user channel:
-
-```
-cd .dotfiles
-./Scripts/update-users.sh
-```
-
 - To apply system configs:
 
 ```
-cd .dotfiles
 ./Scripts/apply-system.sh
 ```
 
 - To apply user configs:
 
 ```
-cd .dotfiles
 ./Scripts/apply-user.sh
 ```

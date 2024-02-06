@@ -199,6 +199,7 @@
     qt6Packages.qtstyleplugin-kvantum
     qt6.qtwayland
     ranger
+    rnix-lsp
     rofi-wayland
     rPackages.settings
     sddm
@@ -222,7 +223,7 @@
     # virtualbox
     vlc
     # vmware-workstation
-    vscode-with-extensions
+    vscode
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         llvm-vs-code-extensions.vscode-clangd
