@@ -19,7 +19,14 @@
    efiSupport = true;
    useOSProber = true;
    enable = true;
-   # theme = "/boot/grub/themes/Atmoic/theme.txt";
+   theme = "${
+     (pkgs.fetchFromGitHub {
+       owner = "NazakatUmrani";
+       repo = "Grub-Themes";
+       rev = "c276b16e50884450fd1153bdae27f011330f812b";
+       sha256 = "M8LTVmTrrCF0i6cuSexPExHynji1KdSAGEpPe0kjUGk=";
+     })
+   }/Atomic/";
   };
 
   networking.hostName = "21SW49"; # Define your hostname.
@@ -154,6 +161,7 @@
     imagemagick
     inkscape
     jdk
+    jetbrains.clion
     # jetbrains.idea-ultimate
     kazam
     killall
@@ -191,19 +199,24 @@
     onlyoffice-bin_latest
     openboard
     papirus-icon-theme
+    pavucontrol
     pipewire
     polkit
+    python3
+    # python311Packages.streamlit
     qalculate-qt
     qemu
     qt6.full
     qt6Packages.qtstyleplugin-kvantum
     qt6.qtwayland
     ranger
+    remmina
     rnix-lsp
     rofi-wayland
     rPackages.settings
     sddm
     slurp
+    streamlit
     swappy
     swaylock-effects
     swww
@@ -216,6 +229,7 @@
     ventoy-full
     vim
     vimPlugins.clangd_extensions-nvim
+    vimPlugins.coc-pyright
     vimPlugins.nvim-dap
     vimPlugins.nvim-dap-ui
     # vimPlugins.null-ls-nvim
@@ -224,26 +238,26 @@
     vlc
     # vmware-workstation
     vscode
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        llvm-vs-code-extensions.vscode-clangd
-        mkhl.direnv
-        vscode-extensions.ms-vscode.cpptools
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "code-runner";
-          publisher = "formulahendry";
-          version = "0.12.1";
-          sha256 = "0eb32ae3e8eea89fa29609aed95c13b5fde1221826bb0b3bb4cd17c2df94f61f";
-        }
-        {
-          name = "cpptools-extension-pack";
-          publisher = "ms-vscode";
-          version = "1.3.0";
-          sha256 = "ac7493ec26025629ecddfa970be158892e5781c8e68bb416ecce3216b511d385";
-        }
-      ];
-    })
+    # (vscode-with-extensions.override {
+    #   vscodeExtensions = with vscode-extensions; [
+    #     llvm-vs-code-extensions.vscode-clangd
+    #     mkhl.direnv
+    #     vscode-extensions.ms-vscode.cpptools
+    #   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    #     {
+    #       name = "code-runner";
+    #       publisher = "formulahendry";
+    #       version = "0.12.1";
+    #       sha256 = "0eb32ae3e8eea89fa29609aed95c13b5fde1221826bb0b3bb4cd17c2df94f61f";
+    #     }
+    #     {
+    #       name = "cpptools-extension-pack";
+    #       publisher = "ms-vscode";
+    #       version = "1.3.0";
+    #       sha256 = "ac7493ec26025629ecddfa970be158892e5781c8e68bb416ecce3216b511d385";
+    #     }
+    #   ];
+    # })
     waybar
     waydroid
     waypaper
@@ -258,6 +272,10 @@
     xsettingsd
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "nix-2.15.3"
+  ];
+  
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     nerdfonts
