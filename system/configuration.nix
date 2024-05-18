@@ -23,8 +23,8 @@
      (pkgs.fetchFromGitHub {
        owner = "NazakatUmrani";
        repo = "Grub-Themes";
-       rev = "c276b16e50884450fd1153bdae27f011330f812b";
-       sha256 = "M8LTVmTrrCF0i6cuSexPExHynji1KdSAGEpPe0kjUGk=";
+       rev = "b71fae63de53e4b47d47c3c56b134b68b907514a";
+       sha256 = "uUpiNeCioUcb9a4WtFqJDVPb6L3c9/NbmfGeu68Kg4Q=";
      })
    }/Atomic/";
   };
