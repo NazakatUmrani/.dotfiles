@@ -254,6 +254,7 @@ in
     # hyprland files
     ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
     ".config/hypr/start.sh".source = ./hypr/start.sh;
+    ".config/hypr/wallpaperSetter.sh".source = ./hypr/wallpaperSetter.sh;
     
     # kitty files
     ".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
@@ -283,6 +284,7 @@ in
     ".config/waybar/scripts/PBPbattery.sh".source = ./waybar/scripts/PBPbattery.sh;
     ".config/waybar/scripts/power-meny.sh".source = ./waybar/scripts/power-menu.sh;
     ".config/waybar/scripts/weather.sh".source = ./waybar/scripts/weather.sh;
+    ".config/waybar/scripts/launch.sh".source = ./waybar/scripts/launch.sh;
 
     # Wlogout files
     ".config/wlogout/layout_1".source = ./wlogout/layout_1;
