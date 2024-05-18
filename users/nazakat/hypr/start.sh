@@ -1,11 +1,13 @@
-# !/usr/bin/env bash
+#!/usr/bin/env bash
 
-# initializing wallpaper daemon
-swww init &
+# wallpaper
+swww init
+~/.config/hypr/wallpaperSetter.sh init
 
+# Network Manager Applet
 nm-applet --indicator &
 
-# waybar
+# Add the bar
 waybar &
 
 # dunst
