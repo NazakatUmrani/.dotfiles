@@ -27,9 +27,14 @@
     { device = "/dev/disk/by-uuid/DDEB-4ED6";
       fsType = "vfat";
     };
- 
-  fileSystems."/home/nazakat/WindowsData" =
+
+ fileSystems."/home/nazakat/WindowsData" =
     { device = "/dev/disk/by-uuid/E2CE55C2CE559021";
+      fsType = "ntfs";
+    };
+
+  fileSystems."/home/nazakat/Nazakat Umrani" =
+    { device = "/dev/disk/by-uuid/7EC03FB9C03F768D";
       fsType = "ntfs";
     };
 
