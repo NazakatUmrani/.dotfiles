@@ -162,8 +162,6 @@
     imagemagick
     inkscape
     jdk
-    jetbrains.clion
-    # jetbrains.idea-ultimate
     kazam
     killall
     kitty
@@ -239,26 +237,14 @@
     vlc
     # vmware-workstation
     vscode
-    # (vscode-with-extensions.override {
-    #   vscodeExtensions = with vscode-extensions; [
-    #     llvm-vs-code-extensions.vscode-clangd
-    #     mkhl.direnv
-    #     vscode-extensions.ms-vscode.cpptools
-    #   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    #     {
-    #       name = "code-runner";
-    #       publisher = "formulahendry";
-    #       version = "0.12.1";
-    #       sha256 = "0eb32ae3e8eea89fa29609aed95c13b5fde1221826bb0b3bb4cd17c2df94f61f";
-    #     }
-    #     {
-    #       name = "cpptools-extension-pack";
-    #       publisher = "ms-vscode";
-    #       version = "1.3.0";
-    #       sha256 = "ac7493ec26025629ecddfa970be158892e5781c8e68bb416ecce3216b511d385";
-    #     }
-    #   ];
-    # })
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        llvm-vs-code-extensions.vscode-clangd
+        mkhl.direnv
+        ms-vscode.cpptools
+        formulahendry.code-runner
+      ];
+    })
     waybar
     waydroid
     waypaper
@@ -268,7 +254,6 @@
     wireplumber
     wl-clipboard
     wlogout
-    # wofi
     xdg-desktop-portal-hyprland
     xsettingsd
   ];
@@ -280,6 +265,7 @@
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     nerdfonts
+    fira-code
     # font-awesome
     # google-fonts
   ];
@@ -296,7 +282,7 @@
   services.teamviewer.enable = true;
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  services.openssh.enable = true;
 
   programs.nix-ld.enable = true;
 
