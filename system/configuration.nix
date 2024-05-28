@@ -19,12 +19,13 @@
    efiSupport = true;
    useOSProber = true;
    enable = true;
+#   theme = pkgs.nixos-grub2-theme;
    theme = "${
      (pkgs.fetchFromGitHub {
        owner = "NazakatUmrani";
        repo = "Grub-Themes";
-       rev = "b71fae63de53e4b47d47c3c56b134b68b907514a";
-       sha256 = "uUpiNeCioUcb9a4WtFqJDVPb6L3c9/NbmfGeu68Kg4Q=";
+       rev = "31edea9";
+       sha256 = "6zspf9VAfwoDwMtjF/gL29IG8wMg8OmXwWUOQRn0xZw=";
      })
    }/Atomic/";
   };
