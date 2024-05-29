@@ -60,8 +60,6 @@
       sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
     };
   };
-  # Nix Experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #Virtulaization for waydroid
   virtualisation.waydroid.enable = true;
@@ -112,6 +110,8 @@
 
   # Allow Unfree Softwares
   nixpkgs.config.allowUnfree = true;  
+  # Nix Experimental features
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nazakat = {
@@ -124,7 +124,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     alarm-clock-applet
     android-studio
     android-tools
@@ -151,7 +150,6 @@
     git
     github-desktop
     google-chrome
-    grimblast
     grimblast # A helper for screenshots within Hyprland, based on grimshot
     grim # Grab images from a Wayland compositor
     gsettings-desktop-schemas
@@ -280,7 +278,6 @@
 
   # List services that you want to enable:
   services.teamviewer.enable = true;
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
