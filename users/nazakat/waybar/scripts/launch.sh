@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-killall -q waybar
+killall waybar
 waybar -c ~/.config/waybar/config -s ~/.config/waybar/style.css
