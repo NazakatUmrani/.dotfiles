@@ -65,7 +65,7 @@ in
     "video/*" = [ "mpv.desktop" ];
   };
 
-  xdg.configFile."lf/icons".source = ./icons;
+  # xdg.configFile."lf/icons".source = ./icons;
 
   programs.lf = {
     enable = true;
