@@ -19,6 +19,17 @@
    efiSupport = true;
    useOSProber = true;
    enable = true;
+   extraEntries = ''
+     # Shutdown
+     menuentry "Shutdown" {
+       halt
+     }
+
+     # Reboot
+     menuentry "Reboot" {
+       reboot
+     }
+   '';
 #   theme = pkgs.nixos-grub2-theme;
    theme = "${
      (pkgs.fetchFromGitHub {
@@ -63,6 +74,19 @@
 
   #Virtulaization for waydroid
   virtualisation.waydroid.enable = true;
+  #virtualisation for docker
+  virtualisation.docker.enable = true;
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation.podman = {
+    enable = true;
+
+    # Create a `docker` alias for podman, to use it as a drop-in replacement
+    dockerCompat = false;
+
+    # Required for containers under podman-compose to be able to talk to each other.
+    defaultNetwork.settings.dns_enabled = true;
+  };
 
   # Enabling Hyprland
   programs.hyprland = {
@@ -116,7 +140,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nazakat = {
     isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
      ];
    };
@@ -139,6 +163,9 @@
     cliphist
     cmake
     discord
+    distrobox
+    dive # look into docker image layers
+    docker-compose # start group of containers for dev
     dunst
     feh
     fish
@@ -198,6 +225,8 @@
     papirus-icon-theme
     pavucontrol
     pipewire
+    podman-tui # status of containers in the terminal
+    #podman-compose # start group of containers for dev
     polkit
     python3
     # python311Packages.streamlit
