@@ -30,6 +30,14 @@ in
     enable = true;
   };
 
+  programs.rofi = {
+    enable = true;
+    plugins = [pkgs.rofi-emoji];
+  };
+  xdg.configFile."rofi/config.rasi" = {
+    text = builtins.readFile ./rofi/config.rasi;
+  };
+
   services.gpg-agent = {
     enable = true;
     pinentryFlavor = "qt";
@@ -302,9 +310,6 @@ in
     ".config/wlogout/icons/shutdown_white.png".source = ./wlogout/icons/shutdown_white.png;
     ".config/wlogout/icons/suspend_black.png".source = ./wlogout/icons/suspend_black.png;
     ".config/wlogout/icons/suspend_white.png".source = ./wlogout/icons/suspend_white.png;
-    
-    # Rofi
-    ".config/rofi/config.rasi".source = ./rofi/config.rasi;
   };
 
   # Home Manager can also manage your environment variables through
