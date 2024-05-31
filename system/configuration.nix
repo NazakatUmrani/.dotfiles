@@ -231,6 +231,7 @@
     onlyoffice-bin_latest
     openboard
     papirus-icon-theme
+    partition-manager
     pavucontrol
     pipewire
     podman-tui # status of containers in the terminal
@@ -246,7 +247,6 @@
     ranger
     remmina
     rnix-lsp
-    rofi-wayland
     rPackages.settings
     sddm
     slurp
