@@ -32,7 +32,7 @@ in
 
   programs.rofi = {
     enable = true;
-    plugins = [pkgs.rofi-emoji];
+    plugins = [pkgs.rofi-emoji pkgs.rofi-calc];
   };
   xdg.configFile."rofi/config.rasi" = {
     text = builtins.readFile ./rofi/config.rasi;
