@@ -163,6 +163,7 @@
     android-studio
     android-tools
     audacity
+    bat
     blueman
     bluez
     bluez-tools
