@@ -62,13 +62,19 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver = { 
-    enable = true;
-    layout = "us";
-    xkbVariant = "";
+  services = {
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
     displayManager = {
-      sddm.enable = true;
-      sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+        sddm.enable = true;
+        sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+    };
+    xserver = { 
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      }; 
     };
   };
 
@@ -136,9 +142,6 @@
 
   # Enable Polkit
   security.polkit.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
   # Allow Unfree Softwares
   nixpkgs.config.allowUnfree = true;  
@@ -246,7 +249,7 @@
     qt6.qtwayland
     ranger
     remmina
-    rnix-lsp
+    #rnix-lsp  package removed in latest branch
     rPackages.settings
     sddm
     slurp
@@ -255,7 +258,7 @@
     swaylock-effects
     swww
     sxhkd
-    teamviewer
+    #teamviewer
     telegram-desktop
     tldr
     tree
@@ -276,7 +279,7 @@
       vscodeExtensions = with vscode-extensions; [
         llvm-vs-code-extensions.vscode-clangd
         mkhl.direnv
-        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
         formulahendry.code-runner
       ];
     })
@@ -314,7 +317,7 @@
   # };
 
   # List services that you want to enable:
-  services.teamviewer.enable = true;
+  #services.teamviewer.enable = true;
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -329,7 +332,7 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  system.copySystemConfiguration = false;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
