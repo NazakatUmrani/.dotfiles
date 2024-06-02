@@ -2,10 +2,19 @@
 <h1>
 ❄️ NixOS dotfiles ❄️
 </h1>
-</div>
-<h2 align="center">NixOS system configuration. Feel free to explore!</h2>
+<p align="left">
+On my main machine I use NixOS as my daily driver Operating System, NixOS is reproducible, immutable, declarative and more.
+I love to explore to world of Linux, and with nixos not only I can declare all my settings in files, I can recreate my entire system with just those files again, in other OS, when we install, we need to do every configuration by ourselves, and in case of breaking and bugs, if we reinstall the system, all settings, extensions, themes, are wiped and we need to start from the scratch again, but with nixos now I got everything declared in my files, just need to run this command below and everything is configured back as how it was before the breaking.
+</p>
 
-<hr>
+```
+nixos-rebuild switch --flake .#
+```
+
+<br>
+</div>
+
+## My system specifications:
 
 ```mint
 ⠀⠀   🌸 Setup / Hyprland 🌸
@@ -30,24 +39,29 @@
                         
 ```
 
-<hr>
+<br>
 
+## Screenshots:
 <div align="center">
-<img src="./Screenshots/01.png" alt="Rice Preview" width="400px" height="253"/>
+<img src="./Extra/Screenshots/01.png" alt="Rice Preview 01"/>
+<img src="./Extra/Screenshots/02.png" alt="Rice Preview 02"/>
+<img src="./Extra/Screenshots/03.png" alt="Rice Preview 03"/>
 </div>
-
 <hr>
+
+
+<br>
 
 ## Setup:
 
-- To apply system configs:
+- To apply the changes you make to your configs:
 
 ```
-./Scripts/apply-system.sh
+./Scripts/apply.sh
 ```
 
-- To apply user configs:
+- To update the repositories and sources:
 
 ```
-./Scripts/apply-user.sh
+./Scripts/update.sh
 ```
