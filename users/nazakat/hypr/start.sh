@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # wallpaper
-swww init
+swww-daemon --format xrgb &
 ~/.config/hypr/wallpaperSetter.sh init
 
 # Network Manager Applet
