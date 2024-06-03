@@ -39,7 +39,7 @@
      },
 
      "clock" : {
-      "format" : " {:L%H:%M}",
+      "format" : " {:%I:%M %p}",
       "tooltip" : false,
      },
 
