@@ -2,7 +2,7 @@
 
 let
   gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
-
+  gtk-css = "@import './gtk.css'";
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -47,6 +47,9 @@ in
     
     iconTheme.package = gruvboxPlus;
     iconTheme.name = "GruvboxPlus";
+
+    gtk3.extraCss = gtk-css;
+    gtk4.extraCss = gtk-css;
   };
   
   qt = {
@@ -152,7 +155,7 @@ in
 
     ".bashrc".source = ./.bashrc;
     ".vimrc".source = ./.vimrc;
-    #".config/gtk-4.0/gtk.css".source = ./gtk.css;
+    # ".config/gtk-4.0/gtk.css".source = ./gtk.css;
    
     # neofetch files
     ".config/neofetch/config.conf".source = ./neofetch/config.conf;
