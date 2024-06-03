@@ -1,13 +1,13 @@
 { pkgs }:
 
-# let
-#  imgLink = "https://raw.githubusercontent.com/NazakatUmrani/Wallpapers/main/Fantasy%20Desktop%20Wallpaper.jpg";
+let
+ imgLink = "https://raw.githubusercontent.com/NazakatUmrani/Wallpapers/main/gruvbox-mountain-village.png";
 
-#  image = pkgs.fetchurl {
-#    url = imgLink;
-#    sha256 = "sha256-HrcYriKliK2QN02/2vFK/osFjTT1NamhGKik3tozGU0=";
-#  };
-#in
+ image = pkgs.fetchurl {
+   url = imgLink;
+   sha256 = "sha256-HrcYriKliK2QN02/2vFK/osFjTT1NamhGKik3tozGU0=";
+ };
+in
 pkgs.stdenv.mkDerivation {
   name = "sddm-theme";
   src = pkgs.fetchFromGitHub {
@@ -18,15 +18,10 @@ pkgs.stdenv.mkDerivation {
   };
   
   installPhase = ''
-    mkdir -p $out
-    cp -R ./* $out/
+   mkdir -p $out
+   cp -R ./* $out/
+   cd $out/
+   rm Background.jpg
+   cp -r ${image} $out/Background.jpg
   '';
-
-  #installPhase = ''
-  #  mkdir -p $out
-  #  cp -R ./* $out/
-  #  cd $out/
-  #  rm Background.jpg
-  #  cp -r ${image} $out/Background.jpg
-  # '';
 }
