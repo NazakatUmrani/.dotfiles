@@ -143,7 +143,7 @@ in
       "g/" = "/";
 
       ee = "editor-open";
-      V = ''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+      V = ''%${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
       dd = "delete";
       # ...
     };
@@ -182,96 +182,46 @@ in
     eza
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
     ".bashrc".source = ./.bashrc;
     ".vimrc".source = ./.vimrc;
-    # ".config/gtk-4.0/gtk.css".source = ./gtk.css;
-   
-    # neofetch files
-    ".config/neofetch/config.conf".source = ./neofetch/config.conf;
-    ".config/neofetch/gifs/cat.gif".source = ./neofetch/gifs/cat.gif;
-    ".config/neofetch/gifs/pochita.gif".source = ./neofetch/gifs/pochita.gif;
-    ".config/neofetch/gifs/pokemon.gif".source = ./neofetch/gifs/pokemon.gif;
-    ".config/neofetch/gifs/tales.gif".source = ./neofetch/gifs/tales.gif;
-    ".config/neofetch/pngs/arch.png".source = ./neofetch/pngs/arch.png;
-    ".config/neofetch/pngs/hyprdots.png".source = ./neofetch/pngs/hyprdots.png;
-    ".config/neofetch/pngs/pochita.png".source = ./neofetch/pngs/pochita.png;
 
+    # neofetch files
+    ".config/neofetch" = {
+      source = ./neofetch;
+      recursive = true;
+    };
+    
     # hyprland files
-    ".config/hypr/hyprland.conf".source = ./hypr/hyprland.conf;
-    ".config/hypr/start.sh".source = ./hypr/start.sh;
-    ".config/hypr/wallpaperSetter.sh".source = ./hypr/wallpaperSetter.sh;
+    ".config/hypr" = {
+      source = ./hypr;
+      recursive = true;
+    };
     
     # kitty files
-    ".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
-    ".config/kitty/themes/Catppuccin-Latte.conf".source = ./kitty/themes/Catppuccin-Latte.conf;
-    ".config/kitty/themes/Catppuccin-Mocha.conf".source = ./kitty/themes/Catppuccin-Mocha.conf;
-    ".config/kitty/themes/Cyberpunk-Edge.conf".source = ./kitty/themes/Cyberpunk-Edge.conf;
-    ".config/kitty/themes/Decay-Green.conf".source = ./kitty/themes/Decay-Green.conf;
-    ".config/kitty/themes/Frosted-Glass.conf".source = ./kitty/themes/Frosted-Glass.conf;
-    ".config/kitty/themes/Graphite-Mono.conf".source = ./kitty/themes/Graphite-Mono.conf;
-    ".config/kitty/themes/Gruvbox-Retro.conf".source = ./kitty/themes/Gruvbox-Retro.conf;
-    ".config/kitty/themes/gruvbox_dark.conf".source = ./kitty/themes/gruvbox_dark.conf;
-    ".config/kitty/themes/gruvbox_dark_hard.conf".source = ./kitty/themes/gruvbox_dark_hard.conf;
-    ".config/kitty/themes/gruvbox_dark_soft.conf".source = ./kitty/themes/gruvbox_dark_soft.conf;
-    ".config/kitty/themes/gruvbox_light.conf".source = ./kitty/themes/gruvbox_light.conf;
-    ".config/kitty/themes/gruvbox_light_hard.conf".source = ./kitty/themes/gruvbox_light_hard.conf;
-    ".config/kitty/themes/gruvbox_light_soft.conf".source = ./kitty/themes/gruvbox_light_soft.conf;
-    ".config/kitty/themes/Material-Sakura.conf".source = ./kitty/themes/Material-Sakura.conf;
-    ".config/kitty/themes/Rose-Pine.conf".source = ./kitty/themes/Rose-Pine.conf;
-    ".config/kitty/themes/theme.conf".source = ./kitty/themes/theme.conf;
-    ".config/kitty/themes/Tokyo-Night.conf".source = ./kitty/themes/Tokyo-Night.conf;
+    ".config/kitty" = {
+      source = ./kitty;
+      recursive = true;
+    };
 
     # Waybar files
-    ".config/waybar/config.jsonc".source = ./waybar/config.jsonc;
-    ".config/waybar/style.css".source = ./waybar/style.css;
-    ".config/waybar/scripts/keyhint.sh".source = ./waybar/scripts/keyhint.sh;
-    ".config/waybar/scripts/mediaplayer.py".source = ./waybar/scripts/mediaplayer.py;
-    ".config/waybar/scripts/PBPbattery.sh".source = ./waybar/scripts/PBPbattery.sh;
-    ".config/waybar/scripts/power-meny.sh".source = ./waybar/scripts/power-menu.sh;
-    ".config/waybar/scripts/weather.sh".source = ./waybar/scripts/weather.sh;
-    ".config/waybar/scripts/launch.sh".source = ./waybar/scripts/launch.sh;
+    ".config/waybar" = {
+      source = ./waybar;
+      recursive = true;
+    };
 
     # Wlogout files
-    ".config/wlogout/layout_1".source = ./wlogout/layout_1;
-    ".config/wlogout/layout_2".source = ./wlogout/layout_2;
-    ".config/wlogout/style_1.css".source = ./wlogout/style_1.css;
-    ".config/wlogout/style_2.css".source = ./wlogout/style_2.css;
-    ".config/wlogout/icons/hibernate_black.png".source = ./wlogout/icons/hibernate_black.png;
-    ".config/wlogout/icons/hibernate_white.png".source = ./wlogout/icons/hibernate_white.png;
-    ".config/wlogout/icons/lock_black.png".source = ./wlogout/icons/lock_black.png;
-    ".config/wlogout/icons/lock_white.png".source = ./wlogout/icons/lock_white.png;
-    ".config/wlogout/icons/logout_black.png".source = ./wlogout/icons/logout_black.png;
-    ".config/wlogout/icons/logout_.png".source = ./wlogout/icons/logout_white.png;
-    ".config/wlogout/icons/reboot_back.png".source = ./wlogout/icons/reboot_black.png;
-    ".config/wlogout/icons/reboot_white.png".source = ./wlogout/icons/reboot_white.png;
-    ".config/wlogout/icons/shutdown_black.png".source = ./wlogout/icons/shutdown_black.png;
-    ".config/wlogout/icons/shutdown_white.png".source = ./wlogout/icons/shutdown_white.png;
-    ".config/wlogout/icons/suspend_black.png".source = ./wlogout/icons/suspend_black.png;
-    ".config/wlogout/icons/suspend_white.png".source = ./wlogout/icons/suspend_white.png;
+    ".config/wlogout" = {
+      source = ./wlogout;
+      recursive = true;
+    };
 
     # Nvim Files
-    ".config/nvim/init.lua".source = ./nvim/init.lua;
-    ".config/nvim/lua/options.lua".source = ./nvim/lua/options.lua;
-    ".config/nvim/lua/plugins.lua".source = ./nvim/lua/plugins.lua;
-    ".config/nvim/lua/pluginlist.lua".source = ./nvim/lua/pluginlist.lua;
-    ".config/nvim/after/plugin/lsp.lua".source = ./nvim/after/plugin/lsp.lua;
-    ".config/nvim/after/plugin/cmp.lua".source = ./nvim/after/plugin/cmp.lua;
-    ".config/nvim/after/plugin/telescope.lua".source = ./nvim/after/plugin/telescope.lua;
-    ".config/nvim/after/plugin/treesitter.lua".source = ./nvim/after/plugin/treesitter.lua;
+    ".config/nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
+
   };
 
   # Home Manager can also manage your environment variables through
