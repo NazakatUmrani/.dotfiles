@@ -16,14 +16,14 @@
       "hyprland/workspaces",
       "memory",
       "disk",
-      "clock",
     ],
      
      "modules-right" : [
        // "idle_inhibitor",
        // "custom/themeselector",
        "custom/notification",
-       "battery",
+      "clock",
+       //"battery",
        "tray",
      ],
      
@@ -39,7 +39,7 @@
      },
 
      "clock" : {
-      "format" : "{: %I:%M %p}",
+      "format" : " {:L%H:%M}",
       "tooltip" : false,
      },
 
