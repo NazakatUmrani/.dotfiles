@@ -214,7 +214,6 @@
     jdk
     kazam
     killall
-    kitty
     lf
     libinput-gestures
     libnotify

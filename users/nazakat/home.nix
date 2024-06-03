@@ -18,6 +18,11 @@ in
     userEmail = "unazakat70@gmail.com";
   };
 
+  programs.kitty = {
+    enable = true;
+    package = pkgs.kitty;
+  };
+
   programs.gpg = {
     enable = true;
   };
