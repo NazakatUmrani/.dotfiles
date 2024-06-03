@@ -11,9 +11,16 @@ script(){
   vim ${1}.sh;
 }
 
+# Function to move files to a backup file
+bak(){
+  mv $1 $1.bak
+}
+
 ##NixOS update scripts
 alias ns='~/.dotfiles/Scripts/apply.sh'
 alias nu='~/.dotfiles/Scripts/update.sh'
+
+alias cat='bat'
 
 ##Cmatrix thing
 alias matrix='cmatrix -s -C cyan'
