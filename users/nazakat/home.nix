@@ -277,7 +277,7 @@ in
     ".config/kitty/themes/Tokyo-Night.conf".source = ./kitty/themes/Tokyo-Night.conf;
 
     # Waybar files
-    ".config/waybar/config".source = ./waybar/config;
+    ".config/waybar/config.jsonc".source = ./waybar/config.jsonc;
     ".config/waybar/style.css".source = ./waybar/style.css;
     ".config/waybar/scripts/keyhint.sh".source = ./waybar/scripts/keyhint.sh;
     ".config/waybar/scripts/mediaplayer.py".source = ./waybar/scripts/mediaplayer.py;
