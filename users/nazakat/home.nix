@@ -40,9 +40,36 @@ in
     pinentryPackage = pkgs.pinentry-qt;
   };
 
+  # Create XDG Dirs
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
+
+   # Define Settings For Xresources
+  xresources.properties = {
+    "Xcursor.size" = 24;
+  };
+
+  # Configure Cursor Theme
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 24;
+  };
+
   # GTK
   gtk = {
     enable = true;
+    font = {
+      name = "Ubuntu";
+      size = 12;
+      package = pkgs.ubuntu_font_family;
+    };
 
     theme.package = pkgs.adw-gtk3;
     theme.name = "adw-gtk3";
@@ -53,8 +80,19 @@ in
     iconTheme.package = gruvboxPlus;
     iconTheme.name = "GruvboxPlus";
 
-    gtk3.extraCss = gtk-css;
-    gtk4.extraCss = gtk-css;
+    gtk3 = {
+      extraCss = gtk-css;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
+    gtk4 = {
+      extraCss = gtk-css;
+      extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+    };
+
   };
   
   qt = {
