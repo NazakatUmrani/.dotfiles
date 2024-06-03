@@ -194,6 +194,7 @@
     feh
     fish
     flameshot
+    (pkgs.callPackage ./free-download-manager.nix {})
     gcc
     gdb
     gh
