@@ -114,96 +114,9 @@ in
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-
-    extraPackages = [
-      
-    ];
-    
-    plugins = [
-      # treesitter
-      pkgs.vimPlugins.nvim-lspconfig
-      pkgs.vimPlugins.nvim-treesitter
-      pkgs.vimPlugins.nvim-treesitter-textobjects
-      (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [ p.c p.java p.cpp ]))
-
-      pkgs.vimPlugins.telescope-nvim
-      pkgs.vimPlugins.trouble-nvim
-      pkgs.vimPlugins.plenary-nvim
-      pkgs.vimPlugins.telescope-fzf-native-nvim
-      pkgs.vimPlugins.fidget-nvim
-
-      ## cmp - completion
-      pkgs.vimPlugins.nvim-cmp
-      pkgs.vimPlugins.cmp-nvim-lsp
-      pkgs.vimPlugins.cmp-buffer
-      pkgs.vimPlugins.cmp-cmdline
-
-      pkgs.vimPlugins.clangd_extensions-nvim
-      pkgs.vimPlugins.luasnip
-      pkgs.vimPlugins.cmp_luasnip
-      pkgs.vimPlugins.lspkind-nvim
-      pkgs.vimPlugins.nvim-lint
-      pkgs.vimPlugins.vim-surround
-      pkgs.vimPlugins.vim-obsession
-      pkgs.vimPlugins.kommentary
-      pkgs.vimPlugins.neoformat
-      pkgs.vimPlugins.lazygit-nvim
-      pkgs.vimPlugins.gitsigns-nvim
-      pkgs.vimPlugins.rainbow
-      pkgs.vimPlugins.vim-sleuth
-      pkgs.vimPlugins.lualine-nvim
-      pkgs.vimPlugins.nvim-web-devicons
-      pkgs.vimPlugins.lightspeed-nvim
-      pkgs.vimPlugins.leap-nvim
-      pkgs.vimPlugins.vim-repeat
-      pkgs.vimPlugins.kanagawa-nvim
-
-      ## Debugging
-      pkgs.vimPlugins.nvim-dap
-      pkgs.vimPlugins.nvim-dap-ui
-      pkgs.vimPlugins.nvim-dap-virtual-text
-    ];
-
-    extraLuaConfig = ''
-      vim,opt.number = true
-      vim.opt.relativenumber = true
-      
-      require('telescope').setup()
-      -- require('lspconfig.clangd').setup()
-    '';
-
-    extraConfig = ''
-        lua << EOF
-        ${builtins.readFile nvim/mappings.lua}
-        ${builtins.readFile nvim/options.lua}
-        ${builtins.readFile nvim/setup/cmp.lua}
-        ${builtins.readFile nvim/setup/treesitter.lua}
-        ${builtins.readFile nvim/setup/lspconfig.lua}
-        ${builtins.readFile nvim/setup/luasnip.lua}
-        ${builtins.readFile nvim/setup/trouble.lua}
-        ${builtins.readFile nvim/setup/telescope.lua}
-        ${builtins.readFile nvim/setup/kommentary.lua}
-        ${builtins.readFile nvim/setup/lualine.lua}
-        ${builtins.readFile nvim/setup/fidget.lua}
-        ${builtins.readFile nvim/setup/lint.lua}
-        ${builtins.readFile nvim/setup/leap.lua}
-        ${builtins.readFile nvim/setup/gitsigns.lua}
-        ${builtins.readFile nvim/setup/clangd_extensions.lua}
-        ${builtins.readFile nvim/setup/dap.lua}
-    '';
-
-    # doesn't work
-    # colorschemes.gruvbox.enable = true;
-    # plugins.lightline.enable = true;
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # hello
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -303,6 +216,16 @@ in
     ".config/wlogout/icons/shutdown_white.png".source = ./wlogout/icons/shutdown_white.png;
     ".config/wlogout/icons/suspend_black.png".source = ./wlogout/icons/suspend_black.png;
     ".config/wlogout/icons/suspend_white.png".source = ./wlogout/icons/suspend_white.png;
+
+    # Nvim Files
+    ".config/nvim/init.lua".source = ./nvim/init.lua;
+    ".config/nvim/lua/options.lua".source = ./nvim/lua/options.lua;
+    ".config/nvim/lua/plugins.lua".source = ./nvim/lua/plugins.lua;
+    ".config/nvim/lua/pluginlist.lua".source = ./nvim/lua/pluginlist.lua;
+    ".config/nvim/after/plugin/lsp.lua".source = ./nvim/after/plugin/lsp.lua;
+    ".config/nvim/after/plugin/cmp.lua".source = ./nvim/after/plugin/cmp.lua;
+    ".config/nvim/after/plugin/telescope.lua".source = ./nvim/after/plugin/telescope.lua;
+    ".config/nvim/after/plugin/treesitter.lua".source = ./nvim/after/plugin/treesitter.lua;
   };
 
   # Home Manager can also manage your environment variables through
