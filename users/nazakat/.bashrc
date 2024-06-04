@@ -4,7 +4,7 @@
 
 # Function to create files and make them executable as well
 script(){
-  echo "#!/bin/bash
+  echo "#!/usr/bin/env bash
 
 " > ${1}.sh;
   chmod +x ${1}.sh;
@@ -16,9 +16,17 @@ bak(){
   mv $1 $1.bak
 }
 
-##NixOS update scripts
-alias ns='~/.dotfiles/Scripts/apply.sh'
-alias nu='~/.dotfiles/Scripts/update.sh'
+##NixOS update functions
+ns(){
+  pushd ~/.dotfiles
+  sudo nixos-rebuild switch --flake ./#
+  popd
+}
+nu(){
+  pushd ~/.dotfiles
+  nix flake update
+  popd
+}
 
 alias cat='bat'
 
