@@ -5,11 +5,9 @@ let
   gtk-css = "@import './gtk.css'";
 in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "23.11";
 
   # Setting Git configs
   programs.git = {
@@ -23,14 +21,14 @@ in
     package = pkgs.kitty;
   };
 
-  programs.gpg = {
-    enable = true;
-  };
-
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    # plugins = [ pkgs.rofi-emoji pkgs.rofi-calc ];
+  programs = {
+    gpg.enable = true;
+    firefox.enable = true;
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      # plugins = [ pkgs.rofi-emoji pkgs.rofi-calc ];
+    };
   };
   xdg.configFile."rofi/config.rasi" = {
     text = builtins.readFile ./rofi/config.rasi;
@@ -225,17 +223,7 @@ in
 
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/nazakat/etc/profile.d/hm-session-vars.sh
-  #
+  # Session variables
   home.sessionVariables = {
     EDITOR = "nvim";
   };
