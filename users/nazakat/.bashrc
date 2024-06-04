@@ -153,4 +153,4 @@ ex ()
   fi
 }
 
-neofetch
+neofetch --ascii_colors 3 6

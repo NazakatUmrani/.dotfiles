@@ -185,11 +185,8 @@ in
     ".bashrc".source = ./.bashrc;
     ".vimrc".source = ./.vimrc;
 
-    # neofetch files
-    ".config/neofetch" = {
-      source = ./neofetch;
-      recursive = true;
-    };
+    # neofetch config file
+    ".config/neofetch/config.conf".source = ./neofetch;
     
     # hyprland files
     ".config/hypr" = {
