@@ -186,7 +186,7 @@ in
     ".vimrc".source = ./.vimrc;
 
     # neofetch config file
-    ".config/neofetch/config.conf".source = ./neofetch;
+    ".config/neofetch/config.conf".source = ./neofetch/config.conf;
     
     # hyprland files
     ".config/hypr" = {
