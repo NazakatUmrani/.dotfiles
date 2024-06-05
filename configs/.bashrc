@@ -17,11 +17,7 @@ bak(){
 }
 
 ##NixOS update functions
-ns(){
-  pushd ~/.dotfiles
-  sudo nixos-rebuild switch --flake ./#
-  popd
-}
+alias ns='nh os switch'
 nu(){
   pushd ~/.dotfiles
   nix flake update
