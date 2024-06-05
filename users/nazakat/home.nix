@@ -27,7 +27,11 @@ in
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      # plugins = [ pkgs.rofi-emoji pkgs.rofi-calc ];
+      plugins = with pkgs;
+      map (pkg: pkg.override { rofi-unwrapped = rofi-wayland-unwrapped; }) [
+        rofi-emoji
+        rofi-calc
+      ];
     };
   };
   xdg.configFile."rofi/config.rasi" = {
