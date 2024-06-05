@@ -43,32 +43,32 @@ Arc-Dark Color Scheme
     font-weight: bold;
 }
 window#waybar {
-    background-color: rgba(26,27,38,0);
-    border-bottom: 1px solid rgba(26,27,38,0);
+    background-color: rgba(28,28,28,0);
+    border-bottom: 1px solid rgba(28,28,28,0);
     border-radius: 0px;
     color: #c43060;
 }
 #workspaces {
-    background: linear-gradient(180deg, #002635, #00384d);
+    background: linear-gradient(180deg, #282828, #3a3a3a);
     margin: 5px;
     padding: 0px 1px;
     border-radius: 15px;
     border: 0px;
     font-style: normal;
-    color: #002635;
+    color: #505050;
 }
 #workspaces button {
     padding: 0px 5px;
     margin: 4px 3px;
     border-radius: 15px;
     border: 0px;
-    color: #002635;
-    background-color: #002635;
+    color: #282828;
+    background-color: #282828;
     opacity: 1.0;
     transition: all 0.3s ease-in-out;
 }
 #workspaces button.active {
-    color: #002635;
+    color: #282828;
     background: #869696;
     border-radius: 15px;
     min-width: 40px;
@@ -76,13 +76,13 @@ window#waybar {
     opacity: 1.0;
 }
 #workspaces button:hover {
-    color: #002635;
+    color: #282828;
     background: #869696;
     border-radius: 15px;
     opacity: 1.0;
 }
 tooltip {
-  background: #002635;
+  background: #282828;
   border: 1px solid #869696;
   border-radius: 10px;
 }
@@ -91,98 +91,98 @@ tooltip label {
 }
 #window {
     color: #a1a19a;
-    background: #002635;
+    background: #282828;
     border-radius: 0px 15px 50px 0px;
     margin: 5px 5px 5px 0px;
     padding: 2px 20px;
 }
 #memory {
     color: #c43060;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
 }
 #clock {
     color: #7fc06e;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
 }
 #idle_inhibitor {
     color: #ffcc1b;
-    background: #002635;
+    background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
 }
 #cpu {
     color: #fafaf8;
-    background: #002635;
+    background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
 }
 #disk {
     color: #6C8B91;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
 }
 #battery {
     color: #ff5a67;
-    background: #002635;
+    background: #282828;
     border-radius: 15px;
     margin: 5px;
     padding: 2px 20px;
 }
 #network {
     color: #f08e48;
-    background: #002635;
+    background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
 }
 #tray {
     color: #a1a19a;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 0px 0px 50px;
     margin: 5px 0px 5px 5px;
     padding: 2px 20px;
 }
 #pulseaudio {
     color: #5dd7b9;
-    background: #002635;
+    background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
 }
 #custom-notification {
     color: #14747e;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
 }
 #custom-themeselector {
     color: #5dd7b9;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
 }
 #custom-startmenu {
     color: #6C8B91;
-    background: #002635;
+    background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
 }
 #idle_inhibitor {
     color: #f08e48;
-    background: #002635;
+    background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
