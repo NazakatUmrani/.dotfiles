@@ -269,6 +269,7 @@
     qt6.qtwayland
     ranger
     remmina
+    ripgrep # dependency of nvim for live grep using telescope
     #rnix-lsp  package removed in latest branch
     rPackages.settings
     sddm
