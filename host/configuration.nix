@@ -169,6 +169,14 @@
      ];
    };
 
+   # Nix Helper for beautiful UI while downloading as well as aliases
+   programs.nh = {
+    enable = true;
+    # clean.enable = true;
+    # clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/nazakat/.dotfiles";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
@@ -235,11 +243,12 @@
     luajit
     # lvim
     mako
-    mangohud
     neofetch
     nerdfonts
     networkmanagerapplet
+    nix-output-monitor # beautiful nix build loading screen
     nomacs
+    nvd # compare two nix configurations
     nwg-look
     obs-studio
     onlyoffice-bin_latest
