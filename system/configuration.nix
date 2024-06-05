@@ -206,7 +206,6 @@
     grim # Grab images from a Wayland compositor
     gsettings-desktop-schemas
     handbrake
-    htop
     hugo
     hyprpaper
     imagemagick
@@ -218,7 +217,6 @@
     libinput-gestures
     libnotify
     libreoffice-fresh
-    libsForQt5.dolphin
     libsForQt5.kdeconnect-kde
     # libsForQt5.kdenlive
     libsForQt5.kget
@@ -238,7 +236,6 @@
     mako
     mangohud
     neofetch
-    neovim
     nerdfonts
     networkmanagerapplet
     nomacs
@@ -300,7 +297,6 @@
     waydroid
     waypaper
     wget
-    whatsapp-for-linux
     wine
     wireplumber
     wl-clipboard
