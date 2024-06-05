@@ -1,8 +1,8 @@
 { config, pkgs, username, host, ... }:
 
 let
-  gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
-  gtk-css = "@import './gtk.css'";
+  gruvboxPlus = import ../pkgs/gruvbox-plus.nix { inherit pkgs; };
+  gtk-css = "@import '../configs/GTK/gtk.css'";
 in
 {
   home.username = "${username}";
@@ -35,7 +35,7 @@ in
     };
   };
   xdg.configFile."rofi/config.rasi" = {
-    text = builtins.readFile ./rofi/config.rasi;
+    text = builtins.readFile ../configs/rofi/config.rasi;
   };
 
   services.gpg-agent = {
@@ -114,7 +114,7 @@ in
     "video/*" = [ "mpv.desktop" ];
   };
 
-  xdg.configFile."lf/icons".source = ./lf/icons;
+  xdg.configFile."lf/icons".source = ../configs/lf/icons;
   programs.lf = {
     enable = true;
     commands = {
@@ -221,39 +221,39 @@ in
   ];
 
   home.file = {
-    ".bashrc".source = ./.bashrc;
-    ".vimrc".source = ./.vimrc;
+    ".bashrc".source = ../configs/.bashrc;
+    ".vimrc".source = ../configs/.vimrc;
 
     # neofetch config file
-    ".config/neofetch/config.conf".source = ./neofetch/config.conf;
+    ".config/neofetch/config.conf".source = ../configs/neofetch/config.conf;
     
     # hyprland files
     ".config/hypr" = {
-      source = ./hypr;
+      source = ../configs/hypr;
       recursive = true;
     };
     
     # kitty files
     ".config/kitty" = {
-      source = ./kitty;
+      source = ../configs/kitty;
       recursive = true;
     };
 
     # Waybar files
     ".config/waybar" = {
-      source = ./waybar;
+      source = ../configs/waybar;
       recursive = true;
     };
 
     # Wlogout files
     ".config/wlogout" = {
-      source = ./wlogout;
+      source = ../configs/wlogout;
       recursive = true;
     };
 
     # Nvim Files
     ".config/nvim" = {
-      source = ./nvim;
+      source = ../configs/nvim;
       recursive = true;
     };
 

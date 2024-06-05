@@ -27,7 +27,7 @@
         };
 
         modules = [
-          ./system/configuration.nix   
+          ./host/configuration.nix   
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
               inherit username inputs host;
@@ -35,7 +35,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.${username} = import ./users/${username}/home.nix;
+            home-manager.users.${username} = import ./host/home.nix;
           }
         ];
       };
