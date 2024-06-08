@@ -171,6 +171,8 @@ EOF
      extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
      ];
+     shell = pkgs.fish;
+     ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
    };
 
    # Nix Helper for beautiful UI while downloading as well as aliases
