@@ -206,6 +206,7 @@ in
     ];
   };
 
+  programs.fish.enable = true;
 
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying

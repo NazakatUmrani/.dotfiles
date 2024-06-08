@@ -75,12 +75,15 @@ EOF
   };
 
   # Enable the X11 windowing system.
-  services = {
+   services = {
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
     displayManager = {
-        sddm.enable = true;
-        sddm.theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+          theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
+        };
     };
     xserver = { 
       enable = true;
