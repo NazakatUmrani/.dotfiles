@@ -52,16 +52,28 @@ nixos-rebuild switch --flake .#
 
 <br>
 
+## Repository Structure:
+
+<b>Configs Directory: </b>Contains configs for all programs like, hyprland, kitty, neovim etc.
+
+<b>Extra Directory: </b>Contains non NixOS files useful for me. You can safely remove them.
+
+<b>Host Directory: </b>Contains NixOS system files as well as home manager module.
+
+<b>Pkgs Directory: </b>Contains packages derivations which are not available in nixpkgs right now written in .nix files.
+
+
 ## Setup:
 
+Make sure to change usernames, emails, and any config file you like to.
 - To apply the changes you make to your configs:
 
 ```
-./Scripts/apply.sh
+nixos-rebuild switch --flake .#
 ```
 
 - To update the repositories and sources:
 
 ```
-./Scripts/update.sh
+nix flake update
 ```
