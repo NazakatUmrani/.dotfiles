@@ -197,6 +197,16 @@ in
     extraPackages = with pkgs; [ xclip wl-clipboard ];
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    systemd.enable = true;
+    plugins = [
+      # hyprplugins.hyprtrails
+    ];
+  };
+
+
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -223,6 +233,7 @@ in
   home.file = {
     ".bashrc".source = ../configs/.bashrc;
     ".vimrc".source = ../configs/.vimrc;
+    ".face.icon".source = ../configs/face.png;
 
     # neofetch config file
     ".config/neofetch/config.conf".source = ../configs/neofetch/config.conf;

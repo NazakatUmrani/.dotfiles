@@ -19,20 +19,21 @@
    efiSupport = true;
    useOSProber = true;
    enable = true;
-   extraEntries = ''
-     # Shutdown
-     menuentry "Shutdown" {
-       halt
-     }
+   extraInstallCommands =  ''
+cat << EOF >> /boot/grub/grub.cfg
 
-     # Reboot
-     menuentry "Reboot" {
-       reboot
-     }
+# Shutdown
+menuentry "Shutdown" --class shutdown {
+  halt
+}
+
+# Reboot
+menuentry "Reboot" --class restart{
+  reboot
+}
+EOF
    '';
-#   theme = pkgs.nixos-grub2-theme;
-   theme = "${
-     (pkgs.fetchFromGitHub {
+  theme = "${ (pkgs.fetchFromGitHub {
        owner = "NazakatUmrani";
        repo = "Grub-Themes";
        rev = "31edea9";
@@ -40,7 +41,7 @@
      })
    }/Atomic/";
   };
-
+  
   networking.hostName = "21SW49"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
