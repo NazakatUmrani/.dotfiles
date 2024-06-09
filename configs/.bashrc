@@ -29,7 +29,7 @@ ns(){
   nh os switch
   gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
   read -p "Enter a commit message: " message
-  git commit -am "$message $gen"
+  git commit -am "$message ($gen)"
 }
 nu(){
   pushd ~/.dotfiles
