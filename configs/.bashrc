@@ -13,11 +13,24 @@ script(){
 
 # Function to move files to a backup file
 bak(){
+  # write if condition, if file is .bak then revert it
+  if [ ${1: -4} == ".bak" ]; then
+    mv $1 $(echo $1 | rev | cut -c 5- | rev)
+    return
+  fi
   mv $1 $1.bak
 }
 
 ##NixOS update functions
-alias ns='nh os switch'
+ns(){
+  set -e #Exit immediately if a command exits with a non-zero status.
+  git diff HEAD -- . '*'
+  echo "NixOS Rebuilding ... "
+  nh os switch
+  gen=$(nixos-rebuild list-generations | grep current)
+  read -p "Enter a commit message: " message
+  git commit -am "$message $gen"
+}
 nu(){
   pushd ~/.dotfiles
   nix flake update
