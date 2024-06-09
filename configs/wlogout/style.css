@@ -16,6 +16,7 @@
 
 window {
     background-image: image(url("~/.cache/wlogout/shot.png"));
+    background-size: cover;
 }
 
 button {
