@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-grim /tmp/shot.png
-magick /tmp/shot.png --blur 0x8 /tmp/shot.png
+[ -d ~/.cache/wlogout ] || mkdir -p ~/.cache/wlogout
+grim ~/.cache/wlogout/shot.png
+magick ~/.cache/wlogout/shot.png --blur 0x8 ~/.cache/wlogout/shot.png
 wlogout -p layer-shell
