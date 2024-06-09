@@ -22,16 +22,25 @@ bak(){
 }
 
 ##NixOS update functions
-ns(){
+ns(){ # nix switch
   set -e #Exit immediately if a command exits with a non-zero status.
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
+  git add .
   nh os switch
   gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
   read -p "Enter a commit message: " message
-  git add .
   git commit -m "$message ($gen)"
 }
+nt(){ # nix test
+  set -e #Exit immediately if a command exits with a non-zero status.
+  git diff HEAD -- . '*'
+  echo "NixOS Testing ... "
+  git add .
+  nh os test
+}
+alias nr='sudo /nix/var/nix/profiles/system/bin/switch-to-c
+onfiguration switch'
 nu(){
   pushd ~/.dotfiles
   nix flake update
