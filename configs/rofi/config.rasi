@@ -1,196 +1,262 @@
-/* ==========================================================================
-   Rofi color theme
+/*
+#  ____        __ _  
+# |  _ \ ___  / _(_) 
+# | |_) / _ \| |_| | 
+# |  _ < (_) |  _| | 
+# |_| \_\___/|_| |_| 
+#                    
+# by Stephan Raabe (2023) 
+# ----------------------------------------------------- 
+*/
 
-   Based on the Gruvbox color scheme for Vim by morhetz
-   https://github.com/morhetz/gruvbox
-
-   File: gruvbox-dark-hard.rasi
-   Desc: Gruvbox dark (hard contrast) color theme for Rofi
-   Author: bardisty <b@bah.im>
-   Source: https://github.com/bardisty/gruvbox-rofi
-   Modified: Mon Feb 12 2018 06:04:26 PST -0800
-   ========================================================================== */
-
+/* ---- Configuration ---- */
 configuration {
-  display-drun:               "Applications:";
-  display-window:             "Windows:";
-  drun-display-format:        "{icon} {name}";
-  font:                       "JetBrainsMono Nerd Font Medium 12";
-  modi:                       "drun,run,window,emoji";
-  show-icons:                 true;
-  icon-theme:                 "Papirus";
+    modi:                       "drun,run";
+    font:                       "Fira Sans 11";
+    show-icons:                 true;
+    icon-theme:                 "Papirus";
+    display-drun:               "APPS";
+    display-run:                "RUN";
+    display-filebrowser:        "FILES";
+    display-window:             "WINDOW";
+	drun-display-format:        "{name}";
+    hover-select:               false;
+    scroll-method:              1;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    window-format:              "{w} · {c} · {t}";
+    
 }
 
-* {
-    /* Theme settings */
-    highlight: bold italic;
-    scrollbar: true;
+/* ---- Load font ---- */
+/* @import "~/dotfiles/.settings/rofi-font.rasi" */
 
-    /* Gruvbox dark colors */
-    gruvbox-dark-bg0-hard:     #1d202160;
-    gruvbox-dark-bg0:          #28282860;
-    gruvbox-dark-bg2:          #50494560;
-    gruvbox-dark-fg0:          #fbf1c7;
-    gruvbox-dark-fg1:          #ebdbb2;
-    gruvbox-dark-red-dark:     #cc241d;
-    gruvbox-dark-red-light:    #fb4934;
-    gruvbox-dark-yellow-dark:  #d79921;
-    gruvbox-dark-yellow-light: #fabd2f;
-    gruvbox-dark-gray:         #a89984;
+/* ---- Load pywal colors (custom wal template) ---- */
+/* @import "~/.cache/wal/colors-rofi-pywal" */
 
-    /* Theme colors */
-    background:                  @gruvbox-dark-bg0-hard;
-    background-color:            @background;
-    foreground:                  @gruvbox-dark-fg1;
-    border-color:                @gruvbox-dark-gray;
-    separatorcolor:              @border-color;
-    scrollbar-handle:            @border-color;
+/* ---- Load wallpaper ---- */
+/* @import "~/.cache/current_wallpaper.rasi" */
 
-    normal-background:           @background;
-    normal-foreground:           @foreground;
-    alternate-normal-background: @gruvbox-dark-bg0;
-    alternate-normal-foreground: @foreground;
-    selected-normal-background:  @gruvbox-dark-bg2;
-    selected-normal-foreground:  @gruvbox-dark-fg0;
-
-    active-background:           @gruvbox-dark-yellow-dark;
-    active-foreground:           @background;
-    alternate-active-background: @active-background;
-    alternate-active-foreground: @active-foreground;
-    selected-active-background:  @gruvbox-dark-yellow-light;
-    selected-active-foreground:  @active-foreground;
-
-    urgent-background:           @gruvbox-dark-red-dark;
-    urgent-foreground:           @background;
-    alternate-urgent-background: @urgent-background;
-    alternate-urgent-foreground: @urgent-foreground;
-    selected-urgent-background:  @gruvbox-dark-red-light;
-    selected-urgent-foreground:  @urgent-foreground;
-}
-
+/* ---- Window ---- */
 window {
-    width:            65%;
-    background-color: @background;
-    border:           2;
-    padding:          2;
+    width:                        65%;
+    height:                       55%;
+    x-offset:                     0px;
+    y-offset:                     0px;
+    spacing:                      0px;
+    padding:                      0px;
+    margin:                       0px; 
+    color:                        #282828;
+    border:                       3px;
+    border-color:                 #fb4934;
+    cursor:                       "default";
+    transparency:                 "real";
+    location:                     center;
+    anchor:                       center;
+    fullscreen:                   false;
+    enabled:                      true;
+    border-radius:                10px;
+    background-color:             transparent;
 }
 
+/* ---- Mainbox ---- */
 mainbox {
-    border:  0;
-    padding: 0;
+    enabled:                      true;
+    orientation:                  horizontal;
+    spacing:                      0px;
+    margin:                       0px;
+    background-color:             #282828;
+    background-image:             url("../../Pictures/Wallpapers/gruvbox-mountain-village.png");
+    children:                     ["imagebox","listbox"];
 }
 
+/* ---- Imagebox ---- */
+imagebox {
+    padding:                      18px;
+    background-color:             transparent;
+    orientation:                  vertical;
+    children:                     [ "inputbar", "dummy", "mode-switcher" ];
+}
+
+/* ---- Listbox ---- */
+listbox {
+    spacing:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "message", "listview" ];
+}
+
+/* ---- Dummy ---- */
+dummy {
+    background-color:            transparent;
+}
+
+/* ---- Inputbar ---- */
+inputbar {
+    enabled:                      true;
+    text-color:                   #ebdbb2;
+    spacing:                      10px;
+    padding:                      15px;
+    border-radius:                10px;
+    border-color:                 #ebdbb2;
+    background-color:             #282828;
+    children:                     [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                      true;
+    expand:                       false;
+    str:                          "";
+    padding:                      0px 5px 0px 0px;
+    background-color:             transparent;
+    text-color:                   inherit;
+}
+
+entry {
+    enabled:                      true;
+    background-color:             transparent;
+    text-color:                   inherit;
+    cursor:                       text;
+    placeholder:                  "Search";
+    placeholder-color:            inherit;
+}
+
+/* ---- Mode Switcher ---- */
+mode-switcher{
+    enabled:                      true;
+    spacing:                      20px;
+    background-color:             transparent;
+    text-color:                   #ebdbb2;
+}
+
+button {
+    padding:                      10px;
+    border-radius:                10px;
+    background-color:             #282828;
+    text-color:                   inherit;
+    cursor:                       pointer;
+    border:                       0px;
+}
+
+button selected {
+    background-color:             #fb4934;
+    text-color:                   #ebdbb2;
+}
+
+/* ---- Listview ---- */
+listview {
+    enabled:                      true;
+    columns:                      1;
+    lines:                        8;
+    cycle:                        false;
+    dynamic:                      false;
+    scrollbar:                    false;
+    layout:                       vertical;
+    reverse:                      false;
+    fixed-height:                 true;
+    fixed-columns:                true;
+    spacing:                      0px;
+    padding:                      10px;
+    margin:                       0px;
+    background-color:             #282828;
+    border:0px;
+}
+
+/* ---- Element ---- */
+element {
+    enabled:                      true;
+    padding:                      10px;
+    margin:                       5px;
+    cursor:                       pointer;
+    background-color:             #282828;
+    border-radius:                10px;
+    border:                       3px;
+}
+
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element normal.urgent {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element normal.active {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element selected.normal {
+    background-color:            #fb4934;
+    text-color:                  #ebdbb2;
+}
+
+element selected.urgent {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element selected.active {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element alternate.normal {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element alternate.urgent {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element alternate.active {
+    background-color:            inherit;
+    text-color:                  #ebdbb2;
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message -----*****/
 message {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
-    padding:      1px;
+    background-color:            transparent;
+    border:0px;
+    margin:20px 0px 0px 0px;
+    padding:0px;
+    spacing:0px;
+    border-radius: 10px;
 }
 
 textbox {
-    highlight:  @highlight;
-    text-color: @foreground;
+    padding:                     15px;
+    margin:                      0px;
+    border-radius:               0px;
+    background-color:            #282828;
+    text-color:                  #ebdbb2;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 
-listview {
-    border:       2px solid 0 0;
-    padding:      2px 0 0;
-    border-color: @separatorcolor;
-    spacing:      2px;
-    scrollbar:    @scrollbar;
-    columns:      1;
-    lines:        8;
+error-message {
+    padding:                     15px;
+    border-radius:               20px;
+    background-color:            #282828;
+    text-color:                  #ebdbb2;
 }
 
-element {
-    border:  1px solid 0 0;
-    padding: 8px;
-}
-
-element.normal.normal {
-    background-color: @normal-background;
-    text-color:       @normal-foreground;
-}
-
-element.normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
-}
-
-element.normal.active {
-    background-color: @active-background;
-    text-color:       @active-foreground;
-}
-
-element.selected.normal {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
-}
-
-element.selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @selected-urgent-foreground;
-}
-
-element.selected.active {
-    background-color: @selected-active-background;
-    text-color:       @selected-active-foreground;
-}
-
-element.alternate.normal {
-    background-color: @alternate-normal-background;
-    text-color:       @alternate-normal-foreground;
-}
-
-element.alternate.urgent {
-    background-color: @alternate-urgent-background;
-    text-color:       @alternate-urgent-foreground;
-}
-
-element.alternate.active {
-    background-color: @alternate-active-background;
-    text-color:       @alternate-active-foreground;
-}
-
-scrollbar {
-    width:        4px;
-    border:       0;
-    handle-color: @scrollbar-handle;
-    handle-width: 8px;
-    padding:      0;
-}
-
-mode-switcher {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
-}
-
-inputbar {
-    spacing:    0;
-    text-color: @normal-foreground;
-    padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
-}
-
-case-indicator,
-entry,
-prompt,
-button {
-    spacing:    0;
-    text-color: @normal-foreground;
-}
-
-button.selected {
-    background-color: @selected-normal-background;
-    text-color:       @selected-normal-foreground;
-}
-
-textbox-prompt-sep {
-    expand:     false;
-    str:        ":";
-    text-color: @normal-foreground;
-    margin:     0 0.3em 0 0;
-}
-element-text, element-icon {
-    background-color: inherit;
-    text-color:       inherit;
-}
