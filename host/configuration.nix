@@ -42,10 +42,12 @@ EOF
    }/Atomic/";
   };
   
-  networking.hostName = "21SW49"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking = {
+    hostName = "21SW49"; # Define your hostname.
+    # Pick only one of the below networking options.
+    networkmanager.enable = true;
+    # networking.wireless.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Karachi";
@@ -55,19 +57,21 @@ EOF
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+    };
   };
-
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -94,20 +98,16 @@ EOF
     };
   };
 
-  #Virtulaization for waydroid
-  virtualisation.waydroid.enable = true;
-  #virtualisation for docker
-  virtualisation.docker.enable = true;
-  # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
-  virtualisation.podman = {
-    enable = true;
-
-    # Create a `docker` alias for podman, to use it as a drop-in replacement
-    dockerCompat = false;
-
-    # Required for containers under podman-compose to be able to talk to each other.
-    defaultNetwork.settings.dns_enabled = true;
+  virtualisation = {
+    waydroid.enable = true;  #Virtulaization for waydroid
+    docker.enable = true; #virtualisation for docker
+    # Enable common container config files in /etc/containers
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = false; #`docker` alias for podman
+      defaultNetwork.settings.dns_enabled = true; # for containers under podman-compose.
+    };
   };
 
   # Enabling Hyprland
@@ -117,9 +117,11 @@ EOF
     xwayland.enable = true;
   };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+  
   environment.sessionVariables = {
     # If your cursor becomes invisible
     # WLR_NO_HARDWARE_CURSORS = "1";
@@ -150,15 +152,14 @@ EOF
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-   jack.enable = true;
+    jack.enable = true;
   };
   # hardware.pulseaudio.enable = true;
 
-  # Swaylock won't accept correct password if this line is removed
-  security.pam.services.swaylock = {};
-
-  # Enable Polkit
-  security.polkit.enable = true;
+  security = {
+    pam.services.swaylock = {}; # password isn't accepted, if this line is removed
+    polkit.enable = true; # Enable Polkit
+  };
 
   # Allow Unfree Softwares
   nixpkgs.config.allowUnfree = true;  
@@ -178,8 +179,6 @@ EOF
    # Nix Helper for beautiful UI while downloading as well as aliases
    programs.nh = {
     enable = true;
-    # clean.enable = true;
-    # clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/nazakat/.dotfiles";
   };
 
@@ -326,13 +325,15 @@ EOF
     "nix-2.15.3"
   ];
   
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    nerdfonts
-    fira-code
-    # font-awesome
-    # google-fonts
-  ];
+  fonts = {
+    fontDir.enable = true;
+    packages = with pkgs; [
+      nerdfonts
+      fira-code
+      # font-awesome
+      # google-fonts
+    ];
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -5,9 +5,11 @@ let
   gtk-css = "@import '../configs/GTK/gtk.css'";
 in
 {
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
-  home.stateVersion = "23.11";
+  home = {
+    username = "${username}";
+    homeDirectory = "/home/${username}";
+    stateVersion = "23.11";
+  };
 
   # Setting Git configs
   programs.git = {
@@ -74,14 +76,20 @@ in
       package = pkgs.ubuntu_font_family;
     };
 
-    theme.package = pkgs.adw-gtk3;
-    theme.name = "adw-gtk3";
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3";
+    };
     
-    cursorTheme.package = pkgs.bibata-cursors;
-    cursorTheme.name = "Bibata-Modern-Ice";
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+    };
     
-    iconTheme.package = gruvboxPlus;
-    iconTheme.name = "GruvboxPlus";
+    iconTheme = {
+      package = gruvboxPlus;
+      name = "GruvboxPlus";
+    };
 
     gtk3 = {
       extraCss = gtk-css;
@@ -101,8 +109,10 @@ in
   qt = {
     enable = true;
     platformTheme.name = "gtk";
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
   };
 
   xdg.mimeApps.defaultApplications = {
@@ -130,7 +140,6 @@ in
     };
 
     keybindings = {
-
       "\\\"" = "";
       o = "";
       c = "mkdir";
@@ -153,7 +162,6 @@ in
 
     settings = {
       preview = true;
-      hidden = true;
       drawbox = true;
       icons = true;
       ignorecase = true;
@@ -213,20 +221,11 @@ in
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-
-    
+    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })    
     eza
     git-crypt
     gnupg
-    kdePackages.dolphin
+    # kdePackages.dolphin
     pinentry-qt
     xfce.thunar
   ];
