@@ -27,7 +27,7 @@ ns(){
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
   nh os switch
-  gen=$(nixos-rebuild list-generations | grep current)
+  gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
   read -p "Enter a commit message: " message
   git commit -am "$message $gen"
 }
