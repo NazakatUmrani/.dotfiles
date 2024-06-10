@@ -100,12 +100,13 @@ EOF
 
   virtualisation = {
     waydroid.enable = true;  #Virtulaization for waydroid
-    docker.enable = true; #virtualisation for docker
+    # docker.enable = true; #virtualisation for docker
+    libvirtd.enable = true;
     # Enable common container config files in /etc/containers
     containers.enable = true;
     podman = {
       enable = true;
-      dockerCompat = false; #`docker` alias for podman
+      dockerCompat = true; #`docker` alias for podman
       defaultNetwork.settings.dns_enabled = true; # for containers under podman-compose.
     };
   };
@@ -172,8 +173,8 @@ EOF
      extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
      ];
-     shell = pkgs.fish;
-     ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
+     #shell = pkgs.fish;
+     #ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
    };
 
    # Nix Helper for beautiful UI while downloading as well as aliases
@@ -263,7 +264,7 @@ EOF
     pavucontrol
     pipewire
     podman-tui # status of containers in the terminal
-    #podman-compose # start group of containers for dev
+    podman-compose # start group of containers for dev
     polkit
     python3
     # python311Packages.streamlit
