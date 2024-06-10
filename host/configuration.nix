@@ -33,13 +33,8 @@ menuentry "Reboot" --class restart{
 }
 EOF
    '';
-  theme = "${ (pkgs.fetchFromGitHub {
-       owner = "NazakatUmrani";
-       repo = "Grub-Themes";
-       rev = "31edea9";
-       sha256 = "6zspf9VAfwoDwMtjF/gL29IG8wMg8OmXwWUOQRn0xZw=";
-     })
-   }/Atomic/";
+   # Set the theme for grub using the link of the theme
+    theme = "${import ../pkgs/grub-theme.nix { inherit pkgs; }}";
   };
   
   networking = {
@@ -100,7 +95,13 @@ EOF
 
   virtualisation = {
     waydroid.enable = true;  #Virtulaization for waydroid
-    # docker.enable = true; #virtualisation for docker
+    # docker = {
+    #   enable = true; #virtualisation for docker
+    #   rootless = {
+    #     enable = true;
+    #     setSocketVariable = true;
+    #   };
+    # };
     libvirtd.enable = true;
     # Enable common container config files in /etc/containers
     containers.enable = true;
@@ -170,7 +171,7 @@ EOF
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nazakat = {
     isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "docker" "distrobox" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
      ];
      #shell = pkgs.fish;
@@ -202,7 +203,7 @@ EOF
     cliphist
     cmake
     discord
-    distrobox
+    distrobox # install images that are toolboxes
     dive # look into docker image layers
     docker-compose # start group of containers for dev
     dunst

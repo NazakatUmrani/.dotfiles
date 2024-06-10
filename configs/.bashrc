@@ -23,7 +23,6 @@ bak(){
 
 ##NixOS update functions
 ns(){ # nix switch
-  set -e #Exit immediately if a command exits with a non-zero status.
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
   git add .
@@ -33,7 +32,6 @@ ns(){ # nix switch
   git commit -m "$message ($gen)"
 }
 nt(){ # nix test
-  set -e #Exit immediately if a command exits with a non-zero status.
   git diff HEAD -- . '*'
   echo "NixOS Testing ... "
   git add .
