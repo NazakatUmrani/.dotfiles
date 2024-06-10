@@ -45,6 +45,10 @@ nu(){
   popd
 }
 
+# get hash
+
+alias gethash="nix hash to-sri --type sha256 $(nix-prefetch-url --unpack $1)"
+
 alias cat='bat'
 
 ##Cmatrix thing
