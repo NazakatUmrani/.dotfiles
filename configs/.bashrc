@@ -21,6 +21,16 @@ bak(){
   mv $1 $1.bak
 }
 
+cedit(){
+  mv $1 $1.bak
+  cp -r $(readlink -f $1.bak) $1
+  chmod +w $1
+  nvim $1
+}
+revert(){
+  mv $1.bak $1
+}
+
 ##NixOS update functions
 ns(){ # nix switch
   git diff HEAD -- . '*'
