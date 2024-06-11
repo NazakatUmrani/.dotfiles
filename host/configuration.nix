@@ -286,7 +286,6 @@ EOF
     swaylock-effects
     swww
     sxhkd
-    teams
     #teamviewer
     telegram-desktop
     tldr
