@@ -22,6 +22,10 @@ in
     enable = true;
     package = pkgs.kitty;
   };
+  xdg.configFile."kitty" = {
+    source = ../configs/kitty;
+    recursive = true;
+  };
 
   programs = {
     gpg.enable = true;
@@ -213,6 +217,10 @@ in
       # hyprplugins.hyprtrails
     ];
   };
+  xdg.configFile."hypr" = {
+      source = ../configs/hypr;
+      recursive = true;
+    };
 
   programs.fish.enable = true;
 
@@ -237,18 +245,6 @@ in
 
     # neofetch config file
     ".config/neofetch/config.conf".source = ../configs/neofetch/config.conf;
-    
-    # hyprland files
-    ".config/hypr" = {
-      source = ../configs/hypr;
-      recursive = true;
-    };
-    
-    # kitty files
-    ".config/kitty" = {
-      source = ../configs/kitty;
-      recursive = true;
-    };
 
     # Waybar files
     ".config/waybar" = {
