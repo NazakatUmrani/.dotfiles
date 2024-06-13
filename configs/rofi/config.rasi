@@ -12,14 +12,14 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,run";
-    font:                       "Fira Sans 11";
+    font:                       "Fira Sans Bold 12";
     show-icons:                 true;
     icon-theme:                 "Papirus";
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
-	drun-display-format:        "{name}";
+	  drun-display-format:        "{name}";
     hover-select:               false;
     scroll-method:              1;
     me-select-entry:            "";
@@ -30,7 +30,7 @@ configuration {
 
 /* ---- Window ---- */
 window {
-    width:                        65%;
+    width:                        55%;
     height:                       55%;
     x-offset:                     0px;
     y-offset:                     0px;
@@ -39,7 +39,7 @@ window {
     margin:                       0px; 
     color:                        #282828;
     border:                       3px;
-    border-color:                 #fb4934;
+    border-color:                 #8ec07c;
     cursor:                       "default";
     transparency:                 "real";
     location:                     center;
@@ -53,20 +53,11 @@ window {
 /* ---- Mainbox ---- */
 mainbox {
     enabled:                      true;
-    orientation:                  horizontal;
+    orientation:                  vertical;
     spacing:                      0px;
     margin:                       0px;
     background-color:             #282828;
-    background-image:             url("../../Pictures/Wallpapers/gruvbox-mountain-village.png");
-    children:                     ["imagebox","listbox"];
-}
-
-/* ---- Imagebox ---- */
-imagebox {
-    padding:                      18px;
-    background-color:             transparent;
-    orientation:                  vertical;
-    children:                     [ "inputbar", "dummy", "mode-switcher" ];
+    children:                     ["inputbar", "listbox", "mode-switcher"];
 }
 
 /* ---- Listbox ---- */
@@ -77,11 +68,6 @@ listbox {
     children:                    [ "message", "listview" ];
 }
 
-/* ---- Dummy ---- */
-dummy {
-    background-color:            transparent;
-}
-
 /* ---- Inputbar ---- */
 inputbar {
     enabled:                      true;
@@ -89,7 +75,7 @@ inputbar {
     spacing:                      10px;
     padding:                      15px;
     border-radius:                10px;
-    border-color:                 #ebdbb2;
+    border-color:                 #8ec07c;
     background-color:             #282828;
     children:                     [ "textbox-prompt-colon", "entry" ];
 }
@@ -116,6 +102,7 @@ entry {
 mode-switcher{
     enabled:                      true;
     spacing:                      20px;
+    padding:                      20px;
     background-color:             transparent;
     text-color:                   #ebdbb2;
 }
@@ -130,8 +117,8 @@ button {
 }
 
 button selected {
-    background-color:             #fb4934;
-    text-color:                   #ebdbb2;
+    background-color:             #8ec07c;
+    text-color:                   #282828;
 }
 
 /* ---- Listview ---- */
@@ -161,7 +148,8 @@ element {
     cursor:                       pointer;
     background-color:             #282828;
     border-radius:                10px;
-    border:                       3px;
+    border:                       2px;
+    border-color:                 #8ec07c;
 }
 
 element normal.normal {
@@ -180,8 +168,8 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color:            #fb4934;
-    text-color:                  #ebdbb2;
+    background-color:            #8ec07c;
+    text-color:                  #282828;
 }
 
 element selected.urgent {
