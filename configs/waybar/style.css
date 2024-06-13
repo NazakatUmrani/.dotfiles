@@ -52,14 +52,14 @@ window#waybar {
     background: linear-gradient(180deg, #282828, #3a3a3a);
     margin: 5px;
     padding: 0px 1px;
+    border: 2px solid #665c54;
     border-radius: 15px;
-    border: 0px;
     font-style: normal;
     color: #505050;
 }
 #workspaces button {
     padding: 0px 5px;
-    margin: 4px 3px;
+    margin: 8px 4px;
     border-radius: 15px;
     border: 0px;
     color: #282828;
@@ -69,7 +69,7 @@ window#waybar {
 }
 #workspaces button.active {
     color: #282828;
-    background: #869696;
+    background: #b8bb26;
     border-radius: 15px;
     min-width: 40px;
     transition: all 0.3s ease-in-out;
@@ -77,38 +77,41 @@ window#waybar {
 }
 #workspaces button:hover {
     color: #282828;
-    background: #869696;
+    background: #8ec07c;
     border-radius: 15px;
     opacity: 1.0;
 }
 tooltip {
   background: #282828;
-  border: 1px solid #869696;
+  border: 1px solid #fabd2f;
   border-radius: 10px;
 }
 tooltip label {
-  color: #fafaf8;
+  color: #b8bb26;
 }
 #window {
-    color: #a1a19a;
+    color: #b8bb26;
     background: #282828;
     border-radius: 0px 15px 50px 0px;
     margin: 5px 5px 5px 0px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #memory {
-    color: #c43060;
+    color: #fb4934;
     background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #clock {
-    color: #7fc06e;
+    color: #8ec07c;
     background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #idle_inhibitor {
     color: #ffcc1b;
@@ -116,20 +119,23 @@ tooltip label {
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #cpu {
-    color: #fafaf8;
+    color: #fabd2f;
     background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #disk {
-    color: #6C8B91;
+    color: #83a598;
     background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #battery {
     color: #ff5a67;
@@ -137,6 +143,7 @@ tooltip label {
     border-radius: 15px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #network {
     color: #f08e48;
@@ -144,6 +151,7 @@ tooltip label {
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #tray {
     color: #a1a19a;
@@ -151,12 +159,14 @@ tooltip label {
     border-radius: 15px 0px 0px 50px;
     margin: 5px 0px 5px 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #pulseaudio {
-    color: #5dd7b9;
+    color: #8ec07c;
     background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
+    border: 2px solid #665c54;
     padding: 2px 20px;
 }
 #custom-notification {
@@ -165,19 +175,30 @@ tooltip label {
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #custom-themeselector {
+    border: 2px solid #665c54;
     color: #5dd7b9;
     background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
     padding: 2px 20px;
 }
-#custom-startmenu {
-    color: #6C8B91;
+#custom-wallpaper {
+    border: 2px solid #665c54;
+    color: #5dd7b9;
     background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
+    padding: 2px 20px;
+}
+#custom-startmenu {
+    color: #fb4934;
+    background: #282828;
+    border-radius: 50px 15px 50px 15px;
+    margin: 5px;
+    border: 2px solid #665c54;
     padding: 2px 20px;
 }
 #idle_inhibitor {
@@ -185,5 +206,6 @@ tooltip label {
     background: #282828;
     border-radius: 15px 50px 15px 50px;
     margin: 5px;
+    border: 2px solid #665c54;
     padding: 2px 20px;
 }

@@ -7,6 +7,7 @@
     "modules-left" : [ 
       "hyprland/window",
       "custom/startmenu",
+      "custom/wallpaper",
     ],
 
     "modules-center" : [ 
@@ -103,7 +104,15 @@
        "# exec" : "theme-selector",
        "on-click" : "sleep 0.1 && theme-selector",
      },
-     
+
+     // Wallpaper
+    "custom/wallpaper": {
+        "format": "",
+        "on-click": "~/.config/hypr/changeWallpaper.sh",
+        // "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
+        "tooltip-format": "Change Wallpaper",
+    },
+
      "custom/startmenu" : {
        "tooltip" : false,
        "format" : "",
