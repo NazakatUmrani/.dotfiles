@@ -11,7 +11,7 @@ wal -i $wall -s -t
 
 cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors-waybar.css
 
-~/.config/waybar/scripts/launch.sh init &
+~/.config/waybar/scripts/launch.sh init
 
 notify-send "Theme and wallpaper updated" "Wallpaper: $(echo $wall | sed 's|/home/nazakat/Pictures/Wallpapers/||g')"
 

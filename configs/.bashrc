@@ -23,8 +23,10 @@ bak(){
 
 cedit(){
   mv $1 $1.bak
-  cp -r $(readlink -f $1.bak) $1
-  chmod +w $1
+  # get full path of the file
+  current_dir=$(pwd | sed 's|/home/nazakat/.||g')
+  # create a symbolic link
+  ln -s ~/.dotfiles/$current_dir/$1 $1
   nvim $1
 }
 revert(){
