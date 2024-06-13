@@ -33,6 +33,7 @@ revert(){
 
 ##NixOS update functions
 ns(){ # nix switch
+  pushd ~/.dotfiles
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
   git add .
@@ -40,12 +41,15 @@ ns(){ # nix switch
   gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
   read -p "Enter a commit message: " message
   git commit -m "$message ($gen)"
+  popd
 }
 nt(){ # nix test
+  pushd ~/.dotfiles
   git diff HEAD -- . '*'
   echo "NixOS Testing ... "
   git add .
   nh os test
+  popd
 }
 alias nr='sudo /nix/var/nix/profiles/system/bin/switch-to-c
 onfiguration switch'
