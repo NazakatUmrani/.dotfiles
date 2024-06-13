@@ -235,6 +235,7 @@ in
     gnupg
     # kdePackages.dolphin
     pinentry-qt
+    pywal
     xfce.thunar
   ];
 
@@ -245,6 +246,12 @@ in
 
     # neofetch config file
     ".config/neofetch/config.conf".source = ../configs/neofetch/config.conf;
+
+    # Swaylock files
+    ".config/swaylock" = {
+      source = ../configs/swaylock;
+      recursive = true;
+    };
 
     # Waybar files
     ".config/waybar" = {
