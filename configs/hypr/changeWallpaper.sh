@@ -9,9 +9,9 @@ wal -i $wall -s -t
 # updates terminal colors
 # source "$HOME/.cache/wal/colors.sh"
 
-cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors-waybar.css
+# cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/colors-waybar.css
 
-~/.config/waybar/scripts/launch.sh init
+# ~/.config/waybar/scripts/launch.sh init  &
 
 notify-send "Theme and wallpaper updated" "Wallpaper: $(echo $wall | sed 's|/home/nazakat/Pictures/Wallpapers/||g')"
 
