@@ -24,7 +24,7 @@ bak(){
 cedit(){
   mv $1 $1.bak
   # get full path of the file
-  current_dir=$(pwd | sed 's|/home/nazakat/.||g')
+  current_dir=$(pwd | sed 's|/home/nazakat/.||g' | sed 's|config|configs|g')
   # create a symbolic link
   ln -s ~/.dotfiles/$current_dir/$1 $1
   nvim $1
