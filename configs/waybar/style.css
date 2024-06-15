@@ -59,8 +59,8 @@ window#waybar {
 }
 #workspaces button {
     padding: 0px 4px;
-    margin: 4px 4px;
-    border-radius: 15px;
+    margin: 4px 6px;
+    border-radius: 15%;
     /* border: 0px; */
     color: #fabd2f;
     background-color: #282828;
@@ -186,11 +186,11 @@ tooltip label {
     padding: 2px 20px;
 }
 #custom-wallpaper {
-    border: 2px solid #665c54;
     color: #5dd7b9;
     background: #282828;
     border-radius: 50px 15px 50px 15px;
     margin: 5px;
+    border: 2px solid #665c54;
     padding: 2px 20px;
 }
 #custom-startmenu {
