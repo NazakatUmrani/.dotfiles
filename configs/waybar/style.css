@@ -60,7 +60,7 @@ window#waybar {
 #workspaces button {
     padding: 0px 4px;
     margin: 4px 6px;
-    border-radius: 15%;
+    border-radius: 15px;
     /* border: 0px; */
     color: #fabd2f;
     background-color: #282828;
