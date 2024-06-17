@@ -237,6 +237,7 @@ in
     pinentry-qt
     pywal
     xfce.thunar
+    zeroadPackages.zeroad-unwrapped
   ];
 
   home.file = {
