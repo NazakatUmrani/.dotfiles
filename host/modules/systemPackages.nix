@@ -1,0 +1,134 @@
+{ config, pkgs, ... }:
+
+{
+    # List packages installed in system profile. To search, run:
+  # $ nix search wget
+   environment.systemPackages = with pkgs; [
+    alarm-clock-applet
+    android-studio
+    android-tools
+    audacity
+    bat
+    blueman
+    bluez
+    bluez-tools
+    brightnessctl
+    btop
+    celluloid
+    clang
+    clang-tools
+    cliphist
+    cmake
+    discord
+    dunst
+    feh
+    fish
+    flameshot
+    (pkgs.callPackage ../pkgs/free-download-manager.nix {})
+    gcc
+    gdb
+    gh
+    gimp
+    git
+    github-desktop
+    google-chrome
+    grimblast # A helper for screenshots within Hyprland, based on grimshot
+    grim # Grab images from a Wayland compositor
+    gsettings-desktop-schemas
+    handbrake
+    hugo
+    hyprpaper
+    imagemagick
+    inkscape
+    jdk
+    kazam
+    killall
+    lf
+    libinput-gestures
+    libnotify
+    libreoffice-fresh
+    libsForQt5.kdeconnect-kde
+    # libsForQt5.kdenlive
+    libsForQt5.kget
+    libsForQt5.okular
+    libsForQt5.polkit-kde-agent
+    libsForQt5.qt5ct
+    libsForQt5.qt5.qtgraphicaleffects
+    libsForQt5.qt5.qtquickcontrols
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtwayland
+    lldb_17
+    # lutris
+    # lua-language-server
+    luajit
+    # lvim
+    mako
+    neofetch
+    nerdfonts
+    networkmanagerapplet
+    nix-output-monitor # beautiful nix build loading screen
+    nomacs
+    nvd # compare two nix configurations
+    nwg-look
+    obs-studio
+    onlyoffice-bin_latest
+    openboard
+    papirus-icon-theme
+    partition-manager
+    pavucontrol
+    pipewire
+    polkit
+    python3
+    # python311Packages.streamlit
+    qalculate-qt
+    qemu
+    qt6.full
+    qt6Packages.qtstyleplugin-kvantum
+    qt6.qtwayland
+    ranger
+    remmina
+    ripgrep # dependency of nvim for live grep using telescope
+    #rnix-lsp  package removed in latest branch
+    rPackages.settings
+    sddm
+    slurp
+    streamlit
+    swappy
+    swaylock-effects
+    swww
+    sxhkd
+    #teamviewer
+    telegram-desktop
+    tldr
+    tree
+    unzip
+    ventoy-full
+    vim
+    vimPlugins.clangd_extensions-nvim
+    vimPlugins.coc-pyright
+    vimPlugins.nvim-dap
+    vimPlugins.nvim-dap-ui
+    # vimPlugins.null-ls-nvim
+    vlc
+    # vmware-workstation
+    vscode
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        llvm-vs-code-extensions.vscode-clangd
+        mkhl.direnv
+        ms-vscode.cpptools-extension-pack
+        formulahendry.code-runner
+      ];
+    })
+    waybar
+    waydroid
+    waypaper
+    wget
+    wine
+    wireplumber
+    wl-clipboard
+    wlogout
+    xdg-desktop-portal-hyprland
+    xsettingsd
+  ];
+}
