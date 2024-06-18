@@ -70,7 +70,7 @@
      },
      
      "disk" : {
-       "format" : "  {free}",
+       "format" : " {free}",
        "tooltip" : true,
      },
      
@@ -87,7 +87,7 @@
      },
      
      "pulseaudio" : {
-       "format" : "{icon} {volume}% {format_source}",
+       "format" : "{icon}{volume}% {format_source}",
        "format-bluetooth" : "{volume}% {icon} {format_source}",
        "format-bluetooth-muted" : " {icon} {format_source}",
        "format-muted" : " 0% {format_source}",

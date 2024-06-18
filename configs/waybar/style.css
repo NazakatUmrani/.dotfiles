@@ -39,7 +39,7 @@ Arc-Dark Color Scheme
 
 * {
     font-size: 14px;
-    font-family: JetBrainsMono Nerd Font, Font Awesome, sans-serif;
+    font-family: "DejaVu Sans", "RecMonoCasual Nerd Font Propo", "JetBrainsMonoNL NFP", Font Awesome, sans-serif;
     font-weight: bold;
 }
 window#waybar {
