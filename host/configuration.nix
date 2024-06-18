@@ -89,12 +89,6 @@
     };
 
     nix-ld.enable = true; # No idea what it is
-    
-    # Nix Helper for beautiful UI while downloading as well as aliases
-    nh = {
-      enable = true;
-      flake = "/home/nazakat/.dotfiles";
-    };
   };
 
   xdg.portal = {
