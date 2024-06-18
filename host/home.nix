@@ -218,6 +218,7 @@ in
     plugins = [
       # hyprplugins.hyprtrails
     ];
+    extraConfig = " ";
   };
   xdg.configFile."hypr" = {
       source = ../configs/hypr;

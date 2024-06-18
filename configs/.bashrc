@@ -39,7 +39,7 @@ ns(){ # nix switch
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
   git add .
-  nixos-rebuild switch --flake .
+  sudo nixos-rebuild switch --flake .
   gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
   read -p "Enter a commit message: " message
   git commit -m "$message ($gen)"
@@ -50,7 +50,7 @@ nt(){ # nix test
   git diff HEAD -- . '*'
   echo "NixOS Testing ... "
   git add .
-  nixos-rebuild test --flake .
+  sudo nixos-rebuild test --flake .
   popd
 }
 alias nr='sudo /nix/var/nix/profiles/system/bin/switch-to-c
