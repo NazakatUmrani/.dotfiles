@@ -18,7 +18,7 @@
   outputs = inputs@{ nixpkgs, home-manager, ... }: 
   let
     system = "x86_64-linux"; #System
-    host = "21SW49";
+    hostname = "21SW49";
     username = "nazakat";
 
     pkgs = import nixpkgs {
@@ -29,16 +29,16 @@
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      "${host}" = lib.nixosSystem {
+      "${hostname}" = lib.nixosSystem {
         specialArgs = {
-          inherit system inputs host username;
+          inherit system inputs hostname username;
         };
 
         modules = [
           ./host/configuration.nix   
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
-              inherit username inputs host;
+              inherit username inputs hostname;
             };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

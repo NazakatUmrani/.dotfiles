@@ -1,4 +1,4 @@
-{ config, pkgs, username, host, ... }:
+{ config, pkgs, inputs, username, ... }:
 
 let
   gruvboxPlus = import ../pkgs/gruvbox-plus.nix { inherit pkgs; };
@@ -214,6 +214,7 @@ in
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       # hyprplugins.hyprtrails
     ];

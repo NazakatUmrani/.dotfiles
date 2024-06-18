@@ -3,7 +3,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, hostname, username, inputs, ... }:
 
 {
   imports =
@@ -16,7 +16,7 @@
     ];
 
   networking = {
-    hostName = "21SW49"; # Define your hostname.
+    hostName = "${hostname}"; # Define your hostname.
     # Pick only one of the below networking options.
     networkmanager.enable = true;
     # networking.wireless.enable = true;
@@ -82,12 +82,6 @@
 
   # Enabling Hyprland
   programs = {
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      xwayland.enable = true;
-    };
-
     nix-ld.enable = true; # No idea what it is
   };
 
@@ -127,7 +121,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nazakat = {
+  users.users.${username} = {
     isNormalUser = true;
      extraGroups = [ "wheel" "networkmanager" "docker" "distrobox" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
