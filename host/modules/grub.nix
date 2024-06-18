@@ -10,7 +10,7 @@
     useOSProber = true;
     enable = true;
     extraInstallCommands =  ''
-cat << EOF >> /boot/grub/grub.cfg
+${pkgs.coreutils}/bin/cat << EOF >> /boot/grub/grub.cfg
 
 # Shutdown
 menuentry "Shutdown" --class shutdown {
