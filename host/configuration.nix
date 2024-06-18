@@ -82,6 +82,12 @@
 
   # Enabling Hyprland
   programs = {
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    };
+
     nix-ld.enable = true; # No idea what it is
   };
 

@@ -210,16 +210,16 @@ in
     extraPackages = with pkgs; [ xclip wl-clipboard ];
   };
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    systemd.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [
-      # hyprplugins.hyprtrails
-    ];
-    extraConfig = " ";
-  };
+  # wayland.windowManager.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  #   systemd.enable = true;
+  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  #   plugins = [
+  #     # hyprplugins.hyprtrails
+  #   ];
+  #   extraConfig = " ";
+  # };
   xdg.configFile."hypr" = {
       source = ../configs/hypr;
       recursive = true;
