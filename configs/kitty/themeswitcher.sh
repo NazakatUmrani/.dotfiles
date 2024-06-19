@@ -7,7 +7,6 @@
 #                                                                           
 # by Stephan Raabe (2024) 
 # ----------------------------------------------------- 
-
 # ----------------------------------------------------- 
 # Default theme folder
 # ----------------------------------------------------- 
@@ -17,47 +16,34 @@ themes_path="$HOME/.config/kitty/themes"
 # Initialize arrays
 # ----------------------------------------------------- 
 # listThemes=""
-# listNames=""
+listNames=""
 # listNames2=""
 
 # ----------------------------------------------------- 
 # Read theme folder
 # -----------------------------------------------------
-# sleep 0.2 
-# options=$(find $themes_path -maxdepth 2 -type d)
-# for value in $options
-# do
-#     if [ ! $value == "$HOME/dotfiles/waybar/themes/assets" ]; then
-#         if [ ! $value == "$themes_path" ]; then
-#             if [ $(find $value -maxdepth 1 -type d | wc -l) = 1 ]; then
-#                 result=$(echo $value | sed "s#$HOME/dotfiles/waybar/themes/#/#g")
-#                 IFS='/' read -ra arrThemes <<< "$result"
-#                 listThemes[${#listThemes[@]}]="/${arrThemes[1]};$result"
-#                 if [ -f $themes_path$result/config.sh ]; then
-#                     source $themes_path$result/config.sh
-#                     listNames+="$theme_name\n"
-#                     listNames2+="$theme_name~"
-#                 else
-#                     listNames+="/${arrThemes[1]};$result\n"
-#                     listNames2+="/${arrThemes[1]};$result~"
-#                 fi
-#             fi
-#         fi
-#     fi
-# done
+# Read theme folder
+# -----------------------------------------------------
+sleep 0.2 
+while IFS= read -r -d $'\0' value; do
+  if [ ! "$value" == "$themes_path" ]; then
+    result=$(echo "$value" | sed "s#$HOME/.config/kitty/themes/##g" | sed "s/.conf//g")
+    listNames+="${result}\n"
+  fi
+done < <(find "$themes_path" -print0)
+listNames=${listNames::-2}
+
 
 # ----------------------------------------------------- 
 # Show rofi dialog
 # ----------------------------------------------------- 
 # listNames=${listNames::-2}
-choice=$(echo -e "Catppuccin-Latte\nCatppuccin-Mocha\nCyberpunk-Edge\nDecay-Green\ndiff\ndracula\nFrosted-Glass\nGraphite-Mono\ngruvbox_dark\ngruvbox_dark_hard\ngruvbox_dark_soft\ngruvbox_light\ngruvbox_light_hard\ngruvbox_light_soft\nGruvbox-Retro\nMaterial-Sakura\nMyTheme\nRose-Pine\nTokyo-Night" | rofi -dmenu -replace -i -config ~/.config/rofi/config.rasi -no-show-icons -width 30 -p "Themes")
+choice=$(echo -e "${listNames}" | sort | rofi -dmenu -replace -i -config ~/.config/rofi/config.rasi -no-show-icons -width 30 -p "Themes")
 
 symFile="${HOME}/.config/kitty/theme.conf"
 
 if [ -n "$choice" ]; then
-  if [ -f $symFile ]; then
-    rm $symFile
-  fi
+  rm $symFile || echo "Can't delete"
   ln -s "${themes_path}/${choice}.conf" $symFile
   notify-send "Kitty theme updated" "Theme: ${choice}"
 else
