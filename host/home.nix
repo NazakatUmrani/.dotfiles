@@ -258,6 +258,12 @@ in
       recursive = true;
     };
 
+    # Dunst files
+    ".config/dunst" = {
+      source = ../configs/dunst;
+      recursive = true;
+    };
+
     # Waybar files
     ".config/waybar" = {
       source = ../configs/waybar;
