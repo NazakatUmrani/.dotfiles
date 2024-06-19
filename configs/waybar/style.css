@@ -179,9 +179,9 @@ tooltip label {
 }
 #custom-themeselector {
     border: 2px solid #665c54;
-    color: #5dd7b9;
+    color: #8ec07c;
     background: #282828;
-    border-radius: 15px 50px 15px 50px;
+    border-radius: 50px 15px 50px 15px;
     margin: 5px;
     padding: 2px 20px;
 }

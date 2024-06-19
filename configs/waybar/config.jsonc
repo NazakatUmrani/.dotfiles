@@ -8,6 +8,7 @@
       "hyprland/window",
       "custom/startmenu",
       "custom/wallpaper",
+       "custom/themeselector",
     ],
 
     "modules-center" : [ 
@@ -21,7 +22,6 @@
      
      "modules-right" : [
        // "idle_inhibitor",
-       // "custom/themeselector",
        "custom/notification",
       "clock",
        //"battery",
@@ -109,7 +109,7 @@
        "tooltip" : false,
        "format" : "",
        "# exec" : "theme-selector",
-       "on-click" : "sleep 0.1 && theme-selector",
+       "on-click" : "config/waybar/scripts/themeswitcher.sh",
      },
 
      // Wallpaper
