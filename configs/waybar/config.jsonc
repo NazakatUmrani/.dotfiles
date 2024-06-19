@@ -87,7 +87,7 @@
      },
      
      "pulseaudio" : {
-       "format" : "{icon}{volume}% {format_source}",
+       "format" : "{icon} {volume}% {format_source}",
        "format-bluetooth" : "{volume}% {icon} {format_source}",
        "format-bluetooth-muted" : " {icon} {format_source}",
        "format-muted" : " 0% {format_source}",
@@ -100,7 +100,7 @@
          "phone" : "",
          "portable" : "",
          "car" : "",
-         "default" : ["", " ", " "],
+         "default" : ["", "", ""],
        },
        "on-click" : "pavucontrol",
      },
