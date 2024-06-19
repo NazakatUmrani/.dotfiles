@@ -41,8 +41,9 @@ in
       ];
     };
   };
-  xdg.configFile."rofi/config.rasi" = {
-    text = builtins.readFile ../configs/rofi/config.rasi;
+  xdg.configFile."rofi" = {
+    source =  ../configs/rofi;
+    recursive = true;
   };
 
   services.gpg-agent = {
