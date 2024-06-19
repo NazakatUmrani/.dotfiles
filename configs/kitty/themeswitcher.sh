@@ -43,7 +43,9 @@ choice=$(echo -e "${listNames}" | sort | rofi -dmenu -replace -i -config ~/.conf
 symFile="${HOME}/.config/kitty/theme.conf"
 
 if [ -n "$choice" ]; then
-  rm $symFile || echo "Can't delete"
+  if [ -f $symFile ]; then
+    rm $symFile
+  fi
   ln -s "${themes_path}/${choice}.conf" $symFile
   notify-send "Kitty theme updated" "Theme: ${choice}"
 else

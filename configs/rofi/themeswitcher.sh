@@ -40,12 +40,14 @@ listNames=${listNames::-2}
 # listNames=${listNames::-2}
 choice=$(echo -e "${listNames}" | sort | rofi -dmenu -replace -i -config ~/.config/rofi/config.rasi -no-show-icons -width 30 -p "Rofi Themes")
 
-symFile="${HOME}/.config/kitty/config.rasi"
+symFile="${HOME}/.config/rofi/theme.rasi"
 
 if [ -n "$choice" ]; then
-  rm $symFile || echo "Can't delete"
+  if [ -f $symFile ]; then
+    rm $symFile
+  fi
   ln -s "${themes_path}/${choice}.rasi" $symFile
-  notify-send "Kitty theme updated" "Theme: ${choice}"
+  notify-send "Rofi theme updated" "Theme: ${choice}"
 else
   notify-send "No theme selected"
 fi
