@@ -89,18 +89,25 @@ tooltip {
 tooltip label {
   color: #b8bb26;
 }
+#custom-startmenu {
+    padding: 0px 4px 0px 4px;
+    color: #fb4934;
+}
 #window {
+    padding: 0px 7px;
     color: #b8bb26;
+}
+#left {
     background: #282828;
-    border-radius: 0px 15px 50px 0px;
-    margin: 5px 5px 5px 0px;
-    padding: 2px 20px;
+    border-radius: 0px 15px 30px 0px;
+    margin: 5px 0px 5px 0px;
+    padding: 0px 10px;
     border: 2px solid #665c54;
 }
 #memory {
     color: #fb4934;
     background: #282828;
-    border-radius: 15px 50px 15px 50px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -108,7 +115,7 @@ tooltip label {
 #clock {
     color: #8ec07c;
     background: #282828;
-    border-radius: 15px 50px 15px 50px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -116,7 +123,7 @@ tooltip label {
 #idle_inhibitor {
     color: #ffcc1b;
     background: #282828;
-    border-radius: 50px 15px 50px 15px;
+    border-radius: 30px 15px 30px 15px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -124,7 +131,7 @@ tooltip label {
 #cpu {
     color: #fabd2f;
     background: #282828;
-    border-radius: 50px 15px 50px 15px;
+    border-radius: 30px 15px 30px 15px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -132,7 +139,7 @@ tooltip label {
 #disk {
     color: #83a598;
     background: #282828;
-    border-radius: 15px 50px 15px 50px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -148,7 +155,7 @@ tooltip label {
 #network {
     color: #f08e48;
     background: #282828;
-    border-radius: 50px 15px 50px 15px;
+    border-radius: 30px 15px 30px 15px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -156,7 +163,7 @@ tooltip label {
 #tray {
     color: #a1a19a;
     background: #282828;
-    border-radius: 15px 0px 0px 50px;
+    border-radius: 15px 0px 0px 30px;
     margin: 5px 0px 5px 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -164,7 +171,7 @@ tooltip label {
 #pulseaudio {
     color: #8ec07c;
     background: #282828;
-    border-radius: 50px 15px 50px 15px;
+    border-radius: 30px 15px 30px 15px;
     margin: 5px;
     border: 2px solid #665c54;
     padding: 2px 20px;
@@ -172,31 +179,22 @@ tooltip label {
 #custom-notification {
     color: #14747e;
     background: #282828;
-    border-radius: 15px 50px 15px 50px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
 }
-#custom-themeselector {
-    border: 2px solid #665c54;
+#custom-themeselector{
     color: #8ec07c;
-    background: #282828;
-    border-radius: 50px 15px 50px 15px;
-    margin: 5px;
-    padding: 2px 20px;
+    padding: 0px 7px;
 }
 #custom-wallpaper {
+    padding: 0px 7px;
+}
+#theme {
     color: #5dd7b9;
     background: #282828;
-    border-radius: 50px 15px 50px 15px;
-    margin: 5px;
-    border: 2px solid #665c54;
-    padding: 2px 20px;
-}
-#custom-startmenu {
-    color: #fb4934;
-    background: #282828;
-    border-radius: 50px 15px 50px 15px;
+    border-radius: 30px 15px 30px 15px;
     margin: 5px;
     border: 2px solid #665c54;
     padding: 2px 20px;
@@ -204,7 +202,7 @@ tooltip label {
 #idle_inhibitor {
     color: #f08e48;
     background: #282828;
-    border-radius: 15px 50px 15px 50px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     border: 2px solid #665c54;
     padding: 2px 20px;

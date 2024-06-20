@@ -5,10 +5,12 @@
     "height" : 10, //can't set less than 42 as minimum height reuired by modules
 
     "modules-left" : [ 
-      "hyprland/window",
-      "custom/startmenu",
-      "custom/wallpaper",
-       "custom/themeselector",
+      "group/left",
+      // "hyprland/window",
+      // "custom/startmenu",
+      // "custom/wallpaper",
+      //  "custom/themeselector",
+       "group/theme",
     ],
 
     "modules-center" : [ 
@@ -52,9 +54,17 @@
      },
 
      "hyprland/window" : {
-     	"max-length" : 25,
-     	"separate-outputs" : false,
-     },
+      "max-length" : 25,
+      "separate-outputs" : false,
+    },
+    
+    "group/left" : {
+      "orientation": "inherit",
+      "modules": [
+        "custom/startmenu",
+          "hyprland/window",
+      ]
+    },
 
      "memory" : {
      	"interval" : 5,
@@ -106,10 +116,10 @@
      },
      
      "custom/themeselector" : {
-       "tooltip" : false,
        "format" : "",
        "# exec" : "theme-selector",
-       "on-click" : "~/.config/waybar/scripts/themeswitcher.sh",
+       "on-click" : "pkill rofi || ~/.config/waybar/scripts/themeswitcher.sh",
+       "tooltip-format": "Theme Changer",
      },
 
      // Wallpaper
@@ -117,55 +127,69 @@
         "format" : "󰆊",
         "on-click": "~/.config/hypr/changeWallpaper.sh",
         // "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
-        "tooltip-format": "Change Wallpaper",
+        "tooltip-format": "Wallpaper Changer",
     },
+    
+    "group/theme": {
+      "orientation": "inherit",
+      // "drawer": {
+      //     "transition-duration": 300,
+      //     "children-class": "not-memory",
+      //     "transition-left-to-right": true
+      // },            
+      "modules": [
+          "custom/wallpaper",
+          "custom/themeselector",
+      ]
+  },
 
-     "custom/startmenu" : {
-       "tooltip" : false,
-       "format" : "",
-       "# exec" : "rofi -show drun",
+    "custom/startmenu" : {
+      "tooltip" : false,
+      "format" : "",
+      "# exec" : "rofi -show drun",
+       "tooltip-format": "App Launcher",
        "on-click" : "pkill rofi || rofi -show drun",
-     },
-     
-     "idle_inhibitor" : {
-       "format" : "{icon}",
-       "format-icons" : {
-           "activated" : "",
-           "deactivated" : "",
-       },
-       "tooltip" : "true",
-     },
-     
-     "custom/notification" : {
-       "tooltip" : false,
-       "format" : "{icon} {}",
-       "format-icons" : {
-       "notification" : "<span foreground:'red'><sup></sup></span>",
-       "none" : "",
-       "dnd-notification" : "<span foreground:'red'><sup></sup></span>",
-       "dnd-none" : "",
-       "inhibited-notification" : "<span foreground:'red'><sup></sup></span>",
-       "inhibited-none" : "",
-       "dnd-inhibited-notification" : "<span foreground:'red'><sup></sup></span>",
-       "dnd-inhibited-none" : "",
-       },
-       "return-type" : "json",
-       "exec-if" : "which swaync-client",
-       "exec" : "swaync-client -swb",
-       "on-click" : "task-waybar",
-       "escape" : true,
-     },
-     
-     "battery" : {
-       "states" : {
-         "warning" : 30,
-         "critical" : 15,
-       },
-       "format" : "{icon} {capacity}%",
-       "format-charging" : "󰂄 {capacity}%",
-       "format-plugged" : "󱘖 {capacity}%",
-       "format-icons" : ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-       "on-click" : "",
-       "tooltip" : false,
-     },
+    },
+    
+    "idle_inhibitor" : {
+      "format" : "{icon}",
+      "format-icons" : {
+          "activated" : "",
+          "deactivated" : "",
+      },
+      "tooltip" : "true",
+    },
+    
+    "custom/notification" : {
+      "tooltip" : false,
+      "format" : "{icon} {}",
+      "format-icons" : {
+      "notification" : "<span foreground:'red'><sup></sup></span>",
+      "none" : "",
+      "dnd-notification" : "<span foreground:'red'><sup></sup></span>",
+      "dnd-none" : "",
+      "inhibited-notification" : "<span foreground:'red'><sup></sup></span>",
+      "inhibited-none" : "",
+      "dnd-inhibited-notification" : "<span foreground:'red'><sup></sup></span>",
+      "dnd-inhibited-none" : "",
+      },
+      "return-type" : "json",
+      "exec-if" : "which swaync-client",
+      "exec" : "swaync-client -swb",
+      "on-click" : "task-waybar",
+      "escape" : true,
+    },
+    
+    "battery" : {
+      "states" : {
+        "warning" : 30,
+        "critical" : 15,
+      },
+      "format" : "{icon} {capacity}%",
+      "format-charging" : "󰂄 {capacity}%",
+      "format-plugged" : "󱘖 {capacity}%",
+      "format-icons" : ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+      "on-click" : "",
+      "tooltip" : false,
+    },
 }
