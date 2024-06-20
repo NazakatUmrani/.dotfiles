@@ -107,14 +107,14 @@
      
      "custom/themeselector" : {
        "tooltip" : false,
-       "format" : "",
+       "format" : "",
        "# exec" : "theme-selector",
-       "on-click" : "config/waybar/scripts/themeswitcher.sh",
+       "on-click" : "~/.config/waybar/scripts/themeswitcher.sh",
      },
 
      // Wallpaper
     "custom/wallpaper": {
-        "format" : "",
+        "format" : "󰆊",
         "on-click": "~/.config/hypr/changeWallpaper.sh",
         // "on-click-right": "~/dotfiles/hypr/scripts/wallpaper-effects.sh",
         "tooltip-format": "Change Wallpaper",
