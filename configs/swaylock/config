@@ -2,7 +2,7 @@
 # screenshots
 # Add an image as a background 
 # In my setup the current wallpaper (requires wallpaper scripts in /scripts)
-image=~/.config/wlogout/shot.png
+image= ~/.cache/cache_wallpaper.png
 
 # Fade in time
 fade-in=1

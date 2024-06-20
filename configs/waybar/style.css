@@ -76,7 +76,7 @@ window#waybar {
     opacity: 1.0;
 }
 #workspaces button:hover {
-    color: #fabd2f;
+    color: #282828;
     background: #8ec07c;
     border-radius: 15px;
     opacity: 1.0;
@@ -95,7 +95,7 @@ tooltip label {
 }
 #window {
     padding: 0px 7px;
-    color: #b8bb26;
+    color: #fb4934;
 }
 #left {
     background: #282828;

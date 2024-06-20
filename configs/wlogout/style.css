@@ -15,7 +15,7 @@
 }
 
 window {
-    background-image: image(url("./shot.png"));
+    background-image: image(url("../../.cache/cache_wallpaper.png"));
     background-size: cover;
 }
 
