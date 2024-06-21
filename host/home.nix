@@ -284,8 +284,8 @@ in
 
   };
 
-  # Session variables
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  # # Session variables
+  # home.sessionVariables = {
+  #   EDITOR = "nvim";
+  # };
 }
