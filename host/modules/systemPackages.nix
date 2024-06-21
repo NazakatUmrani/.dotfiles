@@ -130,5 +130,6 @@
     wlogout
     xdg-desktop-portal-hyprland
     xsettingsd
+    yazi
   ];
 }
