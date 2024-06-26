@@ -4,16 +4,25 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, hostname, username, inputs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./modules/grub.nix
-      ./modules/systemPackages.nix
-      ./modules/sound.nix
-      ./modules/virtualisation.nix
+let
+  google-fonts = (pkgs.google-fonts.override { fonts = [
+      "Grape Nuts"
+      # # Sans
+      # "Gabarito" "Lexend"
+      # # Serif
+      # "Chakra Petch" "Crimson Text"
     ];
+  });
+in  
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./modules/grub.nix
+    ./modules/systemPackages.nix
+    ./modules/sound.nix
+    ./modules/virtualisation.nix
+  ];
 
   networking = {
     hostName = "${hostname}"; # Define your hostname.
@@ -48,11 +57,11 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-  #  useXkbConfig = true; # use xkb.options in tty.
+    #  useXkbConfig = true; # use xkb.options in tty.
   };
 
   # Enable the X11 windowing system.
-   services = {
+  services = {
     # ------- List services that you want to enable: -------
     # teamviewer.enable = true;
     libinput.enable = true; # Touchpad support
@@ -60,24 +69,24 @@
 
     # Display Manager
     displayManager = {
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-          theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
-        };
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
+      };
     };
 
     # Configure keymap in X11
-    xserver = { 
+    xserver = {
       enable = true;
       xkb = {
         layout = "us";
         variant = "";
-      }; 
+      };
     };
 
-  # Enable CUPS to print documents.
-  # printing.enable = true;
+    # Enable CUPS to print documents.
+    # printing.enable = true;
   };
 
   # Enabling Hyprland
@@ -94,7 +103,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ 
+    extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal
     ];
@@ -104,7 +113,7 @@
       pkgs.xdg-desktop-portal
     ];
   };
-  
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORMTHEME = "qt5ct";
@@ -122,38 +131,45 @@
   };
 
   security = {
-    pam.services.swaylock = {}; # password isn't accepted, if removed
+    pam.services.swaylock = { }; # password isn't accepted, if removed
     polkit.enable = true; # Enable Polkit
   };
 
   # Allow Unfree Softwares
   nixpkgs.config = {
-    allowUnfree = true;  
-    permittedInsecurePackages = [
-      "nix-2.15.3"
-    ];
+    allowUnfree = true;
+    permittedInsecurePackages = [ "nix-2.15.3" ];
   };
   # Nix Experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "docker" "distrobox" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-     ];
-     #shell = pkgs.fish;
-     #ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
-   };
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "distrobox"
+    ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [ ];
+    #shell = pkgs.fish;
+    #ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
+  };
 
-  
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
       nerdfonts
       fira-code
+      # Fonts for rofi styles
+      iosevka
+      icomoon-feather
+      google-fonts
       # font-awesome
-      # google-fonts
     ];
   };
 

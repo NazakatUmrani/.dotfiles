@@ -125,9 +125,9 @@ in
     "text/plain" = [ "neovide.desktop" ];
     "application/pdf" = [ "zathura.desktop" ];
     "image/*" = [ "sxiv.desktop" ];
-    "video/png" = [ "mpv.desktop" ];
-    "video/jpg" = [ "mpv.desktop" ];
-    "video/*" = [ "mpv.desktop" ];
+    "video/png" = [ "vlc.desktop" ];
+    "video/jpg" = [ "vlc.desktop" ];
+    "video/*" = [ "vlc.desktop" ];
   };
 
   xdg.configFile."lf/icons".source = ../configs/lf/icons;
