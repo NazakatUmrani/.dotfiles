@@ -14,6 +14,7 @@
   xorg,
   libpulseaudio,
   mysql80,
+  xcb-util-cursor,
 }:
 
 stdenv.mkDerivation rec {
@@ -22,7 +23,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb";
-    hash = "sha256-JDltgnbvEu2Io0NJ48Og25XNAocc/dIbV5MmUE+0gQs=";
+    hash = "sha256-8MOw0/fmZtfYCkLFx14KvQ9UNoHoRM4fy5GXH5clYgI=";
   };
 
   unpackPhase = "dpkg-deb -x $src .";
@@ -41,6 +42,7 @@ stdenv.mkDerivation rec {
       unixODBC
       stdenv.cc.cc
       mysql80
+      xcb-util-cursor
     ]
     ++ (with gst_all_1; [
       gstreamer
@@ -57,6 +59,8 @@ stdenv.mkDerivation rec {
       xcbutilrenderutil # libxcb-render-util.so.0
       libpulseaudio
     ]);
+
+  autoPatchelfIgnoreMissingDeps = [ "libmimerapi.so" ]; # not in nixpkgs yet
 
   runtimeDependencies = [ (lib.getLib udev) ];
 
