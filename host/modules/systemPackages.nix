@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-    # List packages installed in system profile. To search, run:
+  # List packages installed in system profile. To search, run:
   # $ nix search wget
-   environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     alarm-clock-applet
     android-studio
     android-tools
@@ -113,14 +113,14 @@
     vlc
     # vmware-workstation
     vscode
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        llvm-vs-code-extensions.vscode-clangd
-        mkhl.direnv
-        ms-vscode.cpptools-extension-pack
-        formulahendry.code-runner
-      ];
-    })
+    # (vscode-with-extensions.override {
+    #   vscodeExtensions = with vscode-extensions; [
+    #     llvm-vs-code-extensions.vscode-clangd
+    #     mkhl.direnv
+    #     ms-vscode.cpptools-extension-pack
+    #     formulahendry.code-runner
+    #   ];
+    # })
     waybar
     waydroid
     waypaper

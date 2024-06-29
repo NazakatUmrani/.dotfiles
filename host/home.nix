@@ -11,26 +11,29 @@ in
     stateVersion = "23.11";
   };
 
-  # Setting Git configs
-  programs.git = {
-    enable = true;
-    userName = "Nazakat Umrani - NixOS Linux";
-    userEmail = "unazakat70@gmail.com";
-    extraConfig.http.version = "HTTP/1.1"; # solves some curl fail EOF, issues
-  };
-
-  programs.kitty = {
-    enable = true;
-    package = pkgs.kitty;
-  };
-  xdg.configFile."kitty" = {
-    source = ../configs/kitty;
-    recursive = true;
-  };
-
   programs = {
+    # Setting Git configs
+    git = {
+      enable = true;
+      userName = "Nazakat Umrani - NixOS Linux";
+      userEmail = "unazakat70@gmail.com";
+      extraConfig.http.version = "HTTP/1.1"; # solves some curl fail EOF, issues
+    };
+    kitty = {
+      enable = true;
+      package = pkgs.kitty;
+    };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      extraPackages = with pkgs; [ xclip wl-clipboard ];
+    };
     gpg.enable = true;
     firefox.enable = true;
+    fish.enable = true;
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
@@ -40,15 +43,73 @@ in
         rofi-calc
       ];
     };
-  };
-  xdg.configFile."rofi" = {
-    source =  ../configs/rofi;
-    recursive = true;
-  };
+    lf = {
+      enable = true;
+      commands = {
+        dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+        editor-open = ''$$EDITOR $f'';
+        mkdir = ''
+        ''${{
+          printf "Directory Name: "
+          read DIR
+          mkdir $DIR
+        }}
+        '';
+      };
+      keybindings = {
+        "\\\"" = "";
+        o = "";
+        c = "mkdir";
+        "." = "set hidden!";
+        "`" = "mark-load";
+        "\\'" = "mark-load";
+        "<enter>" = "open";
+        
+        do = "dragon-out";
+        
+        "g~" = "cd";
+        gh = "cd";
+        "g/" = "/";
 
-  services.gpg-agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-qt;
+        ee = "editor-open";
+        V = ''''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
+        dd = "delete";
+        # ...
+      };
+
+      settings = {
+        preview = true;
+        drawbox = true;
+        icons = true;
+        ignorecase = true;
+      };
+
+      extraConfig = 
+      let 
+        previewer = 
+          pkgs.writeShellScriptBin "pv.sh" ''
+          file=$1
+          w=$2
+          h=$3
+          x=$4
+          y=$5
+          
+          if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
+              ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
+              exit 1
+          fi
+          
+          ${pkgs.pistol}/bin/pistol "$file"
+        '';
+        cleaner = pkgs.writeShellScriptBin "clean.sh" ''
+          ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
+        '';
+      in
+      ''
+        set cleaner ${cleaner}/bin/clean.sh
+        set previewer ${previewer}/bin/pv.sh
+      '';
+    };
   };
 
   # Create XDG Dirs
@@ -57,6 +118,34 @@ in
       enable = true;
       createDirectories = true;
     };
+    configFile = {
+      "kitty" = {
+        source = ../configs/kitty;
+        recursive = true;
+      };
+      "hypr" = {
+        source = ../configs/hypr;
+        recursive = true;
+      };
+      "rofi" = {
+        source =  ../configs/rofi;
+        recursive = true;
+      };
+      "lf/icons".source = ../configs/lf/icons;
+    };
+    mimeApps.defaultApplications = {
+      "text/plain" = [ "neovide.desktop" ];
+      "application/pdf" = [ "zathura.desktop" ];
+      "image/*" = [ "sxiv.desktop" ];
+      "video/png" = [ "vlc.desktop" ];
+      "video/jpg" = [ "vlc.desktop" ];
+      "video/*" = [ "vlc.desktop" ];
+    };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
    # Define Settings For Xresources
@@ -121,96 +210,7 @@ in
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/plain" = [ "neovide.desktop" ];
-    "application/pdf" = [ "zathura.desktop" ];
-    "image/*" = [ "sxiv.desktop" ];
-    "video/png" = [ "vlc.desktop" ];
-    "video/jpg" = [ "vlc.desktop" ];
-    "video/*" = [ "vlc.desktop" ];
-  };
-
-  xdg.configFile."lf/icons".source = ../configs/lf/icons;
-  programs.lf = {
-    enable = true;
-    commands = {
-      dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
-      editor-open = ''$$EDITOR $f'';
-      mkdir = ''
-      ''${{
-        printf "Directory Name: "
-        read DIR
-        mkdir $DIR
-      }}
-      '';
-    };
-
-    keybindings = {
-      "\\\"" = "";
-      o = "";
-      c = "mkdir";
-      "." = "set hidden!";
-      "`" = "mark-load";
-      "\\'" = "mark-load";
-      "<enter>" = "open";
-      
-      do = "dragon-out";
-      
-      "g~" = "cd";
-      gh = "cd";
-      "g/" = "/";
-
-      ee = "editor-open";
-      V = ''''$${pkgs.bat}/bin/bat --paging=always --theme=gruvbox "$f"'';
-      dd = "delete";
-      # ...
-    };
-
-    settings = {
-      preview = true;
-      drawbox = true;
-      icons = true;
-      ignorecase = true;
-    };
-
-    extraConfig = 
-    let 
-      previewer = 
-        pkgs.writeShellScriptBin "pv.sh" ''
-        file=$1
-        w=$2
-        h=$3
-        x=$4
-        y=$5
-        
-        if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
-            ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
-            exit 1
-        fi
-        
-        ${pkgs.pistol}/bin/pistol "$file"
-      '';
-      cleaner = pkgs.writeShellScriptBin "clean.sh" ''
-        ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
-      '';
-    in
-    ''
-      set cleaner ${cleaner}/bin/clean.sh
-      set previewer ${previewer}/bin/pv.sh
-    '';
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    extraPackages = with pkgs; [ xclip wl-clipboard ];
-  };
-
+  
   # wayland.windowManager.hyprland = {
   #   enable = true;
   #   xwayland.enable = true;
@@ -221,13 +221,7 @@ in
   #   ];
   #   extraConfig = " ";
   # };
-  xdg.configFile."hypr" = {
-      source = ../configs/hypr;
-      recursive = true;
-    };
-
-  programs.fish.enable = true;
-
+  
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

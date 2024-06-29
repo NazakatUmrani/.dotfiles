@@ -5,11 +5,12 @@
 
 { config, lib, pkgs, hostname, username, inputs, ... }:
 let
-  google-fonts = (pkgs.google-fonts.override { fonts = [
-      "Grape Nuts"  # to see font names, github.com/google/fonts and search for the font folder, there in it's METADATA file you will see it's correct name to put here
+  google-fonts = (pkgs.google-fonts.override {
+    fonts = [
+      "Grape Nuts" # to see font names, github.com/google/fonts and search for the font folder, there in it's METADATA file you will see it's correct name to put here
     ];
   });
-in  
+in
 {
   imports = [
     # Include the results of the hardware scan.
