@@ -241,7 +241,6 @@ in
     pinentry-qt
     pywal
     xfce.thunar
-    zeroad
   ];
 
   home.file = {
