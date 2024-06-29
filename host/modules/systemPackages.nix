@@ -67,6 +67,7 @@
     nerdfonts
     networkmanagerapplet
     nix-output-monitor # beautiful nix build loading screen
+    nixpkgs-fmt # formatter nix files
     nomacs
     nvd # compare two nix configurations
     nwg-look

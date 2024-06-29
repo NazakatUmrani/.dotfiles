@@ -6,11 +6,7 @@
 { config, lib, pkgs, hostname, username, inputs, ... }:
 let
   google-fonts = (pkgs.google-fonts.override { fonts = [
-      "Grape Nuts"
-      # # Sans
-      # "Gabarito" "Lexend"
-      # # Serif
-      # "Chakra Petch" "Crimson Text"
+      "Grape Nuts"  # to see font names, github.com/google/fonts and search for the font folder, there in it's METADATA file you will see it's correct name to put here
     ];
   });
 in  
@@ -33,7 +29,6 @@ in
     device = "/dev/disk/by-uuid/7EC03FB9C03F768D";
     fsType = "ntfs";
   };
-
 
   networking = {
     hostName = "${hostname}"; # Define your hostname.
