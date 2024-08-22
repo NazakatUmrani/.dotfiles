@@ -231,7 +231,7 @@ in
     eza
     git-crypt
     gnupg
-    # kdePackages.dolphin
+    kdePackages.dolphin
     pinentry-qt
     pywal
     xfce.thunar

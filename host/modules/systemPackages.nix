@@ -12,6 +12,7 @@
     blueman
     bluez
     bluez-tools
+    bottles
     brightnessctl
     btop
     celluloid
@@ -47,6 +48,7 @@
     libinput-gestures
     libnotify
     libreoffice-fresh
+    libsForQt5.full
     libsForQt5.kdeconnect-kde
     # libsForQt5.kdenlive
     libsForQt5.kget
@@ -68,6 +70,7 @@
     networkmanagerapplet
     nix-output-monitor # beautiful nix build loading screen
     nixpkgs-fmt # formatter nix files
+    nodejs_22
     nomacs
     nvd # compare two nix configurations
     nwg-look
@@ -86,6 +89,7 @@
     qt6.full
     qt6Packages.qtstyleplugin-kvantum
     qt6.qtwayland
+    qtcreator
     ranger
     remmina
     ripgrep # dependency of nvim for live grep using telescope
@@ -132,5 +136,11 @@
     xdg-desktop-portal-hyprland
     xsettingsd
     yazi
+
+    # palworld wine dependency
+    bubblewrap 
+    dwarfs
+    fuse-overlayfs
+    gamescope
   ];
 }

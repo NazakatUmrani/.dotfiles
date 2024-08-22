@@ -105,6 +105,9 @@ in
     };
 
     nix-ld.enable = true; # No idea what it is
+    
+    appimage.enable = true; # Enable AppImage support
+    appimage.binfmt = true; # binfmt registration to run appimages via appimage-run seamlessly.
   };
 
   xdg.portal = {
