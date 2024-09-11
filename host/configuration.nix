@@ -24,13 +24,13 @@ in
   fileSystems."/home/nazakat/WindowsData" = {
     device = "/dev/disk/by-uuid/E2CE55C2CE559021";
     fsType = "ntfs";
-    options = ["rw"];
+    options = ["rw" "uid=nazakat" "gid=users"];
   };
 
   fileSystems."/home/nazakat/Nazakat Umrani" = {
     device = "/dev/disk/by-uuid/7EC03FB9C03F768D";
     fsType = "ntfs";
-    options = ["rw"];
+    options = ["rw" "uid=nazakat" "gid=users"];
   };
 
   networking = {
