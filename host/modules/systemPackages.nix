@@ -65,6 +65,7 @@
     luajit
     # lvim
     mako
+    mongodb-compass # MongoDB Compass GUI
     neofetch
     nerdfonts
     networkmanagerapplet
