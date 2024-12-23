@@ -33,6 +33,17 @@ in
     options = ["rw" "uid=nazakat" "gid=users"];
   };
 
+  #hardware.graphics = {
+  #  package = pkgs.unstable.mesa.drivers;
+  #};
+  hardware.graphics = {
+    enable = true;
+    # driSupport = true;
+    extraPackages = with pkgs; [
+      mesa mesa.drivers libva
+    ];
+  };
+
   networking = {
     hostName = "${hostname}"; # Define your hostname.
     # Pick only one of the below networking options.
@@ -72,7 +83,7 @@ in
   # Enable the X11 windowing system.
   services = {
     # ------- List services that you want to enable: -------
-    # teamviewer.enable = true;
+    teamviewer.enable = true;
     libinput.enable = true; # Touchpad support
     openssh.enable = true; # OpenSSH daemon.
 
@@ -84,6 +95,8 @@ in
         theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
       };
     };
+    
+    seatd.enable = true;
 
     # Configure keymap in X11
     xserver = {
@@ -92,6 +105,7 @@ in
         layout = "us";
         variant = "";
       };
+      #videoDrivers = [ "intel" ];
     };
 
     # Enable CUPS to print documents.
@@ -104,6 +118,7 @@ in
       enable = true;
       xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
 
     nix-ld.enable = true; # No idea what it is
@@ -133,10 +148,10 @@ in
     # If your cursor becomes invisible
     # WLR_NO_HARDWARE_CURSORS = "1";
     # Hint electron apps to use wayland
-    #XDG_CURRENT_DESKTOP = "Hyprland";
-    #XDG_SESSION_DESKTOP = "Hyprland";
-    #XDG_SESSION_TYPE = "wayland";
-    #GDK_BACKEND = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+    XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_SESSION_TYPE = "wayland";
+    GDK_BACKEND = "wayland";
     #GTK_USE_PORTAL = "1";
     #QT_QPA_PLATFORM = "wayland";
     #MOZ_ENABLE_WAYLAND = "1";
@@ -181,9 +196,12 @@ in
       iosevka
       icomoon-feather
       google-fonts
-      # font-awesome
+      font-awesome
     ];
   };
+
+  # Hyprland not launching
+  # chaotic.mesa-git.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

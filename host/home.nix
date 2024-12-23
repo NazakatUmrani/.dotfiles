@@ -38,11 +38,11 @@ in
     rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs;
-      map (pkg: pkg.override { rofi-unwrapped = rofi-wayland-unwrapped; }) [
-        rofi-emoji
-        rofi-calc
-      ];
+      # plugins = with pkgs;
+      # map (pkg: pkg.override { rofi-unwrapped = rofi-wayland-unwrapped; }) [
+      #   rofi-emoji
+      #   rofi-calc
+      # ];
     };
     lf = {
       enable = true;
@@ -212,16 +212,16 @@ in
   };
 
   
-  # wayland.windowManager.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  #   systemd.enable = true;
-  #   package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  #   plugins = [
-  #     # hyprplugins.hyprtrails
-  #   ];
-  #   extraConfig = " ";
-  # };
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    systemd.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    plugins = [
+      # hyprplugins.hyprtrails
+    ];
+    extraConfig = " ";
+  };
   
   home.packages = with pkgs; [
     # # It is sometimes useful to fine-tune packages, for example, by applying

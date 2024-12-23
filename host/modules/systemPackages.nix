@@ -5,14 +5,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     alarm-clock-applet
-    android-studio
-    android-tools
+    # android-studio
+    # android-tools
     audacity
     bat
     blueman
     bluez
     bluez-tools
-    bottles
+    # bottles
     brightnessctl
     btop
     celluloid
@@ -31,7 +31,7 @@
     gh
     gimp
     git
-    github-desktop
+    # github-desktop
     google-chrome
     grimblast # A helper for screenshots within Hyprland, based on grimshot
     grim # Grab images from a Wayland compositor
@@ -41,7 +41,7 @@
     hyprpaper
     imagemagick
     inkscape
-    jdk
+    # jdk
     kazam
     killall
     lf
@@ -50,7 +50,7 @@
     libreoffice-fresh
     libsForQt5.full
     libsForQt5.kdeconnect-kde
-    # libsForQt5.kdenlive
+    libsForQt5.kdenlive
     libsForQt5.kget
     libsForQt5.okular
     libsForQt5.polkit-kde-agent
@@ -104,7 +104,7 @@
     swaylock-effects
     swww
     sxhkd
-    #teamviewer
+    teamviewer
     telegram-desktop
     tldr
     tree
@@ -140,9 +140,9 @@
     yazi
 
     # palworld wine dependency
-    bubblewrap 
-    dwarfs
-    fuse-overlayfs
-    gamescope
+    # bubblewrap 
+    # dwarfs
+    # fuse-overlayfs
+    # gamescope
   ];
 }

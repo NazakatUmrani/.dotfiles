@@ -2,7 +2,7 @@
 
 {
   # Enable sound.
-  sound.enable = true;
+  # sound.enable = true; No effect in lastest version
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
