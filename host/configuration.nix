@@ -58,6 +58,12 @@ in
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # systemd.services.nix-daemon.environment = {
+  #   # socks5h mean that the hostname is resolved by the SOCKS server
+  #   # https_proxy = "socks5h://localhost:7891";
+  #   https_proxy = "http://localhost:7890"; # or use http prctocol instead of socks5
+  # };
+
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
