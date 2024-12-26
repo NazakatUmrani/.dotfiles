@@ -116,6 +116,11 @@ in
 
     # Enable CUPS to print documents.
     # printing.enable = true;
+    
+    # Openvpn
+    openvpn.servers = {
+      azureVpn = { config = '' config /home/nazakat/openvpn/azurevpn.conf ''; };
+    };
   };
 
   # Enabling Hyprland
