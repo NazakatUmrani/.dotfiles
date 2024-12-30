@@ -36,12 +36,15 @@ in
   #hardware.graphics = {
   #  package = pkgs.unstable.mesa.drivers;
   #};
-  hardware.graphics = {
-    enable = true;
-    # driSupport = true;
-    extraPackages = with pkgs; [
-      mesa mesa.drivers libva
-    ];
+  hardware = {
+    graphics = {
+      enable = true;
+      # driSupport = true;
+      extraPackages = with pkgs; [
+        mesa mesa.drivers libva
+      ];
+    };
+    bluetooth.enable = true; # enables support for Bluetooth
   };
 
   networking = {
