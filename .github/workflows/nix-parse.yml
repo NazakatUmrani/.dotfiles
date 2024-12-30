@@ -1,0 +1,28 @@
+name: "Check whether nix files are parseable"
+
+permissions: read-all
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Nix
+      uses: cachix/install-nix-action@v20
+      with:
+        nix_path: nixpkgs=channel:nixpkgs-unstable
+
+    - name: Find and parse all .nix files
+      run: |
+        ret=0
+        find . -name '*.nix' | while IFS= read -r file; do
+          out="$(nix-instantiate --parse "$file")" || { echo "$out" && ret=1; }
+        done
+        exit "$ret"
