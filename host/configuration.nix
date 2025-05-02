@@ -10,6 +10,9 @@ let
       "Grape Nuts" # to see font names, github.com/google/fonts and search for the font folder, there in it's METADATA file you will see it's correct name to put here
     ];
   });
+
+  impact = pkgs.callPackage ../pkgs/fonts/impact.nix {};
+  hobostd = pkgs.callPackage ../pkgs/fonts/hobostd.nix {};
 in
 {
   imports = [
@@ -121,9 +124,9 @@ in
     # printing.enable = true;
     
     # Openvpn
-    openvpn.servers = {
-      azureVpn = { config = '' config /home/nazakat/openvpn/azurevpn.conf ''; };
-    };
+    # openvpn.servers = {
+    #   azureVpn = { config = '' config /home/nazakat/openvpn/azurevpn.conf ''; };
+    # };
   };
 
   # Enabling Hyprland
@@ -211,6 +214,8 @@ in
       icomoon-feather
       google-fonts
       font-awesome
+      impact
+      hobostd
     ];
   };
 
@@ -229,7 +234,15 @@ in
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 5000 3000 5173 ];
+    allowedUDPPortRanges = [
+      { from = 4000; to = 4007; }
+      { from = 5173; to = 5174; }
+      { from = 8000; to = 8010; }
+    ];
+  };
 
   system = {
     copySystemConfiguration = false; # can't set it to true, becuase of flake
