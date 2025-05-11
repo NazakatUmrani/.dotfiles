@@ -9,14 +9,20 @@ return {
         end
     },
 
-    {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        config = function()
-            vim.cmd("colorscheme gruvbox")
-        end
-    },
+    -- {
+    --     "ellisonleao/gruvbox.nvim",
+    --     priority = 1000,
+    --     config = function()
+    --         vim.cmd("colorscheme gruvbox")
+    --     end
+    -- },
     --
+    
+    {
+      "catppucin/nvim",
+      name="catpuccin",
+      priority = 1000,
+    },
     
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",

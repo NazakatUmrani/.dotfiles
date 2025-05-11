@@ -56,7 +56,7 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.${username} = import ./host/home.nix;
           }
-          nixos-hardware.nixosModules.dell-latitude-3340
+          nixos-hardware.nixosModules.dell-latitude-5490
         ];
       };
     };
