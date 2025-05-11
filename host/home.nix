@@ -216,7 +216,7 @@ in
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     plugins = [
       # hyprplugins.hyprtrails
     ];

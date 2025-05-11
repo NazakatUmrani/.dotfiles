@@ -2,23 +2,24 @@
   description = "My First Flake for NixOS System Dotfiles";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs.url = "nixpkgs/nixos-24.11";
     # hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
   };
 
-  outputs = inputs@{ nixpkgs, nixos-hardware, home-manager, ... }: 
+  # outputs = inputs@{ nixpkgs, nixos-hardware, home-manager, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, ... }: 
   let
     system = "x86_64-linux"; #System
     hostname = "21SW49";
@@ -56,7 +57,7 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.${username} = import ./host/home.nix;
           }
-          nixos-hardware.nixosModules.dell-latitude-5490
+          # nixos-hardware.nixosModules.dell-latitude-5490
         ];
       };
     };

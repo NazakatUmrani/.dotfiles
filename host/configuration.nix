@@ -44,7 +44,8 @@ in
       enable = true;
       # driSupport = true;
       extraPackages = with pkgs; [
-        mesa mesa.drivers libva
+        # mesa mesa.drivers libva
+        intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl
       ];
     };
     bluetooth.enable = true; # enables support for Bluetooth
@@ -133,9 +134,9 @@ in
   programs = {
     hyprland = {
       enable = true;
-      xwayland.enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+      # xwayland.enable = true;
+      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
 
     nix-ld.enable = true; # No idea what it is
@@ -169,9 +170,9 @@ in
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     GDK_BACKEND = "wayland";
-    #GTK_USE_PORTAL = "1";
-    #QT_QPA_PLATFORM = "wayland";
-    #MOZ_ENABLE_WAYLAND = "1";
+    # GTK_USE_PORTAL = "1";
+    # QT_QPA_PLATFORM = "wayland";
+    # MOZ_ENABLE_WAYLAND = "1";
   };
 
   security = {
