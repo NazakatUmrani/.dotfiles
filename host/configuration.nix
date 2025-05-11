@@ -45,7 +45,7 @@ in
       # driSupport = true;
       extraPackages = with pkgs; [
         # mesa mesa.drivers libva
-        intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl
+        # intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl
       ];
     };
     bluetooth.enable = true; # enables support for Bluetooth
