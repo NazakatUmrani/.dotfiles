@@ -217,9 +217,9 @@ in
     xwayland.enable = true;
     systemd.enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    plugins = [
+    # plugins = [
       # hyprplugins.hyprtrails
-    ];
+    # ];
     extraConfig = " ";
   };
   
