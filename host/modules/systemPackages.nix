@@ -44,7 +44,7 @@
     # jdk
     kazam
     kdePackages.partitionmanager
-    kdePackages.sddm
+    # kdePackages.sddm # enabled it in config so see if this package comment affects or not
     killall
     lf
     libinput-gestures
