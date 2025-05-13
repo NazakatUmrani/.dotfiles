@@ -20,7 +20,7 @@
     clang-tools
     cliphist
     cmake
-    discord
+    # discord UNCOMMENT IT
     dunst
     feh
     fish
@@ -32,7 +32,7 @@
     gimp
     git
     # github-desktop
-    google-chrome
+    # google-chrome UNCOMMENT IT
     grimblast # A helper for screenshots within Hyprland, based on grimshot
     grim # Grab images from a Wayland compositor
     gsettings-desktop-schemas
@@ -43,6 +43,8 @@
     inkscape
     # jdk
     kazam
+    kdePackages.partitionmanager
+    kdePackages.sddm
     killall
     lf
     libinput-gestures
@@ -65,22 +67,20 @@
     luajit
     # lvim
     mako
-    mongodb-compass # MongoDB Compass GUI
+    # mongodb-compass # MongoDB Compass GUI UNCOMMENT IT
     neofetch
-    nerdfonts
     networkmanagerapplet
     nix-output-monitor # beautiful nix build loading screen
     nixpkgs-fmt # formatter nix files
-    nodejs_23
+    nodejs_22
     nodePackages.nodemon
     nomacs
     nvd # compare two nix configurations
     nwg-look
     obs-studio
-    onlyoffice-bin_latest
+    # onlyoffice-bin_latest UNCOMMENT IT
     openboard
     papirus-icon-theme
-    partition-manager
     pavucontrol
     pipewire
     polkit
@@ -97,15 +97,14 @@
     ripgrep # dependency of nvim for live grep using telescope
     #rnix-lsp  package removed in latest branch
     rPackages.settings
-    sddm
     slurp
     streamlit
     swappy
     swaylock-effects
     swww
     sxhkd
-    teamviewer
-    telegram-desktop
+    # teamviewer UNCOMMENT IT
+    # telegram-desktop UNCOMMENT IT
     tldr
     tree
     unzip
@@ -128,7 +127,7 @@
     #   ];
     # })
     waybar
-    waydroid
+    # waydroid UNCOMMENT IT
     waypaper
     wget
     wine

@@ -183,7 +183,7 @@ in
   # Allow Unfree Softwares
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "nix-2.15.3" ];
+    permittedInsecurePackages = [ "nix-2.15.3" "ventoy-1.1.05"];
   };
   # Nix Experimental features
   nix.settings.experimental-features = [
@@ -208,15 +208,15 @@ in
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      nerdfonts
       fira-code
       # Fonts for rofi styles
       iosevka
       icomoon-feather
       google-fonts
-      font-awesome
+      # font-awesome UNCOMMENT IT
       impact
       hobostd
+    # ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts); UNCOMMENT IT
     ];
   };
 

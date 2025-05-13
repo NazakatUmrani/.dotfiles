@@ -1,7 +1,7 @@
 { config, pkgs, inputs, username, ... }:
 
 let
-  gruvboxPlus = import ../pkgs/gruvbox-plus.nix { inherit pkgs; };
+  # gruvboxPlus = import ../pkgs/gruvbox-plus.nix { inherit pkgs; };
   gtk-css = "@import '../configs/GTK/gtk.css'";
 in
 {
@@ -146,7 +146,7 @@ in
 
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry.package = pkgs.pinentry-qt;
   };
 
    # Define Settings For Xresources
@@ -183,7 +183,7 @@ in
     };
     
     iconTheme = {
-      package = gruvboxPlus;
+      package = pkgs.gruvbox-plus-icons;
       name = "GruvboxPlus";
     };
 
