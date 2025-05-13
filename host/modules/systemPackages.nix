@@ -20,7 +20,7 @@
     clang-tools
     cliphist
     cmake
-    # discord UNCOMMENT IT
+    discord
     dunst
     feh
     fish
@@ -29,18 +29,18 @@
     gcc
     gdb
     gh
-    gimp
-    git
+    gimp # Photo Editing Software
+    git #VCS
     # github-desktop
-    # google-chrome UNCOMMENT IT
+    google-chrome # Secondary Broweser
     grimblast # A helper for screenshots within Hyprland, based on grimshot
     grim # Grab images from a Wayland compositor
     gsettings-desktop-schemas
-    handbrake
+    handbrake # Video Converter
     hugo
-    hyprpaper
+    hyprpaper # Hyprland Wallpaper utility
     imagemagick
-    inkscape
+    inkscape # Vector Editing software
     # jdk
     kazam
     kdePackages.partitionmanager
@@ -67,7 +67,7 @@
     luajit
     # lvim
     mako
-    # mongodb-compass # MongoDB Compass GUI UNCOMMENT IT
+    mongodb-compass # MongoDB Compass GUI
     neofetch
     networkmanagerapplet
     nix-output-monitor # beautiful nix build loading screen
@@ -78,7 +78,7 @@
     nvd # compare two nix configurations
     nwg-look
     obs-studio
-    # onlyoffice-bin_latest UNCOMMENT IT
+    onlyoffice-bin_latest
     openboard
     papirus-icon-theme
     pavucontrol
@@ -103,8 +103,8 @@
     swaylock-effects
     swww
     sxhkd
-    # teamviewer UNCOMMENT IT
-    # telegram-desktop UNCOMMENT IT
+    teamviewer
+    telegram-desktop
     tldr
     tree
     unzip
@@ -127,7 +127,7 @@
     #   ];
     # })
     waybar
-    # waydroid UNCOMMENT IT
+    waydroid
     waypaper
     wget
     wine

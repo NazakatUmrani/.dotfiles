@@ -213,11 +213,10 @@ in
       iosevka
       icomoon-feather
       google-fonts
-      # font-awesome UNCOMMENT IT
+      font-awesome
       impact
       hobostd
-    # ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts); UNCOMMENT IT
-    ];
+    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
 
   # Hyprland not launching

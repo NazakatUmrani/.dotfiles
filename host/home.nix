@@ -1,7 +1,6 @@
 { config, pkgs, inputs, username, ... }:
 
 let
-  # gruvboxPlus = import ../pkgs/gruvbox-plus.nix { inherit pkgs; };
   gtk-css = "@import '../configs/GTK/gtk.css'";
 in
 {
