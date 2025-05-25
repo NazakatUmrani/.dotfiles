@@ -171,10 +171,18 @@ tooltip label {
 #pulseaudio {
     color: #8ec07c;
     background: #282828;
-    border-radius: 30px 15px 30px 15px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     border: 2px solid #665c54;
     padding: 2px 20px;
+}
+#backlight {
+    color: #fabd2f;
+    background: #282828;
+    border-radius: 15px 30px 15px 30px;
+    margin: 5px;
+    padding: 2px 20px;
+    border: 2px solid #665c54;
 }
 #custom-notification {
     color: #14747e;
