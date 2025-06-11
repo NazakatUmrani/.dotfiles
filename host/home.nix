@@ -17,6 +17,7 @@ in
       userName = "Nazakat Umrani - NixOS Linux";
       userEmail = "unazakat70@gmail.com";
       extraConfig = {
+        init.defaultBranch = "main";
         http.version = "HTTP/1.1"; # solves some curl fail EOF, issues
         safe.directory = "/home/nazakat/WindowsData/Projects/SmartFix-AI-Driven-Technician-Booking-Platform";
       };
