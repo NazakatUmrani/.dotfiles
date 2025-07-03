@@ -249,11 +249,8 @@ in
     ".config/neofetch/config.conf".source = ../configs/neofetch/config.conf;
 
     # Swaylock files
-    ".config/swaylock" = {
-      source = ../configs/swaylock;
-      recursive = true;
-    };
-
+    ".config/swaylock/config".source = ../configs/swaylock/config;
+    
     # Dunst files
     ".config/dunst" = {
       source = ../configs/dunst;

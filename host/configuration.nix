@@ -31,7 +31,7 @@ in
   };
 
   fileSystems."/home/nazakat/Nazakat Umrani" = {
-    device = "/dev/disk/by-uuid/7EC03FB9C03F768D";
+    device = "/dev/disk/by-uuid/688E1D518E1D1960";
     fsType = "ntfs";
     options = ["rw" "uid=nazakat" "gid=users"];
   };
@@ -71,6 +71,10 @@ in
   #   https_proxy = "http://localhost:7890"; # or use http prctocol instead of socks5
   # };
 
+  # Solves the TPM issue (A start job is running 90 seconds wait on boot)
+  systemd.tpm2.enable = false;
+  boot.initrd.systemd.tpm2.enable = false;
+
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -84,7 +88,6 @@ in
       LC_PAPER = "en_US.UTF-8";
       LC_TELEPHONE = "en_US.UTF-8";
       LC_TIME = "en_US.UTF-8";
-      LC_ALL = "en_US.UTF-8";
     };
   };
   console = {
@@ -192,7 +195,9 @@ in
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.root.initialPassword = "123";
   users.users.${username} = {
+    initialPassword = "123";
     isNormalUser = true;
     extraGroups = [
       "wheel"
