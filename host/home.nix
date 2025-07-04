@@ -233,10 +233,13 @@ in
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })    
     eza
     git-crypt
+    gopeed # Download Manager
     gnupg
     kdePackages.dolphin
+    motrix # Download Manager
     pinentry-qt
     pywal
+    varia # Download Manager
     xfce.thunar
   ];
 

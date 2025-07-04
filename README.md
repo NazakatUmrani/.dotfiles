@@ -68,12 +68,32 @@ nixos-rebuild switch --flake .#
 Make sure to change usernames, emails, and any config file you like to.
 - To apply the changes you make to your configs:
 
-```
-nixos-rebuild switch --flake .#
-```
+  ```
+  nixos-rebuild switch --flake .#
+  ```
 
 - To update the repositories and sources:
 
-```
-nix flake update
-```
+  ```
+  nix flake update
+  ```
+
+## Installation instructions
+
+1. Connect to the internet through wpa_supplicant wpa_cli
+
+2. Partitioning with fdisk and formatting and mounting
+
+3. Generate Default config and replace hardware configuration with new one
+
+4. replace new uuids in configuration.nix for Windows Data and Windows C Partition
+
+5. install git nix nix shell
+    ```
+    nix-shell -p git
+    ```
+
+6. Install nixos with flakes
+    ```
+    nixos-intall --flake '.#21SW49'
+    ```

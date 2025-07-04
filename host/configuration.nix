@@ -194,7 +194,7 @@ in
     "flakes"
   ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.defaultUserShell = pkgs.fish;
   users.users.root.initialPassword = "123";
   users.users.${username} = {
     initialPassword = "123";
@@ -206,9 +206,11 @@ in
       "distrobox"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
-    #shell = pkgs.fish;
-    #ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
+    # shell = pkgs.fish;
+    # ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
   };
+
+  programs.fish.enable = true;
 
   fonts = {
     fontDir.enable = true;
