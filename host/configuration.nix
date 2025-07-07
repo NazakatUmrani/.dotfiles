@@ -51,6 +51,12 @@ in
     bluetooth.enable = true; # enables support for Bluetooth
   };
 
+  # Performance mode
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "performance";
+  };
+
   networking = {
     hostName = "${hostname}"; # Define your hostname.
     # Pick only one of the below networking options.
