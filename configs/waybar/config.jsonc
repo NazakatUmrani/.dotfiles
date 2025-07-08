@@ -110,7 +110,8 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "scroll-step": 1
   },
 
   "custom/themeselector": {
@@ -159,8 +160,7 @@
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"],
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-",
+    "scroll-step": 1,
     "on-click": "brightnessctl set 50%",
     "tooltip": false
   },
