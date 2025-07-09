@@ -6,6 +6,7 @@
   #boot.loader.efi.canTouchEfiVariables = true;
   #boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
   boot.loader.grub = {
+    default = "saved"; # Remembers last booted OS
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
