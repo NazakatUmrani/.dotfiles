@@ -36,9 +36,9 @@ revert(){
 ##NixOS update functions
 ns(){ # nix switch
   pushd ~/.dotfiles
+  git add .
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
-  git add .
   sudo nixos-rebuild switch --flake .
   gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
   read -p "Enter a commit message: " message
@@ -47,9 +47,9 @@ ns(){ # nix switch
 }
 nt(){ # nix test
   pushd ~/.dotfiles
+  git add .
   git diff HEAD -- . '*'
   echo "NixOS Testing ... "
-  git add .
   sudo nixos-rebuild test --flake .
   popd
 }

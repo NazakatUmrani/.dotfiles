@@ -13,6 +13,7 @@ let
 
   impact = pkgs.callPackage ../pkgs/fonts/impact.nix {};
   hobostd = pkgs.callPackage ../pkgs/fonts/hobostd.nix {};
+  hyprlandMacPlymouth = pkgs.callPackage ../pkgs/hyprland-mac-style-plymouth.nix {};
 in
 {
   imports = [
@@ -50,6 +51,25 @@ in
     };
     bluetooth.enable = true; # enables support for Bluetooth
   };
+
+  # Plymouth
+  boot = {
+    kernelParams = ["quiet"]; # Debugging info off while booting
+    plymouth = {
+      enable = true;
+      theme = "hyprland-mac-style";
+      themePackages = [ hyprlandMacPlymouth ];
+    };
+  };
+
+  # Nixos Boot Plymouth Theme using another flake
+  # nixos-boot = {
+  #   enable = true;
+  #   # Black background
+  #   bgColor.red = 0;
+  #   bgColor.green = 0;
+  #   bgColor.blue = 0;
+  # };
 
   # Performance mode
   powerManagement = {
