@@ -61,7 +61,7 @@
     libsForQt5.qt5.qtquickcontrols
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtwayland
-    lldb_17
+    lldb
     # lutris
     # lua-language-server
     luajit
