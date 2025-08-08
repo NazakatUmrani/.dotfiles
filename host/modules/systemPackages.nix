@@ -72,7 +72,7 @@
     networkmanagerapplet
     nix-output-monitor # beautiful nix build loading screen
     nixpkgs-fmt # formatter nix files
-    nodejs_22
+    nodejs_24
     nodePackages.nodemon
     nomacs
     nvd # compare two nix configurations
