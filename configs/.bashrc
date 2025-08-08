@@ -40,7 +40,7 @@ ns(){ # nix switch
   git diff HEAD -- . '*'
   echo "NixOS Rebuilding ... "
   sudo nixos-rebuild switch --flake .
-  gen=$(nixos-rebuild list-generations | grep current | awk '{print $1,$2}')
+  gen=$(nixos-rebuild list-generations | awk '/True/ {print $1, "current"}')
   read -p "Enter a commit message: " message
   git commit -m "$message ($gen)"
   popd
