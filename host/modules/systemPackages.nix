@@ -12,7 +12,7 @@
     blueman
     bluez
     bluez-tools
-    # bottles
+    bottles
     brightnessctl
     btop
     celluloid
