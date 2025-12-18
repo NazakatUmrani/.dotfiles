@@ -163,7 +163,7 @@ in
   programs = {
     hyprland = {
       enable = true;
-      # xwayland.enable = true;
+      xwayland.enable = true;
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
@@ -177,7 +177,9 @@ in
   xdg.portal = {
     enable = true;
     wlr.enable = true;
+    xdgOpenUsePortal = true;
     extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal
     ];
@@ -201,7 +203,7 @@ in
     GDK_BACKEND = "wayland";
     # GTK_USE_PORTAL = "1";
     # QT_QPA_PLATFORM = "wayland";
-    # MOZ_ENABLE_WAYLAND = "1";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   security = {
@@ -230,6 +232,7 @@ in
       "networkmanager"
       "docker"
       "distrobox"
+      "audio"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
     # shell = pkgs.fish;
