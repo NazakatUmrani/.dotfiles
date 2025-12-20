@@ -14,9 +14,11 @@ in
     # Setting Git configs
     git = {
       enable = true;
-      userName = "Nazakat Umrani - NixOS Linux";
-      userEmail = "unazakat70@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Nazakat Umrani - NixOS Linux";
+          email = "unazakat70@gmail.com";
+        };
         init.defaultBranch = "main";
         http.version = "HTTP/1.1"; # solves some curl fail EOF, issues
         safe.directory = "/home/nazakat/WindowsData/Projects/SmartFix-AI-Driven-Technician-Booking-Platform";
@@ -39,17 +41,16 @@ in
     fish.enable = true;
     rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
-      # plugins = with pkgs;
-      # map (pkg: pkg.override { rofi-unwrapped = rofi-wayland-unwrapped; }) [
-      #   rofi-emoji
-      #   rofi-calc
-      # ];
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-calc
+      ];
     };
     lf = {
       enable = true;
       commands = {
-        dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+        # Changed from xdragon to dragon-out which gives 2 options: xdragon and dragon-drop, right now using xdragon, not sure about dragon-drop yet
+        dragon-out = ''%${pkgs.dragon-drop}/bin/xdragon -a -x "$fx"'';
         editor-open = ''$$EDITOR $f'';
         mkdir = ''
         ''${{
@@ -169,9 +170,9 @@ in
   gtk = {
     enable = true;
     font = {
-      name = "Ubuntu";
+      name = "MapleMono-NF";
       size = 12;
-      package = pkgs.ubuntu_font_family;
+      package = pkgs.maple-mono.NF;
     };
 
     theme = {

@@ -4,7 +4,7 @@ stdenvNoCC.mkDerivation {
   name = "hobostd-font";
   src = fetchzip {
     url = "https://www.wfonts.com/download/data/2014/12/30/hobo-std/hobo-std.zip";
-    sha256 = "17cp5xd9icnhbs1zniv6iag3z254wnb58rvlvqsqa4gpa7w7dzkv";
+    sha256 = "+LROaFsiKZEo+BUTWCIZTP91bp249R0sPOSxOtawyPU=";
     stripRoot = false;
   };
   installPhase = ''

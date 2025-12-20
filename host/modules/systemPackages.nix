@@ -25,7 +25,7 @@
     feh
     fish
     flameshot
-    (pkgs.callPackage ../../pkgs/free-download-manager.nix {})
+    # (pkgs.callPackage ../../pkgs/free-download-manager.nix {}) # Not Working because of new updates and dependencies
     gcc
     gdb
     gh
@@ -50,17 +50,16 @@
     libinput-gestures
     libnotify
     libreoffice-fresh
-    libsForQt5.full
-    libsForQt5.kdeconnect-kde
-    libsForQt5.kdenlive
-    libsForQt5.kget
-    libsForQt5.okular
-    libsForQt5.polkit-kde-agent
+    kdePackages.kdeconnect-kde
+    kdePackages.kdenlive
+    kdePackages.kget
+    kdePackages.okular
+    kdePackages.polkit-kde-agent-1
     libsForQt5.qt5ct
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols
     libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtwayland
+    kdePackages.qtwayland
     lldb
     # lutris
     # lua-language-server
@@ -78,7 +77,7 @@
     nvd # compare two nix configurations
     nwg-look
     obs-studio
-    onlyoffice-bin_latest
+    onlyoffice-desktopeditors
     openboard
     papirus-icon-theme
     pavucontrol
@@ -88,7 +87,6 @@
     # python311Packages.streamlit
     qalculate-qt
     qemu
-    qt6.full
     qt6Packages.qtstyleplugin-kvantum
     qt6.qtwayland
     qtcreator
@@ -108,7 +106,7 @@
     tldr
     tree
     unzip
-    ventoy-full
+    ventoy-full-qt
     vim
     vimPlugins.clangd_extensions-nvim
     vimPlugins.coc-pyright
@@ -137,7 +135,7 @@
     xdg-desktop-portal-hyprland
     xsettingsd
     yazi
-
+    zed-editor # A lightweight, blazingly fast code editor
     # palworld wine dependency
     # bubblewrap 
     # dwarfs

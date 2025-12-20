@@ -3,7 +3,7 @@
   stdenv,
   fetchurl,
   dpkg,
-  wrapGAppsHook,
+  wrapGAppsHook3,
   autoPatchelfHook,
   makeWrapper,
   udev,
@@ -23,14 +23,14 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://files2.freedownloadmanager.org/6/latest/freedownloadmanager.deb";
-    hash = "sha256-IS+WFtoU65XL/Ufs+f+gttq6BBPgDSLFKUtlWfNtxJM=";
+    hash = "sha256-xllWakJxXElXJ10vmywXtrc/G+OO7JAL++MSQzY7egk=";
   };
 
   unpackPhase = "dpkg-deb -x $src .";
 
   nativeBuildInputs = [
     dpkg
-    wrapGAppsHook
+    wrapGAppsHook3
     autoPatchelfHook
     makeWrapper
   ];

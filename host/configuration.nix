@@ -214,7 +214,7 @@ in
   # Allow Unfree Softwares
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "nix-2.15.3" "ventoy-1.1.05"];
+    permittedInsecurePackages = [ "nix-2.15.3" "ventoy-qt5-1.1.07" ];
   };
   # Nix Experimental features
   nix.settings.experimental-features = [
@@ -252,6 +252,8 @@ in
       font-awesome
       impact
       hobostd
+      # Maple Mono
+      maple-mono.NF
     ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
   };
 
