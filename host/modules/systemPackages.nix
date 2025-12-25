@@ -9,7 +9,6 @@
     # android-tools
     audacity
     bat
-    blueman
     bluez
     bluez-tools
     bottles
@@ -137,7 +136,7 @@
     yazi
     zed-editor # A lightweight, blazingly fast code editor
     # palworld wine dependency
-    # bubblewrap 
+    # bubblewrap
     # dwarfs
     # fuse-overlayfs
     # gamescope

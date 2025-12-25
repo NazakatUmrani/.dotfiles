@@ -22,6 +22,7 @@ in
     ./modules/grub.nix
     ./modules/systemPackages.nix
     ./modules/sound.nix
+    ./modules/bluetooth.nix
     ./modules/virtualisation.nix
   ];
 
@@ -49,7 +50,6 @@ in
         # intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl
       ];
     };
-    bluetooth.enable = true; # enables support for Bluetooth
   };
 
   # Plymouth
@@ -137,7 +137,7 @@ in
         theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
       };
     };
-    
+
     seatd.enable = true;
 
     # Configure keymap in X11
@@ -152,7 +152,7 @@ in
 
     # Enable CUPS to print documents.
     # printing.enable = true;
-    
+
     # Openvpn
     # openvpn.servers = {
     #   azureVpn = { config = '' config /home/nazakat/openvpn/azurevpn.conf ''; };
@@ -169,7 +169,7 @@ in
     };
 
     nix-ld.enable = true; # No idea what it is
-    
+
     appimage.enable = true; # Enable AppImage support
     appimage.binfmt = true; # binfmt registration to run appimages via appimage-run seamlessly.
   };
