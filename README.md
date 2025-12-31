@@ -21,9 +21,9 @@ nixos-rebuild switch --flake .#
  -----------------------------------
 
  ╭─ Distro  -> NixOS
- ├─ Editor  -> Neovim
- ├─ Browser -> Google Chrome
- ├─ Shell   -> Bash
+ ├─ Editor  -> Neovim + Zed + VSCode
+ ├─ Browser -> Firefox
+ ├─ Shell   -> Fish
  ╰─ Resource Monitor -> Btop
 
  ╭─ Model -> DELL Latitude E5480

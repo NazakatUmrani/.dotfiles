@@ -19,10 +19,11 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/grub.nix
-    ./modules/systemPackages.nix
-    ./modules/sound.nix
     ./modules/bluetooth.nix
+    ./modules/grub.nix
+    ./modules/sddm.nix
+    ./modules/sound.nix
+    ./modules/systemPackages.nix
     ./modules/virtualisation.nix
   ];
 
@@ -127,16 +128,7 @@ in
     # ------- List services that you want to enable: -------
     teamviewer.enable = true;
     libinput.enable = true; # Touchpad support
-    openssh.enable = true; # OpenSSH daemon.
-
-    # Display Manager
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        theme = "${import ../pkgs/sddm-theme.nix { inherit pkgs; }}";
-      };
-    };
+    openssh.enable = true; # OpenSSH daemon
 
     seatd.enable = true;
 
