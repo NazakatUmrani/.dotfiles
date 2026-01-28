@@ -115,8 +115,16 @@ alias yta-best="yt-dlp --extract-audio --audio-format best "
 alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
 
 #GiT  command
-alias gc='git clone '
-alias gp='git pull'
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gcl='git clone'
+alias gp="git push"
+alias gpl="git pull"
+alias gst="git stash"
+alias gsp="git stash; git pull"
+alias gfo="git fetch origin"
+alias gcheck="git checkout"
 
 #Copy/Remove files/dirs
 alias rmd='rm -r'
