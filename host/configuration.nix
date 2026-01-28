@@ -1,43 +1,20 @@
-# Edit this configuration file to define what should be installed on
-
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, hostname, username, inputs, ... }:
-let
-  google-fonts = (pkgs.google-fonts.override {
-    fonts = [
-      "Grape Nuts" # to see font names, github.com/google/fonts and search for the font folder, there in it's METADATA file you will see it's correct name to put here
-    ];
-  });
-
-  impact = pkgs.callPackage ../pkgs/fonts/impact.nix {};
-  hobostd = pkgs.callPackage ../pkgs/fonts/hobostd.nix {};
-  hyprlandMacPlymouth = pkgs.callPackage ../pkgs/hyprland-mac-style-plymouth.nix {};
-in
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/bluetooth.nix
+    ./modules/firewall.nix
+    ./modules/fonts.nix
     ./modules/grub.nix
+    ./modules/locales.nix
+    ./modules/mountpoints.nix
+    ./modules/plymouth.nix
     ./modules/sddm.nix
     ./modules/sound.nix
     ./modules/systemPackages.nix
     ./modules/virtualisation.nix
   ];
-
-  fileSystems."/home/nazakat/WindowsData" = {
-    device = "/dev/disk/by-uuid/E2CE55C2CE559021";
-    fsType = "ntfs";
-    options = ["rw" "uid=nazakat" "gid=users"];
-  };
-
-  fileSystems."/home/nazakat/Nazakat Umrani" = {
-    device = "/dev/disk/by-uuid/688E1D518E1D1960";
-    fsType = "ntfs";
-    options = ["rw" "uid=nazakat" "gid=users"];
-  };
 
   #hardware.graphics = {
   #  package = pkgs.unstable.mesa.drivers;
@@ -53,25 +30,6 @@ in
     };
   };
 
-  # Plymouth
-  boot = {
-    kernelParams = ["quiet"]; # Debugging info off while booting
-    plymouth = {
-      enable = true;
-      theme = "hyprland-mac-style";
-      themePackages = [ hyprlandMacPlymouth ];
-    };
-  };
-
-  # Nixos Boot Plymouth Theme using another flake
-  # nixos-boot = {
-  #   enable = true;
-  #   # Black background
-  #   bgColor.red = 0;
-  #   bgColor.green = 0;
-  #   bgColor.blue = 0;
-  # };
-
   # Performance mode
   powerManagement = {
     enable = true;
@@ -85,44 +43,6 @@ in
     # networking.wireless.enable = true;
   };
 
-  # Set your time zone.
-  time.timeZone = "Asia/Karachi";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # systemd.services.nix-daemon.environment = {
-  #   # socks5h mean that the hostname is resolved by the SOCKS server
-  #   # https_proxy = "socks5h://localhost:7891";
-  #   https_proxy = "http://localhost:7890"; # or use http prctocol instead of socks5
-  # };
-
-  # Solves the TPM issue (A start job is running 90 seconds wait on boot)
-  systemd.tpm2.enable = false;
-  boot.initrd.systemd.tpm2.enable = false;
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
-    };
-  };
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "us";
-    #  useXkbConfig = true; # use xkb.options in tty.
-  };
-
   # Enable the X11 windowing system.
   services = {
     # ------- List services that you want to enable: -------
@@ -131,16 +51,6 @@ in
     openssh.enable = true; # OpenSSH daemon
 
     seatd.enable = true;
-
-    # Configure keymap in X11
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      #videoDrivers = [ "intel" ];
-    };
 
     # Enable CUPS to print documents.
     # printing.enable = true;
@@ -233,25 +143,6 @@ in
 
   programs.fish.enable = true;
 
-  fonts = {
-    fontDir.enable = true;
-    packages = with pkgs; [
-      fira-code
-      # Fonts for rofi styles
-      iosevka
-      icomoon-feather
-      google-fonts
-      font-awesome
-      impact
-      hobostd
-      # Maple Mono
-      maple-mono.NF
-    ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-  };
-
-  # Hyprland not launching
-  # chaotic.mesa-git.enable = true;
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -259,20 +150,6 @@ in
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 443 5000 3000 5173 ];
-    allowedUDPPortRanges = [
-      { from = 4000; to = 4007; }
-      { from = 5173; to = 5174; }
-      { from = 8000; to = 8010; }
-    ];
-  };
 
   system = {
     copySystemConfiguration = false; # can't set it to true, becuase of flake
