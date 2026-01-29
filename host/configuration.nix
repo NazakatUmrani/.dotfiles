@@ -116,7 +116,7 @@
   # Allow Unfree Softwares
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = [ "nix-2.15.3" "ventoy-qt5-1.1.07" ];
+    permittedInsecurePackages = [ "nix-2.15.3" ];
   };
   # Nix Experimental features
   nix.settings.experimental-features = [
@@ -137,7 +137,6 @@
       "audio"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [ ];
-    # shell = pkgs.fish;
     # ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
   };
 

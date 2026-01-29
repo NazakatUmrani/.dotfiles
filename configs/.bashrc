@@ -104,7 +104,8 @@ alias userlist='cut -d: -f1 /etc/passwd'
 alias mkfile='touch'
 alias jctl='journalctl -p 3 -xb'
 alias pingme='ping -c64 github.com'
-alias cls='clear && neofetch'
+# alias cls='clear && neofetch'
+alias cls='clear'
 alias traceme='traceroute github.com'
 
 #hardware info --short
@@ -201,3 +202,4 @@ ex ()
 }
 
 # neofetch --ascii_colors 3 6
+# fastfetch

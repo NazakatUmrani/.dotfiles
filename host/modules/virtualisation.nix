@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    virtualisation = {
+  virtualisation = {
     waydroid.enable = true;  #Virtulaization for waydroid
     # docker = {
     #   enable = true; #virtualisation for docker
@@ -26,7 +26,9 @@
     libvirt
     podman-tui # status of containers in the terminal
     podman-compose # start group of containers for dev
+    qemu
     virt-manager
-    # virtualbox
+    # vmware-workstation
+    wine
   ];
 }

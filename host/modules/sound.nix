@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   # Enable sound.
   # sound.enable = true; No effect in lastest version
@@ -15,5 +14,7 @@
       configPackages = [];
     };
   };
-  # hardware.pulseaudio.enable = true;
+  environment.systemPackages = with pkgs; [
+    pavucontrol # Volume Controller
+  ];
 }

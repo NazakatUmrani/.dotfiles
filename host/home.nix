@@ -12,6 +12,9 @@ in
 
   programs = {
     # Setting Git configs
+    discord.enable = true;
+    firefox.enable = true;
+    gpg.enable = true;
     git = {
       enable = true;
       settings = {
@@ -27,24 +30,6 @@ in
     kitty = {
       enable = true;
       package = pkgs.kitty;
-    };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      extraPackages = with pkgs; [ xclip wl-clipboard ];
-    };
-    gpg.enable = true;
-    firefox.enable = true;
-    fish.enable = true;
-    rofi = {
-      enable = true;
-      plugins = with pkgs; [
-        rofi-emoji
-        rofi-calc
-      ];
     };
     lf = {
       enable = true;
@@ -68,9 +53,9 @@ in
         "`" = "mark-load";
         "\\'" = "mark-load";
         "<enter>" = "open";
-        
+
         do = "dragon-out";
-        
+
         "g~" = "cd";
         gh = "cd";
         "g/" = "/";
@@ -88,21 +73,21 @@ in
         ignorecase = true;
       };
 
-      extraConfig = 
-      let 
-        previewer = 
+      extraConfig =
+      let
+        previewer =
           pkgs.writeShellScriptBin "pv.sh" ''
           file=$1
           w=$2
           h=$3
           x=$4
           y=$5
-          
+
           if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
               ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
               exit 1
           fi
-          
+
           ${pkgs.pistol}/bin/pistol "$file"
         '';
         cleaner = pkgs.writeShellScriptBin "clean.sh" ''
@@ -114,6 +99,34 @@ in
         set previewer ${previewer}/bin/pv.sh
       '';
     };
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      extraPackages = with pkgs; [ xclip wl-clipboard ];
+    };
+    obs-studio.enable = true;
+    rofi = {
+      enable = true;
+      plugins = with pkgs; [
+        rofi-emoji
+        rofi-calc
+      ];
+    };
+    vscode.enable = true;
+    waybar.enable = true; # Highly customizable Wayland bar
+    wlogout.enable = true; # Wayland based logout menu
+    zed-editor.enable = true; # Zed Code Editor
+  };
+
+  services = {
+    gpg-agent = {
+      enable = true;
+      pinentry.package = pkgs.pinentry-qt;
+    };
+    swww.enable = true; # Wallpaper daemon for wayland
   };
 
   # Create XDG Dirs
@@ -147,12 +160,7 @@ in
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-    pinentry.package = pkgs.pinentry-qt;
-  };
-
-   # Define Settings For Xresources
+  # Define Settings For Xresources
   xresources.properties = {
     "Xcursor.size" = 24;
   };
@@ -179,12 +187,12 @@ in
       package = pkgs.adw-gtk3;
       name = "adw-gtk3";
     };
-    
+
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
     };
-    
+
     iconTheme = {
       package = pkgs.gruvbox-plus-icons;
       name = "GruvboxPlus";
@@ -204,7 +212,7 @@ in
     };
 
   };
-  
+
   qt = {
     enable = true;
     platformTheme.name = "gtk";
@@ -213,7 +221,7 @@ in
     };
   };
 
-  
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -224,22 +232,40 @@ in
     # ];
     extraConfig = " ";
   };
-  
+
   home.packages = with pkgs; [
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })    
+    # Download Manager
+    gopeed
+    motrix
+    varia
+
+    # Media Apps
+    celluloid
+    handbrake # Video Converter
+    vlc
+
     eza
-    git-crypt
-    gopeed # Download Manager
+    gimp # Photo Editing Software
     gnupg
+    google-chrome # Secondary Broweser
+    hyprpaper # Hyprland Wallpaper utility
+    inkscape # Vector Editing software
+    libreoffice-fresh
     kdePackages.dolphin
-    motrix # Download Manager
+    kdePackages.kdeconnect-kde
+    kdePackages.kdenlive
+    kdePackages.kget
+    kdePackages.okular
+    libinput-gestures
+    nomacs # Image Viewer
     pinentry-qt
     pywal
-    varia # Download Manager
+    qalculate-qt
+    qtcreator
+    onlyoffice-desktopeditors
+    openboard
+    telegram-desktop
+    waypaper # GUI wallpaper setter for Wayland-based window managers
     xfce.thunar
   ];
 
@@ -253,7 +279,7 @@ in
 
     # Swaylock files
     ".config/swaylock/config".source = ../configs/swaylock/config;
-    
+
     # Dunst files
     ".config/dunst" = {
       source = ../configs/dunst;
