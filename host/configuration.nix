@@ -4,7 +4,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/bluetooth.nix
-    ./modules/firewall.nix
+    ./modules/network.nix
     ./modules/fonts.nix
     ./modules/grub.nix
     ./modules/locales.nix
@@ -16,9 +16,6 @@
     ./modules/virtualisation.nix
   ];
 
-  #hardware.graphics = {
-  #  package = pkgs.unstable.mesa.drivers;
-  #};
   hardware = {
     graphics = {
       enable = true;
@@ -34,13 +31,6 @@
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "performance";
-  };
-
-  networking = {
-    hostName = "${hostname}"; # Define your hostname.
-    # Pick only one of the below networking options.
-    networkmanager.enable = true;
-    # networking.wireless.enable = true;
   };
 
   # Enable the X11 windowing system.
@@ -124,20 +114,24 @@
     "flakes"
   ];
 
-  users.defaultUserShell = pkgs.fish;
-  users.users.root.initialPassword = "123";
-  users.users.${username} = {
-    initialPassword = "123";
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "docker"
-      "distrobox"
-      "audio"
-    ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ ];
-    # ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
+  users = {
+    defaultUserShell = pkgs.fish;
+    users = {
+      root.initialPassword = "123";
+      ${username} = {
+        initialPassword = "123";
+        isNormalUser = true;
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "docker"
+          "distrobox"
+          "audio"
+        ]; # Enable ‘sudo’ for the user.
+        packages = with pkgs; [ ];
+        # ignoreShellProgramCheck = true; # Allows to ignore checking as fish is declared in home.nix
+      };
+    };
   };
 
   programs.fish.enable = true;
@@ -150,8 +144,5 @@
   #   enableSSHSupport = true;
   # };
 
-  system = {
-    copySystemConfiguration = false; # can't set it to true, becuase of flake
-    stateVersion = "23.11"; # Don't change it manually?
-  };
+  system.stateVersion = "23.11"; # Don't change it manually?
 }
