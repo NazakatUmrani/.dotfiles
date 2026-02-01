@@ -3,17 +3,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/bluetooth.nix
-    ./modules/network.nix
-    ./modules/fonts.nix
-    ./modules/grub.nix
-    ./modules/locales.nix
-    ./modules/mountpoints.nix
-    ./modules/plymouth.nix
-    ./modules/sddm.nix
-    ./modules/sound.nix
-    ./modules/systemPackages.nix
-    ./modules/virtualisation.nix
+    ./modules
   ];
 
   hardware = {

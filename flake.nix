@@ -2,14 +2,17 @@
   description = "My First Flake for NixOS System Dotfiles";
 
   inputs = {
-    # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     # hyprland-plugins = {
@@ -18,8 +21,7 @@
     # };
   };
 
-  # outputs = inputs@{ nixpkgs, nixos-hardware, home-manager, ... }: 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, nvf, ... }:
   let
     system = "x86_64-linux"; #System
     hostname = "21SW49";
@@ -39,15 +41,7 @@
         };
 
         modules = [
-          # {
-          #   nixpkgs.overlays = [
-          #     (final: prev: {
-          #       unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-          #     })
-          #   ];
-          # }
-          # chaotic.nixosModules.default
-          ./host/configuration.nix   
+          ./host/configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.extraSpecialArgs = {
               inherit username inputs hostname;
@@ -57,6 +51,7 @@
             home-manager.backupFileExtension = "backup";
             home-manager.users.${username} = import ./host/home.nix;
           }
+          nvf.nixosModules.default
           # nixos-hardware.nixosModules.dell-latitude-5490
         ];
       };

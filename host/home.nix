@@ -99,14 +99,14 @@ in
         set previewer ${previewer}/bin/pv.sh
       '';
     };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      extraPackages = with pkgs; [ xclip wl-clipboard ];
-    };
+    # neovim = {
+    #   enable = true;
+    #   defaultEditor = true;
+    #   viAlias = true;
+    #   vimAlias = true;
+    #   vimdiffAlias = true;
+    #   extraPackages = with pkgs; [ xclip wl-clipboard ];
+    # };
     obs-studio.enable = true;
     rofi = {
       enable = true;
@@ -258,15 +258,15 @@ in
     kdePackages.okular
     libinput-gestures
     nomacs # Image Viewer
+    onlyoffice-desktopeditors
+    openboard
     pinentry-qt
     pywal
     qalculate-qt
     qtcreator
-    onlyoffice-desktopeditors
-    openboard
     telegram-desktop
-    waypaper # GUI wallpaper setter for Wayland-based window managers
     xfce.thunar
+    waypaper # GUI wallpaper setter for Wayland-based window managers
   ];
 
   home.file = {
@@ -298,16 +298,12 @@ in
       recursive = true;
     };
 
+    # Commented out due to switching to NVF
     # Nvim Files
-    ".config/nvim" = {
-      source = ../configs/nvim;
-      recursive = true;
-    };
+    # ".config/nvim" = {
+    #   source = ../configs/nvim;
+    #   recursive = true;
+    # };
 
   };
-
-  # # Session variables
-  # home.sessionVariables = {
-  #   EDITOR = "nvim";
-  # };
 }

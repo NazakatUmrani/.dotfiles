@@ -33,9 +33,6 @@
     kdePackages.qtwayland
     lldb
     # lutris
-    # lua-language-server
-    luajit
-    # lvim
     mongodb-compass # MongoDB Compass GUI
     nitch
     fastfetch
@@ -52,19 +49,12 @@
     qt6.qtwayland
     ranger
     remmina # Remote desktop client written in GTK
-    ripgrep # dependency of nvim for live grep using telescope
-    #rnix-lsp  package removed in latest branch
     slurp # Select a region in a Wayland compositor
     swaylock-effects
     tldr # too long didn't read
     tree
     unzip
     vim
-    vimPlugins.clangd_extensions-nvim
-    vimPlugins.coc-pyright
-    vimPlugins.nvim-dap
-    vimPlugins.nvim-dap-ui
-    # vimPlugins.null-ls-nvim
     wget
     wl-clipboard
     xdg-desktop-portal-hyprland
