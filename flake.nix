@@ -7,11 +7,15 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Neovim configuration framework
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     # hyprland.url = "github:hyprwm/Hyprland";
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -21,7 +25,7 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nvf, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nvf, nixos-hardware, ... }:
   let
     system = "x86_64-linux"; #System
     hostname = "21SW49";
@@ -52,7 +56,7 @@
             home-manager.users.${username} = import ./host/home.nix;
           }
           nvf.nixosModules.default
-          # nixos-hardware.nixosModules.dell-latitude-5490
+          nixos-hardware.nixosModules.dell-latitude-5490
         ];
       };
     };
