@@ -17,9 +17,27 @@
           style = "dark";
         };
 
+        autocomplete.nvim-cmp.enable = true;
+        autopairs.nvim-autopairs.enable = true;
+        filetree.neo-tree = {
+          enable = true;
+          setupOpts = {
+            filesystem = {
+              filtered_items = {
+                visible = true;
+                show_hidden_count = true;
+                hide_dotfiles = false;
+                hide_gitignored = false;
+              };
+            };
+            window = {
+              position = "right"; # Options: "left", "right", "top", "bottom", "float", "current"
+              width = 30;
+            };
+          };
+        };
         statusline.lualine.enable = true;
         telescope.enable = true;
-        autocomplete.nvim-cmp.enable = true;
 
         lsp = {
           enable = true;
