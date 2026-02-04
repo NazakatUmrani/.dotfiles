@@ -11,6 +11,8 @@
     ./sddm.nix
     ./sound.nix
     ./systemPackages.nix
-    ./virtualisation.nix
+
+    # Temporarily Disabling Docker, Waydroid, Podman, Wine everything
+    # ./virtualisation.nix
   ];
 }

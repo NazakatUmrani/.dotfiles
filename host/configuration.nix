@@ -26,7 +26,7 @@
   # Enable the X11 windowing system.
   services = {
     # ------- List services that you want to enable: -------
-    teamviewer.enable = true;
+    # teamviewer.enable = true; # Temporarily disable it
     libinput.enable = true; # Touchpad support
     openssh.enable = true; # OpenSSH daemon
 
