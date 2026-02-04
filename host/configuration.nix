@@ -17,6 +17,9 @@
     };
   };
 
+  # Zen Kernel (Testing if it gives better performance)
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   # Performance mode
   powerManagement = {
     enable = true;
