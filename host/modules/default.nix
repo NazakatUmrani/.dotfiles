@@ -7,6 +7,7 @@
     ./mountpoints.nix
     ./network.nix
     ./nvf.nix
+    ./plasma.nix
     ./plymouth.nix
     ./sddm.nix
     ./sound.nix

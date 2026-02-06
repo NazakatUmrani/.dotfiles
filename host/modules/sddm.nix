@@ -7,7 +7,6 @@
       enable = true;
       wayland.enable = true;
       theme = "sddm-astronaut-theme";
-      package = pkgs.kdePackages.sddm;
       extraPackages = with pkgs; [
         kdePackages.qtmultimedia
         kdePackages.qtsvg
