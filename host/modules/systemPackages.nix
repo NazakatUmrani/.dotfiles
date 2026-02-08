@@ -34,7 +34,9 @@
     lldb
     # lutris
     mongodb-compass # MongoDB Compass GUI
+    nil # Nix language server required by nix zed extension
     nitch
+    nixd # Nix language server required by nix zed extension
     fastfetch
     networkmanagerapplet
     nix-output-monitor # beautiful nix build loading screen
