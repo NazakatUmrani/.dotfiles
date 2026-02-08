@@ -265,7 +265,7 @@ in
     qalculate-qt
     qtcreator
     telegram-desktop
-    xfce.thunar
+    thunar
     waypaper # GUI wallpaper setter for Wayland-based window managers
   ];
 
