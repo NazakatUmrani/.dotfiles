@@ -1,7 +1,7 @@
 { config, pkgs, inputs, username, ... }:
 
 let
-  gtk-css = "@import '../configs/GTK/gtk.css'";
+  gtk-css = "@import '../../configs/GTK/gtk.css'";
 in
 {
   home = {
@@ -137,18 +137,18 @@ in
     };
     configFile = {
       "kitty" = {
-        source = ../configs/kitty;
+        source = ../../configs/kitty;
         recursive = true;
       };
       "hypr" = {
-        source = ../configs/hypr;
+        source = ../../configs/hypr;
         recursive = true;
       };
       "rofi" = {
-        source =  ../configs/rofi;
+        source =  ../../configs/rofi;
         recursive = true;
       };
-      "lf/icons".source = ../configs/lf/icons;
+      "lf/icons".source = ../../configs/lf/icons;
     };
     mimeApps.defaultApplications = {
       "text/plain" = [ "neovide.desktop" ];
@@ -270,38 +270,38 @@ in
   ];
 
   home.file = {
-    ".bashrc".source = ../configs/.bashrc;
-    ".vimrc".source = ../configs/.vimrc;
-    ".face.icon".source = ../configs/face.png;
+    ".bashrc".source = ../../configs/.bashrc;
+    ".vimrc".source = ../../configs/.vimrc;
+    ".face.icon".source = ../../configs/face.png;
 
     # neofetch config file
-    ".config/neofetch/config.conf".source = ../configs/neofetch/config.conf;
+    ".config/neofetch/config.conf".source = ../../configs/neofetch/config.conf;
 
     # Swaylock files
-    ".config/swaylock/config".source = ../configs/swaylock/config;
+    ".config/swaylock/config".source = ../../configs/swaylock/config;
 
     # Dunst files
     ".config/dunst" = {
-      source = ../configs/dunst;
+      source = ../../configs/dunst;
       recursive = true;
     };
 
     # Waybar files
     ".config/waybar" = {
-      source = ../configs/waybar;
+      source = ../../configs/waybar;
       recursive = true;
     };
 
     # Wlogout files
     ".config/wlogout" = {
-      source = ../configs/wlogout;
+      source = ../../configs/wlogout;
       recursive = true;
     };
 
     # Commented out due to switching to NVF
     # Nvim Files
     # ".config/nvim" = {
-    #   source = ../configs/nvim;
+    #   source = ../../configs/nvim;
     #   recursive = true;
     # };
 

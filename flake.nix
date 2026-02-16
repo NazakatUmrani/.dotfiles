@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +13,7 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     # hyprland.url = "github:hyprwm/Hyprland";
@@ -24,32 +26,55 @@
 
   outputs = inputs@{ nixpkgs, home-manager, nvf, nixos-hardware, ... }:
   let
-    system = "x86_64-linux"; #System
-    hostname = "21SW49";
+    system = "x86_64-linux";
     username = "nazakat";
-
     lib = nixpkgs.lib;
-  in {
-    nixosConfigurations = {
-      "${hostname}" = lib.nixosSystem {
+
+    # Host builder function
+    mkHost = { hostname, hostPath, extraModules ? [ ] }:
+      lib.nixosSystem {
+        inherit system;
+
         specialArgs = {
-          inherit system inputs hostname username;
+          inherit inputs username hostname;
         };
 
-        modules = [
-          ./host/configuration.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.extraSpecialArgs = {
-              inherit username inputs hostname;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.${username} = import ./host/home.nix;
-          }
-          nvf.nixosModules.default
+        modules =
+          [
+            hostPath
+
+            home-manager.nixosModules.home-manager {
+              home-manager.extraSpecialArgs =
+                { inherit username inputs hostname; };
+
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.users.${username} =
+                import ./hosts/common/home.nix;
+            }
+
+            nvf.nixosModules.default
+          ]
+          ++ extraModules;
+      };
+
+  in {
+    nixosConfigurations = {
+
+      # Dell
+      "21SW49" = mkHost {
+        hostname = "21SW49";
+        hostPath = ./hosts/21SW49/configuration.nix;
+        extraModules = [
           nixos-hardware.nixosModules.dell-latitude-5490
         ];
+      };
+
+      # Mechrevo
+      "mechrevo" = mkHost {
+        hostname = "mechrevo";
+        hostPath = ./hosts/mechrevo/configuration.nix;
       };
     };
   };

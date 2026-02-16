@@ -26,6 +26,6 @@ menuentry "Reboot" --class restart{
 EOF
    '';
    # Set the theme for grub using the link of the theme
-    theme = "${import ../../pkgs/grub-theme.nix { inherit pkgs; }}";
+    theme = "${import ../pkgs/grub-theme.nix { inherit pkgs; }}";
   };
 }

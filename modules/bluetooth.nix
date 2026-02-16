@@ -10,8 +10,8 @@
     };
   };
   services.blueman.enable = true; # Blueman (Bluetooth Manager)
-  environment.systemPackages = with pkgs; [
-    # bluez
-    # bluez-tools
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   bluez
+  #   bluez-tools
+  # ];
 }

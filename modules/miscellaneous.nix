@@ -1,11 +1,5 @@
 { config, lib, pkgs, hostname, username, inputs, ... }:
 {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./modules
-  ];
-
   hardware = {
     graphics = {
       enable = true;

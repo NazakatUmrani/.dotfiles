@@ -4,6 +4,7 @@
     ./fonts.nix
     ./grub.nix
     ./locales.nix
+    ./micellaneous.nix
     ./mountpoints.nix
     ./network.nix
     ./nvf.nix
