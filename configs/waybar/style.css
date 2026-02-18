@@ -39,12 +39,17 @@ Arc-Dark Color Scheme
 
 * {
     font-size: 14px;
-    font-family: "DejaVu Sans", "RecMonoCasual Nerd Font Propo", "JetBrainsMonoNL NFP", Font Awesome, sans-serif;
+    font-family:
+        "DejaVu Sans",
+        "RecMonoCasual Nerd Font Propo",
+        "JetBrainsMonoNL NFP",
+        Font Awesome,
+        sans-serif;
     font-weight: bold;
 }
 window#waybar {
-    background-color: rgba(28,28,28,0);
-    border-bottom: 1px solid rgba(28,28,28,0);
+    background-color: rgba(28, 28, 28, 0);
+    border-bottom: 1px solid rgba(28, 28, 28, 0);
     border-radius: 0px;
     color: #c43060;
 }
@@ -64,7 +69,7 @@ window#waybar {
     /* border: 0px; */
     color: #fabd2f;
     background-color: #282828;
-    opacity: 1.0;
+    opacity: 1;
     transition: all 0.3s ease-in-out;
 }
 #workspaces button.active {
@@ -73,21 +78,21 @@ window#waybar {
     border-radius: 15px;
     min-width: 30px;
     transition: all 0.3s ease-in-out;
-    opacity: 1.0;
+    opacity: 1;
 }
 #workspaces button:hover {
     color: #282828;
     background: #8ec07c;
     border-radius: 15px;
-    opacity: 1.0;
+    opacity: 1;
 }
 tooltip {
-  background: #282828;
-  border: 1px solid #fabd2f;
-  border-radius: 10px;
+    background: #282828;
+    border: 1px solid #fabd2f;
+    border-radius: 10px;
 }
 tooltip label {
-  color: #b8bb26;
+    color: #b8bb26;
 }
 #custom-startmenu {
     padding: 0px 4px 0px 4px;
@@ -147,7 +152,7 @@ tooltip label {
 #battery {
     color: #ff5a67;
     background: #282828;
-    border-radius: 15px;
+    border-radius: 15px 30px 15px 30px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
@@ -192,7 +197,7 @@ tooltip label {
     padding: 2px 20px;
     border: 2px solid #665c54;
 }
-#custom-themeselector{
+#custom-themeselector {
     color: #8ec07c;
     padding: 0px 7px;
 }

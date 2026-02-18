@@ -1,10 +1,18 @@
-{ config, lib, pkgs, hostname, username, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  hostname,
+  username,
+  inputs,
+  ...
+}:
 {
   hardware = {
     graphics = {
       enable = true;
       # driSupport = true;
-      extraPackages = with pkgs; [
+      extraPackages = [
         # mesa mesa.drivers libva
         # intel-media-driver vaapiIntel vaapiVdpau libvdpau-va-gl
       ];

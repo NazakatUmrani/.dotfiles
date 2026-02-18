@@ -35,7 +35,7 @@ in
         layout = "us";
         variant = "";
       };
-      #videoDrivers = [ "intel" ];
+      #videoDrivers = [ "intel" ]; #Don't comment out, 2 different systems are using this same config, declare it according to host later if needed
     };
   };
 }
