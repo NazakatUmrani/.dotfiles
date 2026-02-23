@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, username, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  username,
+  ...
+}:
 
 let
   gtk-css = "@import '../../configs/GTK/gtk.css'";
@@ -36,13 +42,13 @@ in
       commands = {
         # Changed from xdragon to dragon-out which gives 2 options: xdragon and dragon-drop, right now using xdragon, not sure about dragon-drop yet
         dragon-out = ''%${pkgs.dragon-drop}/bin/xdragon -a -x "$fx"'';
-        editor-open = ''$$EDITOR $f'';
+        editor-open = "$$EDITOR $f";
         mkdir = ''
-        ''${{
-          printf "Directory Name: "
-          read DIR
-          mkdir $DIR
-        }}
+          ''${{
+            printf "Directory Name: "
+            read DIR
+            mkdir $DIR
+          }}
         '';
       };
       keybindings = {
@@ -74,30 +80,29 @@ in
       };
 
       extraConfig =
-      let
-        previewer =
-          pkgs.writeShellScriptBin "pv.sh" ''
-          file=$1
-          w=$2
-          h=$3
-          x=$4
-          y=$5
+        let
+          previewer = pkgs.writeShellScriptBin "pv.sh" ''
+            file=$1
+            w=$2
+            h=$3
+            x=$4
+            y=$5
 
-          if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
-              ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
-              exit 1
-          fi
+            if [[ "$( ${pkgs.file}/bin/file -Lb --mime-type "$file")" =~ ^image ]]; then
+                ${pkgs.kitty}/bin/kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
+                exit 1
+            fi
 
-          ${pkgs.pistol}/bin/pistol "$file"
+            ${pkgs.pistol}/bin/pistol "$file"
+          '';
+          cleaner = pkgs.writeShellScriptBin "clean.sh" ''
+            ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
+          '';
+        in
+        ''
+          set cleaner ${cleaner}/bin/clean.sh
+          set previewer ${previewer}/bin/pv.sh
         '';
-        cleaner = pkgs.writeShellScriptBin "clean.sh" ''
-          ${pkgs.kitty}/bin/kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
-        '';
-      in
-      ''
-        set cleaner ${cleaner}/bin/clean.sh
-        set previewer ${previewer}/bin/pv.sh
-      '';
     };
     # neovim = {
     #   enable = true;
@@ -145,7 +150,7 @@ in
         recursive = true;
       };
       "rofi" = {
-        source =  ../../configs/rofi;
+        source = ../../configs/rofi;
         recursive = true;
       };
       "lf/icons".source = ../../configs/lf/icons;
@@ -221,14 +226,13 @@ in
     };
   };
 
-
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     # plugins = [
-      # hyprplugins.hyprtrails
+    # hyprplugins.hyprtrails
     # ];
     extraConfig = " ";
   };

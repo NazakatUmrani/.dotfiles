@@ -15,20 +15,20 @@
   ],
 
   "modules-center": [
-    "network",
+    // "network",
     // "cpu",
+    "backlight",
     "hyprland/workspaces",
     // "memory",
     // "disk"
-    "backlight",
+    "battery",
   ],
 
   "modules-right": [
     // "idle_inhibitor",
     "custom/notification",
     "pulseaudio",
-    // "clock",
-    "battery",
+    "clock",
     "tray",
   ],
 

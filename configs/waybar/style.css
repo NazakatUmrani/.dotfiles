@@ -184,7 +184,7 @@ tooltip label {
 #backlight {
     color: #fabd2f;
     background: #282828;
-    border-radius: 15px 30px 15px 30px;
+    border-radius: 30px 15px 30px 15px;
     margin: 5px;
     padding: 2px 20px;
     border: 2px solid #665c54;
