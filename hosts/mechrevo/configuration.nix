@@ -8,9 +8,9 @@
 
   my.mounts.ntfs.enable = false;
 
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.efiInstallAsRemovable = true; # GRUB will install in EFI/boot/boot$arch.efi which the firmwares are hardcoded to try first.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.grub.efiInstallAsRemovable = true; # GRUB will install in EFI/boot/boot$arch.efi which the firmwares are hardcoded to try first.
 
   programs.steam.enable = true;
 

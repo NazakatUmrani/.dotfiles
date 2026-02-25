@@ -2,7 +2,6 @@
   imports = [
     ./bluetooth.nix
     ./fonts.nix
-    ./grub.nix
     ./locales.nix
     ./miscellaneous.nix
     ./mountpoints.nix
