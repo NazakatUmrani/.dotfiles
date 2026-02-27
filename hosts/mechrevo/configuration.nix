@@ -23,12 +23,9 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   services.logind.settings.Login = {
-    HandleLidSwitch = "ignore";
+    HandlePowerKey = "ignore";
+    # HandleLidSwitch = "ignore";
   };
-  # don’t shutdown when power button is short-pressed
-  services.logind.settings.Login.HandlePowerKey = "ignore";
-  # want to be able to listen to music while laptop closed
-  # services.logind.settings.Login.LidSwitchIgnoreInhibited = "no";
 
   # services.upower.ignoreLid = true; # Didn't work
   # services.logind.extraConfig = ''
