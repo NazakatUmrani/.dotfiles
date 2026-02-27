@@ -200,7 +200,7 @@ in
 
     iconTheme = {
       package = pkgs.gruvbox-plus-icons;
-      name = "GruvboxPlus";
+      name = "Gruvbox Plus Dark";
     };
 
     gtk3 = {
@@ -222,7 +222,7 @@ in
     enable = true;
     platformTheme.name = "gtk";
     style = {
-      name = "kvantum-dark";
+      name = "Breeze";
     };
   };
 

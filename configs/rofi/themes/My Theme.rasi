@@ -1,12 +1,12 @@
 /*
-#  ____        __ _  
-# |  _ \ ___  / _(_) 
-# | |_) / _ \| |_| | 
-# |  _ < (_) |  _| | 
-# |_| \_\___/|_| |_| 
-#                    
-# by Stephan Raabe (2023) 
-# ----------------------------------------------------- 
+#  ____        __ _
+# |  _ \ ___  / _(_)
+# | |_) / _ \| |_| |
+# |  _ < (_) |  _| |
+# |_| \_\___/|_| |_|
+#
+# by Stephan Raabe (2023)
+# -----------------------------------------------------
 */
 
 /* ---- Configuration ---- */
@@ -19,13 +19,13 @@ configuration {
     display-run:                "RUN";
     display-filebrowser:        "FILES";
     display-window:             "WINDOW";
-	  drun-display-format:        "{name}";
+    drun-display-format:        "{name}";
     hover-select:               false;
     scroll-method:              1;
     me-select-entry:            "";
     me-accept-entry:            "MousePrimary";
     window-format:              "{w} · {c} · {t}";
-    
+
 }
 
 /* ---- Window ---- */
@@ -35,7 +35,7 @@ window {
     y-offset:                     0px;
     spacing:                      0px;
     padding:                      0px;
-    margin:                       0px; 
+    margin:                       0px;
     color:                        #282828;
     border:                       3px;
     border-color:                 #8ec07c;
@@ -237,4 +237,3 @@ error-message {
     background-color:            #282828;
     text-color:                  #ebdbb2;
 }
-
