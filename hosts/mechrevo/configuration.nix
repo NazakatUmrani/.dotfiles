@@ -27,13 +27,5 @@
     # HandleLidSwitch = "ignore";
   };
 
-  # services.upower.ignoreLid = true; # Didn't work
-  # services.logind.extraConfig = ''
-  #   # don’t shutdown when power button is short-pressed
-  #   HandlePowerKey=ignore
-  #   HandleSuspendKey=ignore
-  #   HandleHibernateKey=ignore
-  # '';
-
   environment.systemPackages = [ pkgs.heroic ];
 }
