@@ -142,7 +142,7 @@
 
   "custom/startmenu": {
     "tooltip": false,
-    "format": "",
+    "format": "",
     "# exec": "rofi -show drun",
     "tooltip-format": "App Launcher",
     "on-click": "pkill rofi || rofi -show drun",
