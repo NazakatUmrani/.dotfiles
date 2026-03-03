@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
   //can't set less than 42 as minimum height reuired by modules
-  "height": 20,
+  "height": 10,
 
   "modules-left": [
     "group/left",
