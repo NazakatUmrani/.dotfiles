@@ -14,7 +14,7 @@
     feh
     # (pkgs.callPackage ../../pkgs/free-download-manager.nix {}) # Not Working because of new updates and dependencies
     gh
-    git #VCS
+    git # VCS
     git-crypt
     # github-desktop
     grimblast # A helper for screenshots within Hyprland, based on grimshot
@@ -25,7 +25,6 @@
     killall
     lf
     libnotify
-    kdePackages.polkit-kde-agent-1
     libsForQt5.qt5ct
     libsForQt5.qt5.qtgraphicaleffects
     libsForQt5.qt5.qtquickcontrols
@@ -46,7 +45,6 @@
     nvd # compare two nix configurations
     nwg-look # GTK settings editor
     papirus-icon-theme
-    polkit
     qt6Packages.qtstyleplugin-kvantum
     qt6.qtwayland
     ranger

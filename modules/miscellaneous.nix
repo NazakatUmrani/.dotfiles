@@ -97,6 +97,9 @@
     pam.services.swaylock = { }; # password isn't accepted, if removed
     polkit.enable = true; # Enable Polkit
   };
+  environment.systemPackages = with pkgs; [
+    hyprpolkitagent
+  ];
 
   # Allow Unfree Softwares
   nixpkgs.config = {
