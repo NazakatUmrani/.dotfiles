@@ -6,4 +6,8 @@
     ../../modules
     ../../modules/grub.nix
   ];
+
+  environment.sessionVariables = {
+    XDG_SCREENSHOTS_DIR = "/home/nazakat/WindowsData/Screenshots & Recordings";
+  };
 }

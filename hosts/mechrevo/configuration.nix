@@ -30,4 +30,8 @@
   };
 
   environment.systemPackages = [ pkgs.heroic ];
+
+  environment.sessionVariables = {
+    XDG_SCREENSHOTS_DIR = "/home/nazakat/Pictures/Screenshots & Recordings";
+  };
 }
