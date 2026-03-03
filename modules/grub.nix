@@ -11,21 +11,21 @@
     efiSupport = true;
     useOSProber = true;
     enable = true;
-    extraInstallCommands =  ''
-${pkgs.coreutils}/bin/cat << EOF >> /boot/grub/grub.cfg
+    extraInstallCommands = ''
+      ${pkgs.coreutils}/bin/cat << EOF >> /boot/grub/grub.cfg
 
-# Shutdown
-menuentry "Shutdown" --class shutdown {
-  halt
-}
+      # Shutdown
+      menuentry "Shutdown" --class shutdown {
+        halt
+      }
 
-# Reboot
-menuentry "Reboot" --class restart{
-  reboot
-}
-EOF
-   '';
-   # Set the theme for grub using the link of the theme
+      # Reboot
+      menuentry "Reboot" --class restart{
+        reboot
+      }
+      EOF
+    '';
+    # Set the theme for grub using the link of the theme
     theme = "${import ../pkgs/grub-theme.nix { inherit pkgs; }}";
   };
 }
