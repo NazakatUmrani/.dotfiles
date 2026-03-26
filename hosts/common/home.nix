@@ -23,6 +23,7 @@ in
     gpg.enable = true;
     git = {
       enable = true;
+      signing.format = null;
       settings = {
         user = {
           name = "Nazakat Umrani - NixOS Linux";
@@ -139,6 +140,7 @@ in
     userDirs = {
       enable = true;
       createDirectories = true;
+      setSessionVariables = true;
     };
     configFile = {
       "kitty" = {
@@ -210,6 +212,7 @@ in
       };
     };
     gtk4 = {
+      theme = null;
       extraCss = gtk-css;
       extraConfig = {
         gtk-application-prefer-dark-theme = 1;

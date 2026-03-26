@@ -1,6 +1,6 @@
 <div align="center">
 <h1>
-❄️ NixOS dotfiles ❄️
+ NixOS dotfiles 
 </h1>
 <p align="left">
 On my main machine I use NixOS as my daily driver Operating System, NixOS is reproducible, immutable, declarative and more.
