@@ -10,6 +10,11 @@ let
   gtk-css = "@import '../../configs/GTK/gtk.css'";
 in
 {
+  imports = [
+    ../../configs/hypr/hyprland.nix
+    # hyprland.nix
+  ];
+
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
@@ -147,10 +152,6 @@ in
         source = ../../configs/kitty;
         recursive = true;
       };
-      "hypr" = {
-        source = ../../configs/hypr;
-        recursive = true;
-      };
       "rofi" = {
         source = ../../configs/rofi;
         recursive = true;
@@ -227,17 +228,6 @@ in
     style = {
       name = "Breeze";
     };
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    systemd.enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # plugins = [
-    # hyprplugins.hyprtrails
-    # ];
-    extraConfig = " ";
   };
 
   home.packages = with pkgs; [
