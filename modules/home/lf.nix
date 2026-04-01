@@ -70,4 +70,6 @@
         '';
     };
   };
+
+  xdg.configFile."lf/icons".source = ../../configs/lf/icons;
 }

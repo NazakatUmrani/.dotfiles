@@ -1,71 +1,140 @@
-<div align="center">
-<h1>
- NixOS dotfiles 
-</h1>
-<p align="left">
-On my main machine I use NixOS as my daily driver Operating System, NixOS is reproducible, immutable, declarative and more.
-I love to explore to world of Linux, and with nixos not only I can declare all my settings in files, I can recreate my entire system with just those files again, in other OS, when we install, we need to do every configuration by ourselves, and in case of breaking and bugs, if we reinstall the system, all settings, extensions, themes, are wiped and we need to start from the scratch again, but with nixos now I got everything declared in my files, just need to run this command below and everything is configured back as how it was before the breaking.
-</p>
+#   NixOS dotfiles 
+
+## ✨ About
+
+On my main machines, I use **NixOS** as my daily driver.
+
+NixOS allows me to define my entire system — from packages to UI — inside configuration files.  
+This means:
+
+- No manual setup after reinstall  
+- No lost configurations or themes  
+- Everything reproducible with a single command  
+
+Unlike traditional operating systems where you configure everything manually again, with NixOS I just run:
 
 ```
 nixos-rebuild switch --flake .#
 ```
 
 <br>
-</div>
 
-## My system specifications:
+## 💻 System Specifications
 
+### 1. 🌸 Dell Latitude E5480
+```mint
+⠀⠀   🌸 NixOS / Hyprland 🌸
+ -----------------------------------
+
+ ╭─ CPU              ->   Intel i5-7200U @ 3.1GHz
+ ├─ GPU              ->   Intel HD Graphics 620
+ ╰─ Resolution       ->   1280x720
+
+ ╭─ WM               ->   Hyprland
+ ├─ Theme            ->   adw-gtk3 [GTK2/3/4]
+ ├─ Icons            ->   Gruvbox Plus Dark [GTK2/3/4]
+ ├─ Font             ->   MapleMono-NF (12pt) [GTK2/3/4]
+ ├─ Cursor           ->   Bibata-Modern-Ice
+ ├─ Terminal         ->   Kitty
+ ╰─ Font             ->   JetBrains Mono Nerd Font
+ 
+ ╭─ Editor           ->   Neovim + Zed + VSCode
+ ├─ Browser          ->   Firefox
+ ├─ Shell            ->   Fish
+ ╰─ Resource Monitor ->   Btop
+
+                       
+```
+
+### 2. 🌸 Mechrevo R14P Series
 ```mint
 ⠀⠀   🌸 Setup / Hyprland 🌸
  -----------------------------------
 
- ╭─ Distro  -> NixOS
- ├─ Editor  -> Neovim + Zed + VSCode
- ├─ Browser -> Firefox
- ├─ Shell   -> Fish
- ╰─ Resource Monitor -> Btop
+ ╭─ CPU              ->   AMD Ryzen 5 7430U (12) @ 4.39 GHz
+ ├─ GPU              ->   AMD Barcelo [Integrated]
+ ╰─ Resolution       ->   1920x1080 @ 1.25x in 14", 60 Hz
 
- ╭─ Model -> DELL Latitude E5480
- ├─ CPU   -> Intel i5-7200U @ 3.1GHz
- ├─ GPU   -> Intel HD Graphics 620
- ╰─ Resolution -> 1280x720
+ ╭─ WM               ->   Hyprland
+ ├─ Theme            ->   adw-gtk3 [GTK2/3/4]
+ ├─ Icons            ->   Gruvbox Plus Dark [GTK2/3/4]
+ ├─ Font             ->   MapleMono-NF (12pt) [GTK2/3/4]
+ ├─ Cursor           ->   Bibata-Modern-Ice
+ ├─ Terminal         ->   Kitty
+ ╰─ Font             ->   JetBrains Mono Nerd Font
+ 
+ ╭─ Editor           ->   Neovim + Zed + VSCode
+ ├─ Browser          ->   Firefox
+ ├─ Shell            ->   Fish
+ ╰─ Resource Monitor ->   Btop
 
- ╭─ WM       -> Hyprland
- ├─ Terminal -> Kitty
- ├─ Theme    -> ----
- ├─ Icons    -> ----
- ╰─ Font     -> JetBrains Mono Nerd Font 
-                        
+                       
 ```
 
-<br>
+## 🖼️ Screenshots:
 
-## Screenshots:
 <div align="center">
 <img src="./Extra/Screenshots/01.png" alt="Rice Preview 01"/>
 <img src="./Extra/Screenshots/02.png" alt="Rice Preview 02"/>
 <img src="./Extra/Screenshots/03.png" alt="Rice Preview 03"/>
 </div>
-<hr>
-
-
 <br>
 
-## Repository Structure:
+## 📂 Repository Structure:
 
-<b>Configs Directory: </b>Contains configs for all programs like, hyprland, kitty, neovim etc.
+```
+.
+├── configs/                # Program configurations (hyprland, kitty, nvim, etc.)
+├── hosts/                  # Host-specific configurations
+│   ├── 21SW49/             # DELL Latitude configuration
+│   │   ├── configuration.nix
+│   │   ├── hardware-configuration.nix
+│   │   └── home.nix
+│   └── mechrevo/           # Mechrevo configuration
+│       ├── configuration.nix
+│       ├── hardware-configuration.nix
+│       └── home.nix
+├── modules/                # Modular NixOS and Home Manager modules
+│   ├── home/               # Home Manager modules (hyprland, git, shell, etc.)
+│   └── system/             # System-level NixOS modules (network, sound, boot, etc.)
+├── pkgs/                   # Custom Nix packages not available in nixpkgs.
+├── shells/                 # Development shell environments (Flakes)
+├── Extra/                  # Non-NixOS Personal files (screenshots, wallpapers, etc.)
+├── flake.nix               # Main flake configuration
+└── flake.lock              # Locked dependencies
+```
 
-<b>Extra Directory: </b>Contains non NixOS files useful for me. You can safely remove them.
+## ⚙️ Setup:
 
-<b>Host Directory: </b>Contains NixOS system files as well as home manager module.
+## Installation instructions
 
-<b>Pkgs Directory: </b>Contains packages derivations which are not available in nixpkgs right now written in .nix files.
+1. Connect to the internet through wpa_supplicant wpa_cli
 
+2. Partitioning with fdisk and formatting and mounting
 
-## Setup:
+3. Install git with nix shell
+   ```
+   nix-shell -p git
+   ```
 
-Make sure to change usernames, emails, and any config file you like to.
+4. Clone git repository
+   ```
+   git clone https://github.com/nazakatumrani/dotfiles.git <path/to/clone/to>
+   ```
+
+5. Generate Default config and replace hardware configuration in repo with new one
+
+6. Replace new uuids in mountpoints.nix for Windows Data and Windows C Partition
+
+7. Make sure to update usernames, emails, and any configuration files you want to customize
+
+8. Install nixos with flakes
+   ```
+   nixos-intall --flake '.#21SW49'
+   ```
+
+### Basic Commands
+
 - To apply the changes you make to your configs:
 
   ```
@@ -77,23 +146,3 @@ Make sure to change usernames, emails, and any config file you like to.
   ```
   nix flake update
   ```
-
-## Installation instructions
-
-1. Connect to the internet through wpa_supplicant wpa_cli
-
-2. Partitioning with fdisk and formatting and mounting
-
-3. Generate Default config and replace hardware configuration with new one
-
-4. replace new uuids in configuration.nix for Windows Data and Windows C Partition
-
-5. install git nix nix shell
-    ```
-    nix-shell -p git
-    ```
-
-6. Install nixos with flakes
-    ```
-    nixos-intall --flake '.#21SW49'
-    ```

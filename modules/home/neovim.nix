@@ -13,11 +13,6 @@
   # };
 
   # xdg = {
-  #   userDirs = {
-  #     enable = true;
-  #     createDirectories = true;
-  #     setSessionVariables = true;
-  #   };
   #   configFile."nvim" = {
   #     source = ../../configs/nvim;
   #     recursive = true;
