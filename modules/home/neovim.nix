@@ -1,0 +1,26 @@
+{ config, pkgs, ... }:
+
+{
+  # Commented out due to switching to NVF
+
+  # programs.neovim = {
+  #   enable = true;
+  #   defaultEditor = true;
+  #   viAlias = true;
+  #   vimAlias = true;
+  #   vimdiffAlias = true;
+  #   extraPackages = with pkgs; [ xclip wl-clipboard ];
+  # };
+
+  # xdg = {
+  #   userDirs = {
+  #     enable = true;
+  #     createDirectories = true;
+  #     setSessionVariables = true;
+  #   };
+  #   configFile."nvim" = {
+  #     source = ../../configs/nvim;
+  #     recursive = true;
+  #   };
+  # };
+}

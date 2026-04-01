@@ -317,5 +317,10 @@
         ];
       };
     };
+
+    # xdg.configFile."hypr" = {
+    #   source = ../../configs/hypr;
+    #   recursive = true;
+    # };
   };
 }
