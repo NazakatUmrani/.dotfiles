@@ -8,7 +8,7 @@
   # Hyprland Monitor custom option scale
   my.hyprland = {
     monitor.scale = 1.25;
-    enableAnimations = true;
+    # enableAnimations = true;
     enableBlur = true;
     enableShadow = true;
     enableBorders = true;

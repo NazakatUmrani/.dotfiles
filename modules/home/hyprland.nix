@@ -344,8 +344,11 @@
 
         bindm = [
           # Move/resize windows with mainMod + LMB/RMB and dragging
+          # As clicking and moving the mouse on a touchpad is unergonomic, you can also use keyboard keys instead of mouse clicks.
           "$mainMod, mouse:272, movewindow"
+          "$mainMod, Control_L, movewindow"
           "$mainMod, mouse:273, resizewindow"
+          "$mainMod, ALT_L, resizewindow"
         ];
       };
     };
