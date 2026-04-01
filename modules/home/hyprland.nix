@@ -1,32 +1,54 @@
 { config, lib, ... }:
 {
-  options.my.hyprland.monitor = lib.mkOption {
-    type = lib.types.submodule {
-      options = {
-        output = lib.mkOption {
-          type = lib.types.str;
-          default = "";
-        };
+  options.my.hyprland = {
+    monitor = lib.mkOption {
+      type = lib.types.submodule {
+        options = {
+          output = lib.mkOption {
+            type = lib.types.str;
+            default = "";
+          };
 
-        mode = lib.mkOption {
-          type = lib.types.str;
-          default = "preferred";
-        };
+          mode = lib.mkOption {
+            type = lib.types.str;
+            default = "preferred";
+          };
 
-        position = lib.mkOption {
-          type = lib.types.str;
-          default = "auto";
-        };
+          position = lib.mkOption {
+            type = lib.types.str;
+            default = "auto";
+          };
 
-        scale = lib.mkOption {
-          type = lib.types.float;
-          default = 1.0;
+          scale = lib.mkOption {
+            type = lib.types.float;
+            default = 1.0;
+          };
         };
       };
+
+      default = { };
+      description = "Hyprland monitor configuration";
     };
 
-    default = { };
-    description = "Hyprland monitor configuration";
+    enableAnimations = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+
+    enableBlur = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+
+    enableShadow = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+
+    enableBorders = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
   config = {
@@ -73,23 +95,23 @@
           "nm-applet --indicator"
         ];
 
-        animations = {
-          # enabled = true;
-          # bezier = [
-          #   "wind, -1.05, 0.9, 0.1, 1.05"
-          #   "winIn, -1.1, 1.1, 0.1, 1.1"
-          #   "winOut, -1.3, -0.3, 0, 1"
-          #   "liner, 0, 1, 1, 1"
-          # ];
-          # animation = [
-          #   "windows, 0, 6, wind, slide"
-          #   "windowsIn, 0, 6, winIn, slide"
-          #   "windowsOut, 0, 5, winOut, slide"
-          #   "windowsMove, 0, 5, wind, slide"
-          #   "border, 0, 1, liner"
-          #   "fade, 0, 10, default"
-          #   "workspaces, 0, 5, wind"
-          # ];
+        animations = lib.mkIf config.my.hyprland.enableAnimations {
+          enabled = true;
+          bezier = [
+            "wind, -1.05, 0.9, 0.1, 1.05"
+            "winIn, -1.1, 1.1, 0.1, 1.1"
+            "winOut, -1.3, -0.3, 0, 1"
+            "liner, 0, 1, 1, 1"
+          ];
+          animation = [
+            "windows, 0, 6, wind, slide"
+            "windowsIn, 0, 6, winIn, slide"
+            "windowsOut, 0, 5, winOut, slide"
+            "windowsMove, 0, 5, wind, slide"
+            "border, 0, 1, liner"
+            "fade, 0, 10, default"
+            "workspaces, 0, 5, wind"
+          ];
         };
 
         cursor = {
@@ -98,24 +120,33 @@
           no_warps = true;
         };
 
-        decoration = {
-          # rounding = 10;
-          # blur = {
-          #   enabled = true;
-          #   size = 4;
-          #   passes = 4;
-          #   ignore_opacity = true;
-          #   new_optimizations = true;
-          # };
-          # shadow = {
-          #   enabled = true;
-          #   range = 4;
-          #   render_power = 3;
-          #   color = "rgba(1a1a1aee)";
-          # };
-          # active_opacity = 0.95;
-          # inactive_opacity = 0.7;
-        };
+        decoration = lib.mkMerge [
+          { }
+          (lib.mkIf config.my.hyprland.enableBlur {
+            blur = {
+              enabled = true;
+              size = 4;
+              passes = 4;
+              ignore_opacity = true;
+              new_optimizations = true;
+            };
+            active_opacity = 0.95;
+            inactive_opacity = 0.7;
+          })
+
+          (lib.mkIf config.my.hyprland.enableShadow {
+            shadow = {
+              enabled = true;
+              range = 4;
+              render_power = 3;
+              color = "rgba(1a1a1aee)";
+            };
+          })
+
+          (lib.mkIf config.my.hyprland.enableBorders {
+            rounding = 10;
+          })
+        ];
 
         dwindle = {
           pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
@@ -133,10 +164,11 @@
           layout = "dwindle";
           gaps_in = 3;
           gaps_out = 9;
-          # border_size = 2;
-          # resize_on_border = true;
-          # "col.active_border" = "rgba(fb4934ee) rgba(fabd2fee) rgba(83a598ee) 45deg";
-          # "col.inactive_border" = "rgba(595959aa) 45deg";
+        }
+        // lib.mkIf config.my.hyprland.enableBorders {
+          border_size = 2;
+          "col.active_border" = "rgba(fb4934ee) rgba(fabd2fee) rgba(83a598ee) 45deg";
+          "col.inactive_border" = "rgba(595959aa) 45deg";
         };
 
         gestures = {

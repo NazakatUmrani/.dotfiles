@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  mimeApps.defaultApplications = {
+  xdg.mimeApps.defaultApplications = {
     "text/plain" = [ "neovide.desktop" ];
     "application/pdf" = [ "zathura.desktop" ];
     "image/*" = [ "sxiv.desktop" ];
