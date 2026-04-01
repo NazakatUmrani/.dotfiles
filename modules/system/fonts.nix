@@ -9,8 +9,8 @@ let
     }
   );
 
-  impact = pkgs.callPackage ../pkgs/fonts/impact.nix { };
-  hobostd = pkgs.callPackage ../pkgs/fonts/hobostd.nix { };
+  impact = pkgs.callPackage ../../pkgs/fonts/impact.nix { };
+  hobostd = pkgs.callPackage ../../pkgs/fonts/hobostd.nix { };
 in
 {
   fonts = {

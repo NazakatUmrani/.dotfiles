@@ -3,7 +3,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules
+    ../../modules/system
   ];
 
   my.mounts.ntfs.enable = false;

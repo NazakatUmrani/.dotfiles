@@ -11,8 +11,7 @@ let
 in
 {
   imports = [
-    ../../configs/hypr/hyprland.nix
-    # hyprland.nix
+    ./hyprland.nix
   ];
 
   home = {
@@ -148,6 +147,10 @@ in
       setSessionVariables = true;
     };
     configFile = {
+      # "hypr" = {
+      #   source = ../../configs/hypr;
+      #   recursive = true;
+      # };
       "kitty" = {
         source = ../../configs/kitty;
         recursive = true;

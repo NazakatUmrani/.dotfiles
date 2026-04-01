@@ -24,58 +24,69 @@
     # };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nvf, nixos-hardware, ... }:
-  let
-    system = "x86_64-linux";
-    username = "nazakat";
-    lib = nixpkgs.lib;
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nvf,
+      nixos-hardware,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      username = "nazakat";
+      lib = nixpkgs.lib;
 
-    # Host builder function
-    mkHost = { hostname, hostPath, extraModules ? [ ] }:
-      lib.nixosSystem {
-        inherit system;
+      # Host builder function
+      mkHost =
+        {
+          hostname,
+          hostDir,
+          extraModules ? [ ],
+        }:
+        lib.nixosSystem {
+          inherit system;
 
-        specialArgs = {
-          inherit inputs username hostname;
-        };
+          specialArgs = {
+            inherit inputs username hostname;
+          };
 
-        modules =
-          [
-            hostPath
+          modules = [
+            (hostDir + "/configuration.nix")
 
-            home-manager.nixosModules.home-manager {
-              home-manager.extraSpecialArgs =
-                { inherit username inputs hostname; };
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = { inherit username inputs hostname; };
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
-              home-manager.users.${username} =
-                import ./hosts/common/home.nix;
+              home-manager.users.${username} = import (hostDir + "/home.nix");
             }
 
             nvf.nixosModules.default
           ]
           ++ extraModules;
-      };
+        };
 
-  in {
-    nixosConfigurations = {
+    in
+    {
+      nixosConfigurations = {
 
-      # Dell
-      "21SW49" = mkHost {
-        hostname = "21SW49";
-        hostPath = ./hosts/21SW49/configuration.nix;
-        extraModules = [
-          nixos-hardware.nixosModules.dell-latitude-5490
-        ];
-      };
+        # Dell
+        "21SW49" = mkHost {
+          hostname = "21SW49";
+          hostDir = ./hosts/21SW49;
+          extraModules = [
+            nixos-hardware.nixosModules.dell-latitude-5490
+          ];
+        };
 
-      # Mechrevo
-      "mechrevo" = mkHost {
-        hostname = "mechrevo";
-        hostPath = ./hosts/mechrevo/configuration.nix;
+        # Mechrevo
+        "mechrevo" = mkHost {
+          hostname = "mechrevo";
+          hostDir = ./hosts/mechrevo;
+        };
       };
     };
-  };
 }

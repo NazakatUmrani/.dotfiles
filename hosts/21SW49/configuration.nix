@@ -3,8 +3,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../modules
-    ../../modules/grub.nix
+    ../../modules/system
+    ../../modules/system/grub.nix
   ];
 
   environment.sessionVariables = {
