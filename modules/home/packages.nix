@@ -12,6 +12,7 @@
     handbrake # Video Converter
     vlc
 
+    awww
     eza
     gimp # Photo Editing Software
     gnupg
