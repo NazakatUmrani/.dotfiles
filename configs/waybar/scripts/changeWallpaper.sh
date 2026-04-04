@@ -5,7 +5,7 @@ wall=$(find ~/Pictures/Wallpapers/ -type f -name "*.jpg" -o -name "*.png" | shuf
 # generate a cache image for swaylock
 magick "$wall" -resize 50% -blur 0x4 "${HOME}/.cache/cache_wallpaper.png"
 
-swww query || swww-daemon --format xrgb && swww img "$wall" --transition-step 59 --transition-fps 30 --transition-type grow --transition-pos 1285,100
+awww query || awww-daemon --format xrgb && awww img "$wall" --transition-step 59 --transition-fps 30 --transition-type grow --transition-pos 1285,100
 wal -i "$wall"
 
 # update terminal colors
@@ -22,4 +22,4 @@ ln -s "${HOME}/.cache/wal/colors-kitty.conf" $symFile
 notify-send "Theme and wallpaper updated" "Wallpaper: $(echo $wall | sed 's|/home/nazakat/Pictures/Wallpapers/||g')"
 
 
-# swww img /home/nazakat/Pictures/Wallpapers/rebellious_tower.png --transition-step 59 --transition-fps 30 --transition-type grow --transition-pos 1285,100 &
+# awww img /home/nazakat/Pictures/Wallpapers/rebellious_tower.png --transition-step 59 --transition-fps 30 --transition-type grow --transition-pos 1285,100 &

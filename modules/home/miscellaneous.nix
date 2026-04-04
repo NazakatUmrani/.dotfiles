@@ -26,6 +26,5 @@
       enable = true;
       pinentry.package = pkgs.pinentry-qt;
     };
-    swww.enable = true; # Wallpaper daemon for wayland
   };
 }

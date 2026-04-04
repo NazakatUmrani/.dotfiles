@@ -83,8 +83,8 @@
         ];
 
         exec-once = [
-          "swww-daemon --format xrgb"
-          "swww img $wallpaper --transition-step 255"
+          "awww-daemon --format xrgb"
+          "awww img $wallpaper --transition-step 255"
           "wl-paste --type text --watch cliphist store" # Saves text
           "wl-paste --type image --watch cliphist store" # Saves images
           "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

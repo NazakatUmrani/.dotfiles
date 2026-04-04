@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-swww img $wallpaper --transition-step 255
+awww img $wallpaper --transition-step 255

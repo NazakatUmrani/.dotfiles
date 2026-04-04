@@ -6,6 +6,7 @@
     ./miscellaneous.nix
     ./mountpoints.nix
     ./network.nix
+    ./nh.nix
     ./nvf.nix
     ./plasma.nix
     ./plymouth.nix

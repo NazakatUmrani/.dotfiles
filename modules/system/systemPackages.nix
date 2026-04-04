@@ -41,7 +41,7 @@
     nix-output-monitor # beautiful nix build loading screen
     nixpkgs-fmt # formatter nix files
     nodejs_24
-    nodePackages.nodemon
+    nodemon
     nvd # compare two nix configurations
     nwg-look # GTK settings editor
     papirus-icon-theme
