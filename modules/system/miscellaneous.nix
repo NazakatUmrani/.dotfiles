@@ -23,10 +23,10 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Performance mode
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "performance";
-  };
+  # powerManagement = {
+  #  enable = true;
+  #  cpuFreqGovernor = "performance";
+  #};
 
   # Enable the X11 windowing system.
   services = {

@@ -264,7 +264,7 @@
           "$mainMod, $mainMod_L, exec, pkill rofi || rofi -show drun"
           "$mainMod, B, exec, firefox"
           "$mainMod, P, pseudo # dwindle"
-          "$mainMod, J, togglesplit # dwindle"
+          "$mainMod, J, layoutmsg, togglesplit # dwindle"
           "$mainMod, X, exec, kitty"
           "$mainMod, O, exec, obs"
           "$mainMod, L, exec, pkill wlogout || wlogout"
