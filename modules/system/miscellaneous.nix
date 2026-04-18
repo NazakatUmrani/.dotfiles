@@ -91,6 +91,7 @@
     # GTK_USE_PORTAL = "1";
     # QT_QPA_PLATFORM = "wayland";
     MOZ_ENABLE_WAYLAND = "1";
+    HOSTNAME = hostname;
   };
 
   security = {

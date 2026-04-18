@@ -48,7 +48,10 @@
           enableTreesitter = true;
 
           # Language Support
-          nix.enable = true;
+          nix = {
+            enable = true;
+            lsp.servers = [ "nixd" ];
+          };
           html.enable = true;
           css.enable = true;
           ts.enable = true;

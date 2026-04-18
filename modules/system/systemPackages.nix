@@ -33,16 +33,13 @@
     lldb
     # lutris
     mongodb-compass # MongoDB Compass GUI
-    nil # Nix language server required by nix zed extension
     nitch
     nixd # Nix language server required by nix zed extension
     fastfetch
     networkmanagerapplet
-    nix-output-monitor # beautiful nix build loading screen
     nixpkgs-fmt # formatter nix files
     nodejs_24
     nodemon
-    nvd # compare two nix configurations
     nwg-look # GTK settings editor
     papirus-icon-theme
     qt6Packages.qtstyleplugin-kvantum
