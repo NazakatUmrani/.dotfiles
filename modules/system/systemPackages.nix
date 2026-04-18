@@ -34,10 +34,8 @@
     # lutris
     mongodb-compass # MongoDB Compass GUI
     nitch
-    nixd # Nix language server required by nix zed extension
     fastfetch
     networkmanagerapplet
-    nixpkgs-fmt # formatter nix files
     nodejs_24
     nodemon
     nwg-look # GTK settings editor

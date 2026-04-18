@@ -55,8 +55,6 @@
       # portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     };
 
-    nix-ld.enable = true; # No idea what it is
-
     appimage.enable = true; # Enable AppImage support
     appimage.binfmt = true; # binfmt registration to run appimages via appimage-run seamlessly.
   };
@@ -99,17 +97,6 @@
   };
   environment.systemPackages = with pkgs; [
     hyprpolkitagent
-  ];
-
-  # Allow Unfree Softwares
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [ "nix-2.15.3" ];
-  };
-  # Nix Experimental features
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
   ];
 
   users = {
