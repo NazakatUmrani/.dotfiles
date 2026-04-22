@@ -9,7 +9,6 @@
     ./nh.nix
     ./nix.nix
     ./nvf.nix
-    ./plasma.nix
     ./plymouth.nix
     ./sddm.nix
     ./sound.nix

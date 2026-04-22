@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/system
     ../../modules/system/grub.nix
+    ../../modules/plasma.nix
   ];
 
   environment.sessionVariables = {

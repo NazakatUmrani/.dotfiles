@@ -247,6 +247,8 @@
           windowrule = workspace 5, match:class ^(steam_app\d+)$
           windowrule = workspace 5, match:title ^(Emulator)$
           windowrule = workspace 6, match:class ^(com.obsproject.Studio)$
+          windowrule = workspace 6, match:initial_class ^(org.remmina.Remmina)$
+          windowrule = workspace 10, match:initial_class ^(.blueman-manager-wrapped)$
 
           layerrule = blur on, match:namespace gtk-layer-shell
           layerrule = blur on, match:namespace logout_dialog
