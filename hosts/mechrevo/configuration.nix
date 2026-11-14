@@ -23,9 +23,6 @@
   #   driSupport32Bit = true;
   # };
 
-  # Failing to boot after April 2026, default is broker, but our old one was dbus, so it was failing to switch, only could do nixos rebuild boot, but then the new entry won't boot as well, it would be broken, so for now, setting it to dbus old one
-  services.dbus.implementation = "dbus";
-
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   services.logind.settings.Login = {

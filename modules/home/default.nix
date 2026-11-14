@@ -1,7 +1,7 @@
 {
   imports = [
     ./git.nix
-    ./hyprland.nix
+    ./hyprland
     ./kitty.nix
     ./lf.nix
     ./mimeApps.nix
