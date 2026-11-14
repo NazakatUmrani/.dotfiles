@@ -54,7 +54,7 @@
           };
           html.enable = true;
           css.enable = true;
-          ts.enable = true;
+          typescript.enable = true;
           json.enable = true;
         };
       };

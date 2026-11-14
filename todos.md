@@ -11,3 +11,5 @@
 6. closing lid only hibernates, not lock
 
 7. Power Profile menu to select profiles from waybar module itself
+
+8. class: zenity for Heroic install prefixes window

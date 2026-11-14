@@ -19,7 +19,7 @@
     google-chrome # Secondary Broweser
     hyprpaper # Hyprland Wallpaper utility
     inkscape # Vector Editing software
-    libreoffice-fresh
+    libreoffice
     kdePackages.dolphin
     kdePackages.kdeconnect-kde
     kdePackages.kdenlive

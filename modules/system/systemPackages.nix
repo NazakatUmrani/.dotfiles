@@ -26,9 +26,9 @@
     lf
     libnotify
     libsForQt5.qt5ct
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtquickcontrols
-    libsForQt5.qt5.qtquickcontrols2
+    qt5.qtgraphicaleffects
+    qt5.qtquickcontrols
+    qt5.qtquickcontrols2
     kdePackages.qtwayland
     lldb
     # lutris

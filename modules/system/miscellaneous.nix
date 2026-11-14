@@ -20,7 +20,8 @@
   };
 
   # Zen Kernel (Testing if it gives better performance)
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Removed due to kernel panick after April 2026 - leaving system in a non bootable state - removed as of November 2026
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
 
   services.power-profiles-daemon.enable = true;
 

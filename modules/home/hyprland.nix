@@ -243,6 +243,8 @@
           windowrule = workspace 4, match:class ^(code)$
           windowrule = workspace 4, match:class ^(dev.zed.Zed)$
           windowrule = workspace 4, match:class ^(jetbrains-studio)$
+          # Zenity for Heroic install prefixes window
+          windowrule = workspace 5, match:class ^(zenity)$
           windowrule = workspace 5, match:class ^(steam)$
           windowrule = workspace 5, match:class ^(steam_app_.*)$
           windowrule = workspace 5, match:title ^(Emulator)$

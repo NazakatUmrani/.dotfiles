@@ -14,7 +14,10 @@
 
   programs = {
     discord.enable = true;
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
+    };
     gpg.enable = true;
     obs-studio.enable = true;
     vscode.enable = true;
