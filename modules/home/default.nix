@@ -1,5 +1,6 @@
 {
   imports = [
+    ./services
     ./git.nix
     ./hyprland
     ./kitty.nix

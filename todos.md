@@ -1,17 +1,9 @@
-1. Magick command not available, due to which swaylock isn't getting bg, change wallpaper script tries to use it.
+1. Qt Prefer Dark Scheme + Style correction etc (verify in qt settings app)
 
-2. Qt Prefer Dark Scheme + Style correction etc (verify in qt settings app)
+2. gtk file in kde generated has more icons, copy and compare it with nixos hyprland one
 
-3. gtk file in kde generated has more icons, copy and compare it with nixos hyprland one
+3. Hyprland default should be opened with uswm, but that crashes as of 38 Current on Mechrevo having commit of d084a0a763c13ebc4bd2b473a00f41a5d72713c4
 
-4. Hyprland default should be opened with uswm, but that crashes as of 38 Current on Mechrevo having commit of d084a0a763c13ebc4bd2b473a00f41a5d72713c4
+4. Scripts menu rofi
 
-5. Scripts menu rofi
-
-6. closing lid only hibernates, not lock
-
-7. Power Profile menu to select profiles from waybar module itself
-
-8. class: zenity for Heroic install prefixes window
-
-9. `services.pipewire.jack.enable` is deprecated, because it introduces global impurity via `LD_LIBRARY_PATH`. Use the `pw-jack` wrapper from `pipewire.jack` where necessary instead.
+5. Power Profile menu to select profiles from waybar module itself

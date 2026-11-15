@@ -463,3 +463,7 @@
     frame_color = "#622D28"
     icon = "~/.config/dunst/icons/hyprdots.svg"
     timeout = 10
+
+[battery-monitor]
+    appname = "Battery Monitor"
+    format = "<b>%s</b>\n%b"
