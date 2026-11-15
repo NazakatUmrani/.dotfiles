@@ -20,11 +20,15 @@ let
 
   bind = keys: dispatcher: { _args = [ keys dispatcher ]; };
   bindr = keys: dispatcher: { _args = [ keys dispatcher { release = true; } ]; };
+  bindl = keys: dispatcher: { _args = [ keys dispatcher { locked = true; } ]; };
 in
 {
   wayland.windowManager.hyprland = {
     settings = {
       bind = [
+        # Lock screen on laptop lid switch
+        (bindl "switch:on:Lid Switch" (dsp.exec "swaylock"))
+        
         (bind "${mainMod} + Q" (dsp.close))
         # (bind "${mainMod} + M" (dsp.exec "exit"))
         (bind "${mainMod} + E" (dsp.exec "kitty yazi"))

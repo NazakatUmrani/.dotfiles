@@ -327,14 +327,16 @@ in
             workspace = 5;
           }
 
-          # Workspace 6: Streaming & Remote Desktop
-          {
-            match.class = "^(com.obsproject.Studio)$";
-            workspace = 6;
-          }
+          # Workspace 6: Remote Desktop
           {
             match.initial_class = "^(org.remmina.Remmina)$";
             workspace = 6;
+          }
+          
+          # Workspace 7: OBS Studio
+          {
+            match.class = "^(com.obsproject.Studio)$";
+            workspace = 7;
           }
 
           # Workspace 10: System Utilities
