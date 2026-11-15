@@ -13,3 +13,5 @@
 7. Power Profile menu to select profiles from waybar module itself
 
 8. class: zenity for Heroic install prefixes window
+
+9. `services.pipewire.jack.enable` is deprecated, because it introduces global impurity via `LD_LIBRARY_PATH`. Use the `pw-jack` wrapper from `pipewire.jack` where necessary instead.

@@ -126,6 +126,10 @@ in
           ];
         };
 
+        gesture = [
+          { fingers = 3; direction = "horizontal"; action = "workspace"; }
+        ];
+
         config = {
           cursor = {
             no_hardware_cursors = 1;
@@ -189,7 +193,6 @@ in
           };
 
           gestures = {
-            gesture = [ "3, horizontal, workspace" ];
             workspace_swipe_distance = 500;
             workspace_swipe_invert = true;
             workspace_swipe_min_speed_to_force = 30;
