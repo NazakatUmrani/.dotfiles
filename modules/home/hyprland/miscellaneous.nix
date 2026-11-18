@@ -341,7 +341,7 @@ in
 
           # Workspace 10: System Utilities
           {
-            match.initial_class = "^(.blueman-manager-wrapped)$";
+            match.initial_class = "^(.blueman-manager)$";
             workspace = 10;
           }
 
